@@ -46,9 +46,9 @@ typedef struct {
     E2E_P01ReceiverStatusType Status;
 } E2E_P01ReceiverStateType;
 
-static uint8 CalculateDeltaCounter(uint8 receivedCounter, uint8 lastValidCounter);
-static Std_ReturnType CheckConfig(E2E_P01ConfigType* Config);
-static uint8 compute_p01_crc(E2E_P01ConfigType* Config, uint8 Counter, uint8* Data);
+uint8 CalculateDeltaCounter(uint8 receivedCounter, uint8 lastValidCounter);
+Std_ReturnType CheckConfig(E2E_P01ConfigType* Config);
+uint8 compute_p01_crc(E2E_P01ConfigType* Config, uint8 Counter, uint8* Data);
 Std_ReturnType E2E_P01Protect( E2E_P01ConfigType* Config, E2E_P01SenderStateType* State, uint8* Data);
 Std_ReturnType E2E_P01Check( E2E_P01ConfigType* Config, E2E_P01ReceiverStateType* State, uint8* Data);
 

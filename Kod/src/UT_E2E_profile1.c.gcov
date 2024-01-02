@@ -1,7 +1,7 @@
         -:    0:Source:UT_E2E_profile1.c
         -:    0:Graph:UT_E2E_profile1.gcno
         -:    0:Data:UT_E2E_profile1.gcda
-        -:    0:Runs:6
+        -:    0:Runs:3
         -:    1:/** ==================================================================================================================*\
         -:    2:  @file UT_E2E_profile1.c
         -:    3:
@@ -31,41 +31,41 @@
         -:   27:/**
         -:   28:  @brief Test of E2E_P01Protect
         -:   29:**/
-        2:   30:void Test_Of_E2E_P01Protect(void)
+        1:   30:void Test_Of_E2E_P01Protect(void)
         -:   31:{
         -:   32://sprawdzenie wymagań przez review - spełnione 
         -:   33:
         -:   34:    Std_ReturnType retv;
         -:   35:    E2E_P01ConfigType Config;
-        2:   36:    E2E_P01ConfigType* PointerConfig = &Config;
+        1:   36:    E2E_P01ConfigType* PointerConfig = &Config;
         -:   37:    E2E_P01SenderStateType State;
-        2:   38:    E2E_P01SenderStateType* PointerState = &State;
+        1:   38:    E2E_P01SenderStateType* PointerState = &State;
         -:   39:    uint8_t Data;
-        2:   40:    uint8_t* PointerData = &Data;
+        1:   40:    uint8_t* PointerData = &Data;
         -:   41:
-        2:   42:    retv = E2E_P01Protect(PointerConfig,PointerState,PointerData);
-        2:   43:    TEST_CHECK(retv == E_OK);
-        2:   44:}
+        1:   42:    retv = E2E_P01Protect(PointerConfig,PointerState,PointerData);
+        1:   43:    TEST_CHECK(retv == E_OK);
+        1:   44:}
         -:   45:
         -:   46:
         -:   47:/**
         -:   48:  @brief Test of E2E_P01Check
         -:   49:**/
-        2:   50:void Test_Of_E2E_P01Check(void)
+        1:   50:void Test_Of_E2E_P01Check(void)
         -:   51:{
         -:   52://sprawdzenie wymagań przez review - spełnione 
         -:   53:
         -:   54:    Std_ReturnType retv;
         -:   55:    E2E_P01ConfigType Config;
-        2:   56:    E2E_P01ConfigType* PointerConfig = &Config;
+        1:   56:    E2E_P01ConfigType* PointerConfig = &Config;
         -:   57:    E2E_P01ReceiverStateType State;
-        2:   58:    E2E_P01ReceiverStateType* PointerState = &State;
+        1:   58:    E2E_P01ReceiverStateType* PointerState = &State;
         -:   59:    uint8_t Data;
-        2:   60:    uint8_t* PointerData = &Data;
+        1:   60:    uint8_t* PointerData = &Data;
         -:   61:
-        2:   62:    retv = E2E_P01Check(PointerConfig,PointerState,PointerData);
-        2:   63:    TEST_CHECK(retv == E_OK);
-        2:   64:}
+        1:   62:    retv = E2E_P01Check(PointerConfig,PointerState,PointerData);
+        1:   63:    TEST_CHECK(retv == E_OK);
+        1:   64:}
         -:   65:
         -:   66:
         -:   67:/*

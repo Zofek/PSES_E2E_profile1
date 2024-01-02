@@ -1,7 +1,7 @@
         -:    0:Source:C:/Users/zofia/OneDrive/Dokumenty/AGH/SEMESTRII_2/PSES/winlibs-x86_64-mcf-seh-gcc-13.2.0-mingw-w64ucrt-11.0.1-r2/mingw64/x86_64-w64-mingw32/include/stdio.h
         -:    0:Graph:UT_E2E_profile1.gcno
         -:    0:Data:UT_E2E_profile1.gcda
-        -:    0:Runs:6
+        -:    0:Runs:3
         -:    1:/**
         -:    2: * This file has no copyright assigned and is placed in the Public Domain.
         -:    3: * This file is part of the mingw-w64 runtime package.
@@ -773,14 +773,14 @@
         -:  769:  int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
         -:  770:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
         -:  771:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        6:  772:  int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...)
+        3:  772:  int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...)
         -:  773:  {
         -:  774:    __builtin_va_list __ap;
         -:  775:    int __ret;
-        6:  776:    __builtin_va_start(__ap, _Format);
-        6:  777:    __ret = _vsnprintf(_Dest, _Count, _Format, __ap);
-        6:  778:    __builtin_va_end(__ap);
-        6:  779:    return __ret;
+        3:  776:    __builtin_va_start(__ap, _Format);
+        3:  777:    __ret = _vsnprintf(_Dest, _Count, _Format, __ap);
+        3:  778:    __builtin_va_end(__ap);
+        3:  779:    return __ret;
         -:  780:  }
         -:  781:#else
         -:  782:  __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)

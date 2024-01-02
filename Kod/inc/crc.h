@@ -3,7 +3,10 @@
 
 #include "..\inc\Std_Types.h"
 
-/*sekcja funkcji pozwalającej na obliczenie CRC8*/
+/*[SWS_Crc_00033]
+Note: If large data blocks have to be calculated (>32 bytes, depending on performance
+of processor platform), the table based calculation method should be config
+*/
 /*------------------------------------------------------------------------------*/
 #define CRC8_INITIAL_VALUE (uint8_t)0xFFu
 #define CRC8_XOR_VALUE (uint8_t)0xFFu

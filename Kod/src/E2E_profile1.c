@@ -10,14 +10,18 @@
 #define MAX_P01_DATA_LENGTH_IN_BITS    (240)
 #define MAX_P01_COUNTER_VALUE          (14)
 
-uint8 E2E_UpdateCounter(uint8 Counter) {
-    return (Counter+1) % 15; /* Use the Profile 1 value */
-}
 
 /*Creation of the E2E header*/
 /*--------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------*/
-static uint8 CalculateDeltaCounter(uint8 receivedCounter, uint8 lastValidCounter)
+
+/*----------------------------------------------*/
+uint8_t E2E_UpdateCounter(uint8_t Counter) /*increment values in range 0-14 and update counter */
+{ 
+    return (Counter+1) % 15; /* Use the Profile 1 value */
+}
+
+/*----------------------------------------------*/
+uint8_t CalculateDeltaCounter(uint8_t receivedCounter, uint8_t lastValidCounter)
 {
     if (receivedCounter >= lastValidCounter) {
         return receivedCounter - lastValidCounter;
@@ -27,7 +31,8 @@ static uint8 CalculateDeltaCounter(uint8 receivedCounter, uint8 lastValidCounter
     }
 }
 
-static Std_ReturnType CheckConfig(E2E_P01ConfigType* Config) 
+/*----------------------------------------------*/
+Std_ReturnType CheckConfig(E2E_P01ConfigType* Config) 
 {
 
     /* Check for NULL pointers */
@@ -53,7 +58,7 @@ static Std_ReturnType CheckConfig(E2E_P01ConfigType* Config)
 }
 
 
-/*------------------------------------------------------------------------------*/
+/*----------------------------------------------*/
 /*
 [PRS_E2E_00163]
 [PRS_E2E_00085]
@@ -64,11 +69,11 @@ static Std_ReturnType CheckConfig(E2E_P01ConfigType* Config)
 [PRS_E2E_00640]
 */
 
-static uint8 compute_p01_crc(E2E_P01ConfigType* Config, uint8 Counter, uint8* Data)
+uint8_t compute_p01_crc(E2E_P01ConfigType* Config, uint8_t Counter, uint8_t* Data)
 {
-    uint8 crc = 0x00;
-    uint8 lowerByteId = (uint8)Config->DataID;
-    uint8 upperByteId = (uint8)(Config->DataID>>8);
+    uint8_t crc = 0x00;
+    uint8_t lowerByteId = (uint8_t)Config->DataID;
+    uint8_t upperByteId = (uint8_t)(Config->DataID>>8);
 
     /* Calculate CRC on the Data ID */
     if (Config->DataIDMode == E2E_P01_DATAID_BOTH)
@@ -105,8 +110,8 @@ static uint8 compute_p01_crc(E2E_P01ConfigType* Config, uint8 Counter, uint8* Da
 
 }
 
-
-Std_ReturnType E2E_P01Protect(E2E_P01ConfigType* Config, E2E_P01SenderStateType* State, uint8* Data) 
+/*----------------------------------------------*/
+Std_ReturnType E2E_P01Protect(E2E_P01ConfigType* Config, E2E_P01SenderStateType* State, uint8_t* Data) 
 {
 
     Std_ReturnType returnValue = CheckConfig(Config);
@@ -119,15 +124,15 @@ Std_ReturnType E2E_P01Protect(E2E_P01ConfigType* Config, E2E_P01SenderStateType*
         return E2E_E_INPUTERR_NULL; /* MISRA exception */
     }
 
-    /* Put counter in data*/
+    /* write the counter in data*/
     if (Config->CounterOffset % 8 == 0) {
         *(Data+(Config->CounterOffset/8)) = (*(Data+(Config->CounterOffset/8)) & 0xF0) | (State->Counter & 0x0F);
     }
-    else {
+    else { /*write DataID nibble in Data, if E2E_P01_DATAID_NIBBLE configuration is used*/
         *(Data+(Config->CounterOffset/8)) = (*(Data+(Config->CounterOffset/8)) & 0x0F) | ((State->Counter<<4) & 0xF0);
     }
 
-    /* Calculate CRC */
+    /* compute the CRC */
     *(Data+(Config->CRCOffset/8)) = compute_p01_crc(Config, State->Counter, Data);
 
     /* Update counter */
@@ -136,22 +141,19 @@ Std_ReturnType E2E_P01Protect(E2E_P01ConfigType* Config, E2E_P01SenderStateType*
     return E2E_E_OK;
 }
 /*--------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------*/
-
-
 
 
 /*Evaluation of E2E- Header*/
 /*--------------------------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------------------------*/
 
-Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType* State, uint8* Data) 
+/*----------------------------------------------*/
+Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType* State, uint8_t* Data) 
 {
 
-    uint8 receivedCounter = 0;
-    uint8 receivedCrc = 0;
-    uint8 calculatedCrc = 0;
-    uint8 delta = 0;
+    uint8_t receivedCounter = 0;
+    uint8_t receivedCrc = 0;
+    uint8_t calculatedCrc = 0;
+    uint8_t delta = 0;
     Std_ReturnType returnValue = CheckConfig(Config);
 
     if (E2E_E_OK != returnValue) {
@@ -224,5 +226,4 @@ Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType*
 
     return E2E_E_OK;
 }
-/*--------------------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------------------*/

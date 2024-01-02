@@ -1,7 +1,7 @@
 #ifndef MODULES_H
 #define MODULES_H
 
-#include "Std_Types.h"
+#include "..\inc\Std_Types.h"
 
 #define VENDOR_ID_ARCCORE   (60)
 
