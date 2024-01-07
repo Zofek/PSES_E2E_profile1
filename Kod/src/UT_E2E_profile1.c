@@ -45,6 +45,20 @@ void Test_Of_E2E_P01Check(void)
     TEST_CHECK(retv == E_OK);
 }
 
+/**
+  @brief Test of E2E_P01_CalculateCRC
+**/
+
+void Test_Of_E2E_P01_CalculateCRC(void)
+{
+	E2E_P01ConfigType Config;
+    E2E_P01ConfigType* PointerConfig = &Config;
+	uint8_t Counter;
+	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+	
+	uint8_t crcResult = E2E_P01_CalculateCRC(PointerConfig, 0, data);
+	TEST_CHECK(crcResult == 0);
+}
 
 /*
   Lista testów 
@@ -53,5 +67,6 @@ TEST_LIST =
 {
     { "Test of E2E_P01Protect", Test_Of_E2E_P01Protect },
     { "Test of E2E_P01Check", Test_Of_E2E_P01Check },
+	{ "Test of Test_Of_E2E_P01_CalculateCRC", Test_Of_E2E_P01_CalculateCRC },
     { NULL, NULL }                                      
 };
