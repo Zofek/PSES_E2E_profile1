@@ -10,8 +10,6 @@ of processor platform), the table based calculation method should be config
 /*------------------------------------------------------------------------------*/
 #define CRC8_INITIAL_VALUE (uint8_t)0xFFu
 #define CRC8_XOR_VALUE (uint8_t)0xFFu
-#define CRC8_CHECK (uint8_t)0x4Bu
-#define CRC8_MAGIC_CHECK (uint8_t)0xC4u
 
 static const uint8_t CRC8_TABLE[256] = {
     0x00u, 0x1du, 0x3au, 0x27u, 0x74u, 0x69u, 0x4eu, 0x53u,

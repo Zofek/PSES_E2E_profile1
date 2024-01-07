@@ -13,7 +13,6 @@
 #define E2E_E_OK                0x00
 #define E2E_E_INVALID           0xFF
 
-
 uint8 E2E_UpdateCounter(uint8 Counter);
 
 #define E2E_VENDOR_ID               60
@@ -27,6 +26,5 @@ uint8 E2E_UpdateCounter(uint8 Counter);
 #define E2E_SW_PATCH_VERSION        0
 
 #define E2E_GetVersionInfo(_vi) STD_GET_VERSION_INFO(_vi,E2E)
-
 
 #endif
