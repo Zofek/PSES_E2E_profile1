@@ -71,26 +71,27 @@ void Test_Of_E2E_P01_CalculateCRC(void)
 	Config.MaxDeltaCounterInit = 3;
 	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 	uint8_t crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-	TEST_CHECK(crcResult == 0);
+	TEST_CHECK(crcResult == 228);
 
 	Config.DataIDMode = E2E_P01_DATAID_LOW;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-	TEST_CHECK(crcResult == 0);
+	TEST_CHECK(crcResult == 131);
 	
 	Config.DataIDMode = E2E_P01_DATAID_ALT;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-	TEST_CHECK(crcResult == 0);
+	TEST_CHECK(crcResult == 131);
 	
+	Config.DataIDMode = E2E_P01_DATAID_ALT;
 	crcResult = E2E_P01_CalculateCRC(&Config, 1, data);
-	TEST_CHECK(crcResult == 0);
+	TEST_CHECK(crcResult == 232);
 	
 	Config.DataIDMode = E2E_P01_DATAID_NIBBLE;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-	TEST_CHECK(crcResult == 0);
+	TEST_CHECK(crcResult == 213);
 	
 	Config.CRCOffset = 8;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-	TEST_CHECK(crcResult == 0);
+	TEST_CHECK(crcResult == 200);
 	
 }
 
