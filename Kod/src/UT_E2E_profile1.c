@@ -8,6 +8,17 @@
 #include "E2E_profile1.c"
 #include "crc.c"
 
+typedef struct {
+    E2E_P01ConfigType config;
+    uint8_t data[8];
+    uint8_t expectedCRC;
+} TestCase;
+
+uint8_t Crc_CalculateCRC8Mock(uint8_t* data, uint16_t length, uint8_t seed, bool reflected)
+{
+    return 0;
+}
+
 /**
   @brief Test of E2E_P01Protect
 **/
@@ -51,13 +62,36 @@ void Test_Of_E2E_P01Check(void)
 
 void Test_Of_E2E_P01_CalculateCRC(void)
 {
-	E2E_P01ConfigType Config;
-    E2E_P01ConfigType* PointerConfig = &Config;
-	uint8_t Counter;
-	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 	
-	uint8_t crcResult = E2E_P01_CalculateCRC(PointerConfig, 0, data);
+	E2E_P01ConfigType Config;
+    Config.CounterOffset = 3 * 8;
+	Config.CRCOffset = 0;
+	Config.DataIDMode = E2E_P01_DATAID_BOTH;
+	Config.DataLength = 2 * 8;
+	Config.MaxDeltaCounterInit = 3;
+	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+	uint8_t crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
 	TEST_CHECK(crcResult == 0);
+
+	Config.DataIDMode = E2E_P01_DATAID_LOW;
+	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+	TEST_CHECK(crcResult == 0);
+	
+	Config.DataIDMode = E2E_P01_DATAID_ALT;
+	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+	TEST_CHECK(crcResult == 0);
+	
+	crcResult = E2E_P01_CalculateCRC(&Config, 1, data);
+	TEST_CHECK(crcResult == 0);
+	
+	Config.DataIDMode = E2E_P01_DATAID_NIBBLE;
+	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+	TEST_CHECK(crcResult == 0);
+	
+	Config.CRCOffset = 8;
+	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+	TEST_CHECK(crcResult == 0);
+	
 }
 
 /*
