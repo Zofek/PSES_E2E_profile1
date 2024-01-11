@@ -95,6 +95,38 @@ void Test_Of_E2E_P01_CalculateCRC(void)
 	
 }
 
+/**
+  @brief Test of E2E_UpdateCounter
+**/
+
+void Test_Of_E2E_UpdateCounter(void)
+{
+    /* Test for valid range 0-14 */
+    TEST_CHECK(E2E_UpdateCounter(0) == 1);
+    TEST_CHECK(E2E_UpdateCounter(7) == 8);
+    TEST_CHECK(E2E_UpdateCounter(14) == 0);
+
+    /* Test for invalid input (greater than 14) */
+    TEST_CHECK(E2E_UpdateCounter(15) == 1);
+    TEST_CHECK(E2E_UpdateCounter(20) == 6);
+}
+
+/**
+  @brief Test of CalculateDeltaCounter
+**/
+
+void Test_Of_CalculateDeltaCounter(void)
+{
+    /* Test for receivedCounter >= lastValidCounter */
+    TEST_CHECK(CalculateDeltaCounter(8, 5) == 3);
+    TEST_CHECK(CalculateDeltaCounter(5, 5) == 0);
+    TEST_CHECK(CalculateDeltaCounter(0, 14) == 1);
+
+    /* Test for receivedCounter < lastValidCounter */
+    TEST_CHECK(CalculateDeltaCounter(5, 8) == 12);
+    TEST_CHECK(CalculateDeltaCounter(14, 0) == 14);
+}
+
 /*
   Lista testów 
 */
@@ -103,5 +135,7 @@ TEST_LIST =
     { "Test of E2E_P01Protect", Test_Of_E2E_P01Protect },
     { "Test of E2E_P01Check", Test_Of_E2E_P01Check },
 	{ "Test of Test_Of_E2E_P01_CalculateCRC", Test_Of_E2E_P01_CalculateCRC },
+	{ "Test of E2E_UpdateCounter", Test_Of_E2E_UpdateCounter },
+	{ "Test of CalculateDeltaCounter", Test_Of_CalculateDeltaCounter },
     { NULL, NULL }                                      
 };
