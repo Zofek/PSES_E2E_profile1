@@ -127,6 +127,48 @@ void Test_Of_CalculateDeltaCounter(void)
     TEST_CHECK(CalculateDeltaCounter(14, 0) == 14);
 }
 
+/* Test for CheckConfig with NULL Config */
+void Test_CheckConfig(void) {
+    Std_ReturnType result = CheckConfig(NULL);
+    TEST_CHECK(result == E2E_E_INPUTERR_NULL);
+
+    E2E_P01ConfigType ConfigOK = {
+        .DataLength = 16,
+        .CounterOffset = 4,
+        .CRCOffset = 8
+    };
+
+    result = CheckConfig(&ConfigOK);
+    TEST_CHECK(result == E2E_E_OK);
+
+    E2E_P01ConfigType ConfigInvalidDataLength = {
+        .DataLength = 17,
+        .CounterOffset = 4,
+        .CRCOffset = 8
+    };
+
+    result = CheckConfig(&ConfigInvalidDataLength);
+    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
+
+    E2E_P01ConfigType ConfigInvalidCounterOffset = {
+        .DataLength = 16,
+        .CounterOffset = 3,
+        .CRCOffset = 8
+    };
+
+    result = CheckConfig(&ConfigInvalidCounterOffset);
+    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
+
+    E2E_P01ConfigType ConfigOverlappingOffsets = {
+        .DataLength = 0,
+        .CounterOffset = 16,
+        .CRCOffset = 16
+    };
+
+    result = CheckConfig(&ConfigOverlappingOffsets);
+    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
+}
+
 /*
   Lista testów 
 */
@@ -137,5 +179,6 @@ TEST_LIST =
 	{ "Test of Test_Of_E2E_P01_CalculateCRC", Test_Of_E2E_P01_CalculateCRC },
 	{ "Test of E2E_UpdateCounter", Test_Of_E2E_UpdateCounter },
 	{ "Test of CalculateDeltaCounter", Test_Of_CalculateDeltaCounter },
+	{ "Test of CheckConfig", Test_CheckConfig },
     { NULL, NULL }                                      
 };
