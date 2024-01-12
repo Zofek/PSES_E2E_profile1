@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-01-11 10:30:39</td>
+      <td>2024-01-12 19:08:43</td>
     </tr>
   </table>
 </div>
@@ -41,9 +41,9 @@
     </tr>
     <tr>
       <th scope="row">Lines:</th>
-      <td>52</td>
+      <td>60</td>
       <td>96</td>
-      <td class="coverage-low">54.2%</td>
+      <td class="coverage-low">62.5%</td>
     </tr>
     <tr>
       <th scope="row">Functions:</th>
@@ -53,9 +53,9 @@
     </tr>
     <tr>
       <th scope="row">Branches:</th>
-      <td>27</td>
+      <td>34</td>
       <td>59</td>
-      <td class="coverage-low">45.8%</td>
+      <td class="coverage-low">57.6%</td>
     </tr>
   </table>
 </div>
@@ -92,7 +92,7 @@
         <a href="#l37">37</a>
       </td>
       <td>
-        <a href="#l37"> called 7 times</a>
+        <a href="#l37"> called 11 times</a>
       </td>
     </tr>
     <tr>
@@ -114,7 +114,7 @@
         <a href="#l140">140</a>
       </td>
       <td>
-        <a href="#l140"> called 1 time</a>
+        <a href="#l140"> called 5 times</a>
       </td>
     </tr>
     <tr>
@@ -125,7 +125,7 @@
         <a href="#l77">77</a>
       </td>
       <td>
-        <a href="#l77"> called 6 times</a>
+        <a href="#l77"> called 8 times</a>
       </td>
     </tr>
     <tr>
@@ -136,7 +136,7 @@
         <a href="#l18">18</a>
       </td>
       <td>
-        <a href="#l18"> called 5 times</a>
+        <a href="#l18"> called 7 times</a>
       </td>
     </tr>
   </table>
@@ -276,7 +276,7 @@
       <td class="lineno"><a id="l18" href="#l18">18</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">5</td>
+      <td class="linecount coveredLine">7</td>
       <td class="src coveredLine"><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">E2E_UpdateCounter</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">Counter</span><span class="p">)</span><span class="w"> </span><span class="cm">/*increment values in range 0-14 and update counter */</span></td>
     </tr>
     <tr class="source-line">
@@ -290,7 +290,7 @@
       <td class="lineno"><a id="l20" href="#l20">20</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">5</td>
+      <td class="linecount coveredLine">7</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">Counter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Use the Profile 1 value */</span></td>
     </tr>
     <tr class="source-line">
@@ -416,7 +416,7 @@
       <td class="lineno"><a id="l37" href="#l37">37</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">7</td>
+      <td class="linecount coveredLine">11</td>
       <td class="src coveredLine"><span class="n">Std_ReturnType</span><span class="w"> </span><span class="nf">CheckConfig</span><span class="p">(</span><span class="n">E2E_P01ConfigType</span><span class="o">*</span><span class="w"> </span><span class="n">Config</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -446,12 +446,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
+          <div class="takenBranch">&check; Branch 0 taken 2 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 9 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">7</td>
+      <td class="linecount coveredLine">11</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -465,7 +465,7 @@
       <td class="lineno"><a id="l43" href="#l43">43</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">2</td>
       <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_INPUTERR_NULL</span><span class="p">;</span><span class="w"> </span><span class="cm">/* MISRA exception */</span></td>
     </tr>
     <tr class="source-line">
@@ -495,16 +495,16 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">6/6</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 4 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 2 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 3 times.</div>
+          <div class="takenBranch">&check; Branch 0 taken 8 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 7 times.</div>
           <div class="takenBranch">&check; Branch 3 taken 1 times.</div>
-          <div class="takenBranch">&check; Branch 4 taken 2 times.</div>
+          <div class="takenBranch">&check; Branch 4 taken 6 times.</div>
           <div class="takenBranch">&check; Branch 5 taken 1 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">9</td>
+      <td class="linecount coveredLine">16</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataLength</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_P01_DATA_LENGTH_IN_BITS</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataLength</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="o">||</span></td>
     </tr>
     <tr class="source-line">
@@ -514,11 +514,11 @@
         <summary class="linebranchSummary">1/2</summary>
         <div class="linebranchContents">
           <div class="notTakenBranch">&cross; Branch 0 not taken.</div>
-          <div class="takenBranch">&check; Branch 1 taken 2 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 6 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">5</td>
+      <td class="linecount coveredLine">13</td>
       <td class="src coveredLine"><span class="w">        </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -532,7 +532,7 @@
       <td class="lineno"><a id="l50" href="#l50">50</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">4</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_INPUTERR_WRONG</span><span class="p">;</span><span class="w"> </span><span class="cm">/* MISRA exception */</span></td>
     </tr>
     <tr class="source-line">
@@ -569,23 +569,23 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">4/6</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 0 taken 5 times.</div>
           <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
-          <div class="takenBranch">&check; Branch 2 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 5 times.</div>
           <div class="notTakenBranch">&cross; Branch 3 not taken.</div>
           <div class="notTakenBranch">&cross; Branch 4 not taken.</div>
-          <div class="takenBranch">&check; Branch 5 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 5 taken 5 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">3</td>
+      <td class="linecount coveredLine">11</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataLength</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataLength</span><span class="p">)</span><span class="w"> </span><span class="o">||</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l56" href="#l56">56</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">5</td>
       <td class="src coveredLine"><span class="w">        </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="o">/</span><span class="mi">8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -620,7 +620,7 @@
       <td class="lineno"><a id="l61" href="#l61">61</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">5</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_OK</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -732,7 +732,7 @@
       <td class="lineno"><a id="l77" href="#l77">77</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="kt">uint8_t</span><span class="w"> </span><span class="nf">E2E_P01_CalculateCRC</span><span class="p">(</span><span class="n">E2E_P01ConfigType</span><span class="o">*</span><span class="w"> </span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">Counter</span><span class="p">,</span><span class="w"> </span><span class="n">uint8</span><span class="o">*</span><span class="w"> </span><span class="n">Data</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -746,21 +746,21 @@
       <td class="lineno"><a id="l79" href="#l79">79</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">data_id_lo_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataID</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l80" href="#l80">80</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">data_id_hi_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataID</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l81" href="#l81">81</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x00u</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -776,7 +776,7 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">4/5</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 0 taken 3 times.</div>
           <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
           <div class="takenBranch">&check; Branch 2 taken 2 times.</div>
           <div class="takenBranch">&check; Branch 3 taken 2 times.</div>
@@ -784,7 +784,7 @@
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataIDMode</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -812,14 +812,14 @@
       <td class="lineno"><a id="l87" href="#l87">87</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Crc_CalculateCRC8</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data_id_lo_byte</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="p">,</span><span class="w"> </span><span class="n">CRC8_XOR_VALUE</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l88" href="#l88">88</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Crc_CalculateCRC8</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data_id_hi_byte</span><span class="p">,</span><span class="w"> </span><span class="mi">1u</span><span class="p">,</span><span class="w"> </span><span class="n">crc</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -833,7 +833,7 @@
       <td class="lineno"><a id="l90" href="#l90">90</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="k">break</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -1066,12 +1066,12 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 0 taken 3 times.</div>
           <div class="takenBranch">&check; Branch 1 taken 5 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span></td>
     </tr>
     <tr class="source-line">
@@ -1092,7 +1092,7 @@
       <td class="lineno"><a id="l125" href="#l125">125</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">3</td>
       <td class="src coveredLine"><span class="w">        </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Crc_CalculateCRC8</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">crc</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">CRC8_XOR_VALUE</span><span class="p">,</span><span class="w"> </span><span class="n">FALSE</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -1116,11 +1116,11 @@
         <summary class="linebranchSummary">2/2</summary>
         <div class="linebranchContents">
           <div class="takenBranch">&check; Branch 0 taken 5 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 3 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">DataLength</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -1176,7 +1176,7 @@
       <td class="lineno"><a id="l136" href="#l136">136</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">8</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">crc</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">CRC8_XOR_VALUE</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -1204,7 +1204,7 @@
       <td class="lineno"><a id="l140" href="#l140">140</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">5</td>
       <td class="src coveredLine"><span class="n">Std_ReturnType</span><span class="w"> </span><span class="nf">E2E_P01Protect</span><span class="p">(</span><span class="n">E2E_P01ConfigType</span><span class="o">*</span><span class="w"> </span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">E2E_P01SenderStateType</span><span class="o">*</span><span class="w"> </span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="o">*</span><span class="w"> </span><span class="n">Data</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -1225,7 +1225,7 @@
       <td class="lineno"><a id="l143" href="#l143">143</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">5</td>
       <td class="src coveredLine"><span class="w">    </span><span class="n">Std_ReturnType</span><span class="w"> </span><span class="n">returnValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CheckConfig</span><span class="p">(</span><span class="n">Config</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
@@ -1239,14 +1239,14 @@
       <td class="lineno"><a id="l145" href="#l145">145</a></td>
       <td class="linebranch">
         <details class="linebranchDetails">
-        <summary class="linebranchSummary">1/2</summary>
+        <summary class="linebranchSummary">2/2</summary>
         <div class="linebranchContents">
           <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
-          <div class="notTakenBranch">&cross; Branch 1 not taken.</div>
+          <div class="takenBranch">&check; Branch 1 taken 4 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">1</td>
+      <td class="linecount coveredLine">5</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">E2E_E_OK</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">returnValue</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
@@ -1280,9 +1280,18 @@
     <tr class="source-line">
       <td class="lineno"><a id="l150" href="#l150">150</a></td>
       <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">4/4</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 0 taken 3 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 2 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 3 taken 2 times.</div>
+        </div>
+        </details>
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">Data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span></td>
+      <td class="linecount coveredLine">4</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">State</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">Data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">))</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l151" href="#l151">151</a></td>
@@ -1295,8 +1304,8 @@
       <td class="lineno"><a id="l152" href="#l152">152</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_INPUTERR_NULL</span><span class="p">;</span><span class="w"> </span><span class="cm">/* MISRA exception */</span></td>
+      <td class="linecount coveredLine">2</td>
+      <td class="src coveredLine"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_INPUTERR_NULL</span><span class="p">;</span><span class="w"> </span><span class="cm">/* MISRA exception */</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l153" href="#l153">153</a></td>
@@ -1322,9 +1331,16 @@
     <tr class="source-line">
       <td class="lineno"><a id="l156" href="#l156">156</a></td>
       <td class="linebranch">
+        <details class="linebranchDetails">
+        <summary class="linebranchSummary">2/2</summary>
+        <div class="linebranchContents">
+          <div class="takenBranch">&check; Branch 0 taken 1 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 1 times.</div>
+        </div>
+        </details>
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span></td>
+      <td class="linecount coveredLine">2</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l157" href="#l157">157</a></td>
@@ -1337,8 +1353,8 @@
       <td class="lineno"><a id="l158" href="#l158">158</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">        </span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xF0</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0F</span><span class="p">);</span></td>
+      <td class="linecount coveredLine">1</td>
+      <td class="src coveredLine"><span class="w">        </span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xF0</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0F</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l159" href="#l159">159</a></td>
@@ -1365,8 +1381,8 @@
       <td class="lineno"><a id="l162" href="#l162">162</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">        </span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0F</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="o">&lt;&lt;</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xF0</span><span class="p">);</span></td>
+      <td class="linecount coveredLine">1</td>
+      <td class="src coveredLine"><span class="w">        </span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CounterOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x0F</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="o">&lt;&lt;</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xF0</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l163" href="#l163">163</a></td>
@@ -1393,8 +1409,8 @@
       <td class="lineno"><a id="l166" href="#l166">166</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E2E_P01_CalculateCRC</span><span class="p">(</span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">);</span></td>
+      <td class="linecount coveredLine">2</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="n">Data</span><span class="o">+</span><span class="p">(</span><span class="n">Config</span><span class="o">-&gt;</span><span class="n">CRCOffset</span><span class="o">/</span><span class="mi">8</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E2E_P01_CalculateCRC</span><span class="p">(</span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="p">,</span><span class="w"> </span><span class="n">Data</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l167" href="#l167">167</a></td>
@@ -1414,8 +1430,8 @@
       <td class="lineno"><a id="l169" href="#l169">169</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">    </span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E2E_UpdateCounter</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="p">);</span><span class="w"> </span></td>
+      <td class="linecount coveredLine">2</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E2E_UpdateCounter</span><span class="p">(</span><span class="n">State</span><span class="o">-&gt;</span><span class="n">Counter</span><span class="p">);</span><span class="w"> </span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l170" href="#l170">170</a></td>
@@ -1428,8 +1444,8 @@
       <td class="lineno"><a id="l171" href="#l171">171</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount uncoveredLine">&cross;</td>
-      <td class="src uncoveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_OK</span><span class="p">;</span></td>
+      <td class="linecount coveredLine">2</td>
+      <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">E2E_E_OK</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l172" href="#l172">172</a></td>

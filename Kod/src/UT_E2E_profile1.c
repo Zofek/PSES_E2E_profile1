@@ -8,33 +8,44 @@
 #include "E2E_profile1.c"
 #include "crc.c"
 
-typedef struct {
-    E2E_P01ConfigType config;
-    uint8_t data[8];
-    uint8_t expectedCRC;
-} TestCase;
-
-uint8_t Crc_CalculateCRC8Mock(uint8_t* data, uint16_t length, uint8_t seed, bool reflected)
-{
-    return 0;
-}
-
 /**
   @brief Test of E2E_P01Protect
 **/
 void Test_Of_E2E_P01Protect(void)
 {
-
-    Std_ReturnType retv;
     E2E_P01ConfigType Config;
-    E2E_P01ConfigType* PointerConfig = &Config;
     E2E_P01SenderStateType State;
-    E2E_P01SenderStateType* PointerState = &State;
-    uint8_t Data;
-    uint8_t* PointerData = &Data;
-
-    retv = E2E_P01Protect(PointerConfig,PointerState,PointerData);
-    TEST_CHECK(retv == E_OK);
+	uint8_t dataOK[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+	uint8_t data[] = {};
+	
+    TEST_CHECK(E2E_P01Protect(NULL, &State, data) == E2E_E_INPUTERR_NULL);
+	
+	E2E_P01ConfigType ConfigOK1 = {
+        .DataLength = 16,
+        .CounterOffset = 4,
+        .CRCOffset = 8
+    };
+    TEST_CHECK(E2E_P01Protect(&ConfigOK1, NULL, data) == E2E_E_INPUTERR_NULL);
+    TEST_CHECK(E2E_P01Protect(&ConfigOK1, &State, NULL) == E2E_E_INPUTERR_NULL);
+	
+	
+	Std_ReturnType result = E2E_P01Protect(&ConfigOK1, &State, dataOK);
+	
+	TEST_CHECK(result == E2E_E_OK);
+	TEST_CHECK(dataOK[ConfigOK1.CounterOffset / 8] == 0);
+	TEST_CHECK(dataOK[ConfigOK1.CRCOffset / 8] == 196);
+	
+	E2E_P01ConfigType ConfigOK2 = {
+        .DataLength = 32,
+        .CounterOffset = 16,
+        .CRCOffset = 24
+    };
+	
+	result = E2E_P01Protect(&ConfigOK2, &State, dataOK);
+	
+	TEST_CHECK(result == E2E_E_OK);
+	TEST_CHECK(dataOK[ConfigOK2.CounterOffset / 8] == 1);
+	TEST_CHECK(dataOK[ConfigOK2.CRCOffset / 8] == 29);
 }
 
 
