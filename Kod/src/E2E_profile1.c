@@ -84,14 +84,14 @@ uint8_t E2E_P01_CalculateCRC(E2E_P01ConfigType* Config, uint8 Counter, uint8* Da
     {
     case E2E_P01_DATAID_BOTH:
 
-        crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, CRC8_XOR_VALUE, false);
+        crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, crc, false);
         crc = Crc_CalculateCRC8(&data_id_hi_byte, 1u, crc, false);
 
         break;
 
     case E2E_P01_DATAID_LOW:
 
-        crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, CRC8_XOR_VALUE, false);
+        crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, crc, false);
 
         break;
 
@@ -99,18 +99,18 @@ uint8_t E2E_P01_CalculateCRC(E2E_P01ConfigType* Config, uint8 Counter, uint8* Da
 
         if (Counter % 2 == 0)
         {
-            crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, CRC8_XOR_VALUE, false);
+            crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, crc, false);
         }
         else
         {
-            crc = Crc_CalculateCRC8(&data_id_hi_byte, 1u, CRC8_XOR_VALUE, false);
+            crc = Crc_CalculateCRC8(&data_id_hi_byte, 1u, crc, false);
         }
 
         break;
 
     case E2E_P01_DATAID_NIBBLE:
 
-        crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, CRC8_XOR_VALUE, false);
+        crc = Crc_CalculateCRC8(&data_id_lo_byte, 1u, crc, false);
 
         data_id_hi_byte = 0;
 
@@ -184,6 +184,7 @@ Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType*
     uint8_t receivedCrc = 0;
     uint8_t calculatedCrc = 0;
     uint8_t delta = 0;
+    
     Std_ReturnType returnValue = CheckConfig(Config);
 
 
@@ -222,6 +223,12 @@ Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType*
 
     receivedCrc = *(Data+(Config->CRCOffset/8));
     calculatedCrc = E2E_P01_CalculateCRC(Config, receivedCounter, Data);
+    
+    printf("\n received crc  = %d \n", receivedCrc);
+    printf("\n receivedCounter  = %d \n", receivedCounter);
+    printf("\n Data  = %d \n", &Data);
+    printf("\n (Config->CRCOffset/8)  = %d \n", (Config->CRCOffset/8));
+    printf("\n calculated crc  = %d \n", calculatedCrc);
 
     if (receivedCrc != calculatedCrc) 
     {
@@ -240,7 +247,7 @@ Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType*
         return E2E_E_OK;
     }
 
-    /* Ok, this is the normal case. Check the counter delta */
+    /* Check the counter delta */
     delta = CalculateDeltaCounter(receivedCounter, State->LastValidCounter);
 
     if (delta == 1)

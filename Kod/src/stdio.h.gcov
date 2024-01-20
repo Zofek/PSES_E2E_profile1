@@ -1,7 +1,7 @@
-        -:    0:Source:C:/Users/zofia/OneDrive/Dokumenty/AGH/SEMESTRII_2/PSES/winlibs-x86_64-mcf-seh-gcc-13.2.0-mingw-w64ucrt-11.0.1-r2/mingw64/x86_64-w64-mingw32/include/stdio.h
+        -:    0:Source:c:/mingw64/x86_64-w64-mingw32/include/stdio.h
         -:    0:Graph:UT_E2E_profile1.gcno
         -:    0:Data:UT_E2E_profile1.gcda
-        -:    0:Runs:3
+        -:    0:Runs:7
         -:    1:/**
         -:    2: * This file has no copyright assigned and is placed in the Public Domain.
         -:    3: * This file is part of the mingw-w64 runtime package.
@@ -150,1498 +150,1429 @@
         -:  146:#endif
         -:  147:#endif
         -:  148:
-        -:  149:/* used with _set_output_format which is not present in ucrt */
-        -:  150:#ifndef _UCRT
-        -:  151:#define _TWO_DIGIT_EXPONENT 0x1
-        -:  152:#endif
-        -:  153:
-        -:  154:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  155:__mingw_bos_declare;
-        -:  156:#endif
-        -:  157:
-        -:  158:#ifndef _STDIO_DEFINED
+        -:  149:#define _TWO_DIGIT_EXPONENT 0x1
+        -:  150:
+        -:  151:#if __MINGW_FORTIFY_LEVEL > 0
+        -:  152:__mingw_bos_declare;
+        -:  153:#endif
+        -:  154:
+        -:  155:#ifndef _STDIO_DEFINED
+        -:  156:extern
+        -:  157:  __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  158:  int __cdecl __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
         -:  159:extern
-        -:  160:  __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  161:  int __cdecl __mingw_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
+        -:  160:  __attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  161:  int __cdecl __mingw_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
         -:  162:extern
-        -:  163:  __attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  164:  int __cdecl __mingw_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
+        -:  163:  __attribute__((__format__ (gnu_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  164:  int __cdecl __mingw_scanf(const char * __restrict__ _Format,...);
         -:  165:extern
-        -:  166:  __attribute__((__format__ (gnu_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  167:  int __cdecl __mingw_scanf(const char * __restrict__ _Format,...);
+        -:  166:  __attribute__((__format__ (gnu_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  167:  int __cdecl __mingw_vscanf(const char * __restrict__ Format, va_list argp);
         -:  168:extern
-        -:  169:  __attribute__((__format__ (gnu_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  170:  int __cdecl __mingw_vscanf(const char * __restrict__ Format, va_list argp);
+        -:  169:  __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  170:  int __cdecl __mingw_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
         -:  171:extern
-        -:  172:  __attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  173:  int __cdecl __mingw_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
-        -:  174:extern
-        -:  175:  __attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  176:  int __cdecl __mingw_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
-        -:  177:
-        -:  178:extern
-        -:  179:  __attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  180:  int __cdecl __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
-        -:  181:                               va_list _ArgList);
+        -:  172:  __attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  173:  int __cdecl __mingw_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
+        -:  174:
+        -:  175:extern
+        -:  176:  __attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  177:  int __cdecl __mingw_vsnprintf(char * __restrict__ _DstBuf,size_t _MaxCount,const char * __restrict__ _Format,
+        -:  178:                               va_list _ArgList);
+        -:  179:extern
+        -:  180:  __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  181:  int __cdecl __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
         -:  182:extern
-        -:  183:  __attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  184:  int __cdecl __mingw_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
+        -:  183:  __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  184:  int __cdecl __mingw_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
         -:  185:extern
-        -:  186:  __attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  187:  int __cdecl __mingw_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
+        -:  186:  __attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  187:  int __cdecl __mingw_vprintf (const char * __restrict__ , va_list) __MINGW_NOTHROW;
         -:  188:extern
-        -:  189:  __attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  190:  int __cdecl __mingw_vprintf (const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  189:  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  190:  int __cdecl __mingw_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
         -:  191:extern
-        -:  192:  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  193:  int __cdecl __mingw_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
+        -:  192:  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  193:  int __cdecl __mingw_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
         -:  194:extern
-        -:  195:  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  196:  int __cdecl __mingw_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  195:  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  196:  int __cdecl __mingw_sprintf (char * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
         -:  197:extern
-        -:  198:  __attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  199:  int __cdecl __mingw_sprintf (char * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
+        -:  198:  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  199:  int __cdecl __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
         -:  200:extern
-        -:  201:  __attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  202:  int __cdecl __mingw_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  201:  __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
+        -:  202:  int __cdecl __mingw_asprintf(char ** __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
         -:  203:extern
-        -:  204:  __attribute__((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
-        -:  205:  int __cdecl __mingw_asprintf(char ** __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
-        -:  206:extern
-        -:  207:  __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
-        -:  208:  int __cdecl __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
-        -:  209:
+        -:  204:  __attribute__((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
+        -:  205:  int __cdecl __mingw_vasprintf(char ** __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  206:
+        -:  207:extern
+        -:  208:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  209:  int __cdecl __ms_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
         -:  210:extern
-        -:  211:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  212:  int __cdecl __ms_sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
+        -:  211:  __attribute__((__format__ (ms_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  212:  int __cdecl __ms_scanf(const char * __restrict__ _Format,...);
         -:  213:extern
-        -:  214:  __attribute__((__format__ (ms_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  215:  int __cdecl __ms_scanf(const char * __restrict__ _Format,...);
-        -:  216:extern
-        -:  217:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  218:  int __cdecl __ms_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
-        -:  219:
+        -:  214:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  215:  int __cdecl __ms_fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+        -:  216:
+        -:  217:extern
+        -:  218:  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  219:  int __cdecl __ms_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
         -:  220:extern
-        -:  221:  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  222:  int __cdecl __ms_printf(const char * __restrict__ , ... ) __MINGW_NOTHROW;
+        -:  221:  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  222:  int __cdecl __ms_vprintf (const char * __restrict__ , va_list) __MINGW_NOTHROW;
         -:  223:extern
-        -:  224:  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  225:  int __cdecl __ms_vprintf (const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  224:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  225:  int __cdecl __ms_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
         -:  226:extern
-        -:  227:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  228:  int __cdecl __ms_fprintf (FILE * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
+        -:  227:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  228:  int __cdecl __ms_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
         -:  229:extern
-        -:  230:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  231:  int __cdecl __ms_vfprintf (FILE * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  230:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  231:  int __cdecl __ms_sprintf (char * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
         -:  232:extern
-        -:  233:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  234:  int __cdecl __ms_sprintf (char * __restrict__ , const char * __restrict__ , ...) __MINGW_NOTHROW;
-        -:  235:extern
-        -:  236:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  237:  int __cdecl __ms_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
-        -:  238:
-        -:  239:#ifdef _UCRT
-        -:  240:  int __cdecl __stdio_common_vsprintf(unsigned __int64 options, char *str, size_t len, const char *format, _locale_t locale, va_list valist);
-        -:  241:  int __cdecl __stdio_common_vfprintf(unsigned __int64 options, FILE *file, const char *format, _locale_t locale, va_list valist);
-        -:  242:  int __cdecl __stdio_common_vsscanf(unsigned __int64 options, const char *input, size_t length, const char *format, _locale_t locale, va_list valist);
-        -:  243:  int __cdecl __stdio_common_vfscanf(unsigned __int64 options, FILE *file, const char *format, _locale_t locale, va_list valist);
-        -:  244:#endif
+        -:  233:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  234:  int __cdecl __ms_vsprintf (char * __restrict__ , const char * __restrict__ , va_list) __MINGW_NOTHROW;
+        -:  235:
+        -:  236:#ifdef _UCRT
+        -:  237:  int __cdecl __stdio_common_vsprintf(unsigned __int64 options, char *str, size_t len, const char *format, _locale_t locale, va_list valist);
+        -:  238:  int __cdecl __stdio_common_vfprintf(unsigned __int64 options, FILE *file, const char *format, _locale_t locale, va_list valist);
+        -:  239:  int __cdecl __stdio_common_vsscanf(unsigned __int64 options, const char *input, size_t length, const char *format, _locale_t locale, va_list valist);
+        -:  240:  int __cdecl __stdio_common_vfscanf(unsigned __int64 options, FILE *file, const char *format, _locale_t locale, va_list valist);
+        -:  241:#endif
+        -:  242:
+        -:  243:#undef __MINGW_PRINTF_FORMAT
+        -:  244:#undef __MINGW_SCANF_FORMAT
         -:  245:
-        -:  246:#undef __MINGW_PRINTF_FORMAT
-        -:  247:#undef __MINGW_SCANF_FORMAT
-        -:  248:
-        -:  249:#if defined(__clang__)
-        -:  250:#define __MINGW_PRINTF_FORMAT printf
-        -:  251:#define __MINGW_SCANF_FORMAT  scanf
-        -:  252:#elif defined(_UCRT) || __USE_MINGW_ANSI_STDIO
-        -:  253:#define __MINGW_PRINTF_FORMAT gnu_printf
-        -:  254:#define __MINGW_SCANF_FORMAT  gnu_scanf
-        -:  255:#else
-        -:  256:#define __MINGW_PRINTF_FORMAT ms_printf
-        -:  257:#define __MINGW_SCANF_FORMAT  ms_scanf
-        -:  258:#endif
-        -:  259:
-        -:  260:#if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
-        -:  261:/*
-        -:  262: * User has expressed a preference for C99 conformance...
-        -:  263: */
-        -:  264:
-        -:  265:#ifdef _GNU_SOURCE
-        -:  266:__mingw_ovr
-        -:  267:__attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
-        -:  268:int asprintf(char **__ret, const char *__format, ...)
-        -:  269:{
-        -:  270:  int __retval;
-        -:  271:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  272:  __retval = __mingw_vasprintf( __ret, __format, __local_argv );
-        -:  273:  __builtin_va_end( __local_argv );
-        -:  274:  return __retval;
-        -:  275:}
-        -:  276:
-        -:  277:__mingw_ovr
-        -:  278:__attribute__ ((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
-        -:  279:int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv)
-        -:  280:{
-        -:  281:  return __mingw_vasprintf( __ret, __format, __local_argv );
-        -:  282:}
-        -:  283:#endif /* _GNU_SOURCE */
-        -:  284:
-        -:  285:/* There seems to be a bug about builtins and static overrides of them
-        -:  286:   in g++.  So we need to do here some trickery.  */
-        -:  287:#ifdef __cplusplus
-        -:  288:extern "C++" {
-        -:  289:#endif
-        -:  290:
-        -:  291:__mingw_ovr
-        -:  292:__attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  293:int sscanf(const char *__source, const char *__format, ...)
-        -:  294:{
-        -:  295:  int __retval;
-        -:  296:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  297:  __retval = __mingw_vsscanf( __source, __format, __local_argv );
-        -:  298:  __builtin_va_end( __local_argv );
-        -:  299:  return __retval;
-        -:  300:}
-        -:  301:
-        -:  302:__mingw_ovr
-        -:  303:__attribute__((__format__ (gnu_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  304:int scanf(const char *__format, ...)
-        -:  305:{
-        -:  306:  int __retval;
-        -:  307:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  308:  __retval = __mingw_vfscanf( stdin, __format, __local_argv );
-        -:  309:  __builtin_va_end( __local_argv );
-        -:  310:  return __retval;
-        -:  311:}
-        -:  312:
-        -:  313:__mingw_ovr
-        -:  314:__attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  315:int fscanf(FILE *__stream, const char *__format, ...)
-        -:  316:{
-        -:  317:  int __retval;
-        -:  318:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  319:  __retval = __mingw_vfscanf( __stream, __format, __local_argv );
-        -:  320:  __builtin_va_end( __local_argv );
-        -:  321:  return __retval;
-        -:  322:}
-        -:  323:
-        -:  324:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-        -:  325:#ifdef __GNUC__
-        -:  326:#pragma GCC diagnostic push
-        -:  327:#pragma GCC diagnostic ignored "-Wshadow"
-        -:  328:#endif
-        -:  329:
-        -:  330:__mingw_ovr
-        -:  331:__attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  332:int vsscanf (const char *__source, const char *__format, __builtin_va_list __local_argv)
-        -:  333:{
-        -:  334:  return __mingw_vsscanf( __source, __format, __local_argv );
-        -:  335:}
-        -:  336:
-        -:  337:__mingw_ovr
-        -:  338:__attribute__((__format__ (gnu_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  339:int vscanf(const char *__format,  __builtin_va_list __local_argv)
-        -:  340:{
-        -:  341:  return __mingw_vfscanf( stdin, __format, __local_argv );
-        -:  342:}
-        -:  343:
-        -:  344:__mingw_ovr
-        -:  345:__attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  346:int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
-        -:  347:{
-        -:  348:  return __mingw_vfscanf( __stream, __format, __local_argv );
-        -:  349:}
-        -:  350:
-        -:  351:#ifdef __GNUC__
-        -:  352:#pragma GCC diagnostic pop
-        -:  353:#endif
-        -:  354:#endif /* __NO_ISOCEXT */
-        -:  355:
-        -:  356:
-        -:  357:
-        -:  358:__mingw_ovr
-        -:  359:__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  360:int fprintf (FILE *__stream, const char *__format, ...)
-        -:  361:{
-        -:  362:  int __retval;
-        -:  363:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  364:  __retval = __mingw_vfprintf( __stream, __format, __local_argv );
-        -:  365:  __builtin_va_end( __local_argv );
-        -:  366:  return __retval;
-        -:  367:}
-        -:  368:
-        -:  369:__mingw_ovr
-        -:  370:__attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  371:int printf (const char *__format, ...)
-        -:  372:{
-        -:  373:  int __retval;
-        -:  374:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  375:  __retval = __mingw_vfprintf( stdout, __format, __local_argv );
-        -:  376:  __builtin_va_end( __local_argv );
-        -:  377:  return __retval;
-        -:  378:}
-        -:  379:
-        -:  380:#if __MINGW_FORTIFY_VA_ARG
-        -:  381:
-        -:  382:int sprintf (char *__stream, const char *__format, ...) __MINGW_ASM_CALL(__mingw_sprintf);
-        -:  383:
-        -:  384:__mingw_bos_extern_ovr
-        -:  385:__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  386:int sprintf (char *__stream, const char *__format, ...)
-        -:  387:{
-        -:  388:  if (__mingw_bos_known(__stream)) {
-        -:  389:    int __retval = __mingw_snprintf( __stream, __mingw_bos(__stream, 1), __format, __builtin_va_arg_pack() );
-        -:  390:    if (__retval >= 0)
-        -:  391:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
-        -:  392:    return __retval;
-        -:  393:  }
-        -:  394:  return __mingw_sprintf( __stream, __format, __builtin_va_arg_pack() );
-        -:  395:}
-        -:  396:
-        -:  397:#else /* !__MINGW_FORTIFY_VA_ARG */
-        -:  398:
-        -:  399:__mingw_ovr
-        -:  400:__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  401:int sprintf (char *__stream, const char *__format, ...)
-        -:  402:{
-        -:  403:  int __retval;
-        -:  404:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  405:  __retval = __mingw_vsprintf( __stream, __format, __local_argv );
-        -:  406:  __builtin_va_end( __local_argv );
-        -:  407:  return __retval;
-        -:  408:}
-        -:  409:
-        -:  410:#endif /* __MINGW_FORTIFY_VA_ARG */
-        -:  411:
-        -:  412:__mingw_ovr
-        -:  413:__attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  414:int vfprintf (FILE *__stream, const char *__format, __builtin_va_list __local_argv)
-        -:  415:{
-        -:  416:  return __mingw_vfprintf( __stream, __format, __local_argv );
-        -:  417:}
-        -:  418:
-        -:  419:__mingw_ovr
-        -:  420:__attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  421:int vprintf (const char *__format, __builtin_va_list __local_argv)
-        -:  422:{
-        -:  423:  return __mingw_vfprintf( stdout, __format, __local_argv );
-        -:  424:}
-        -:  425:
-        -:  426:__mingw_bos_ovr
-        -:  427:__attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  428:int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_argv)
-        -:  429:{
-        -:  430:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  431:  if (__mingw_bos_known(__stream)) {
-        -:  432:    int __retval = __mingw_vsnprintf( __stream, __mingw_bos(__stream, 1), __format, __local_argv );
-        -:  433:    if (__retval >= 0)
-        -:  434:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
-        -:  435:    return __retval;
-        -:  436:  }
-        -:  437:#endif
-        -:  438:  return __mingw_vsprintf( __stream, __format, __local_argv );
-        -:  439:}
-        -:  440:/* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
-        -:  441:
-        -:  442:#if __MINGW_FORTIFY_VA_ARG
-        -:  443:
-        -:  444:int snprintf (char *__stream, size_t __n, const char *__format, ...) __MINGW_ASM_CALL(__mingw_snprintf);
-        -:  445:
-        -:  446:__mingw_bos_extern_ovr
-        -:  447:__attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  448:int snprintf (char *__stream, size_t __n, const char *__format, ...)
-        -:  449:{
-        -:  450:  __mingw_bos_ptr_chk_warn(__stream, __n, 1);
-        -:  451:  return __mingw_snprintf( __stream, __n, __format, __builtin_va_arg_pack() );
-        -:  452:}
-        -:  453:
-        -:  454:#else /* !__MINGW_FORTIFY_VA_ARG */
-        -:  455:
-        -:  456:__mingw_ovr
-        -:  457:__attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  458:int snprintf (char *__stream, size_t __n, const char *__format, ...)
-        -:  459:{
-        -:  460:  int __retval;
-        -:  461:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  462:  __retval = __mingw_vsnprintf( __stream, __n, __format, __local_argv );
-        -:  463:  __builtin_va_end( __local_argv );
-        -:  464:  return __retval;
-        -:  465:}
-        -:  466:
-        -:  467:#endif /* __MINGW_FORTIFY_VA_ARG */
-        -:  468:
-        -:  469:__mingw_bos_ovr
-        -:  470:__attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  471:int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_list __local_argv)
-        -:  472:{
-        -:  473:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  474:  __mingw_bos_ptr_chk_warn(__stream, __n, 1);
-        -:  475:#endif
-        -:  476:  return __mingw_vsnprintf( __stream, __n, __format, __local_argv );
-        -:  477:}
-        -:  478:
-        -:  479:/* Override __builtin_printf-routines ... Kludge for libstdc++ ...*/
-        -:  480:#define __builtin_vsnprintf __mingw_vsnprintf
-        -:  481:#define __builtin_vsprintf __mingw_vsprintf
-        -:  482:
-        -:  483:/* #endif */ /* __NO_ISOCEXT */
-        -:  484:
-        -:  485:#ifdef __cplusplus
-        -:  486:}
-        -:  487:#endif
-        -:  488:
-        -:  489:#else /* !__USE_MINGW_ANSI_STDIO */
-        -:  490:
-        -:  491:#undef __builtin_vsnprintf
-        -:  492:#undef __builtin_vsprintf
-        -:  493:
-        -:  494:/*
-        -:  495: * Default configuration: simply direct all calls to MSVCRT...
-        -:  496: */
-        -:  497:#ifdef _UCRT
-        -:  498:#ifdef __GNUC__
-        -:  499:#pragma GCC diagnostic push
-        -:  500:#pragma GCC diagnostic ignored "-Wshadow"
-        -:  501:#endif
-        -:  502:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  503:  int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
-        -:  504:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  505:  int __cdecl printf(const char * __restrict__ _Format,...);
-        -:  506:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  507:  int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  246:#if defined(__clang__)
+        -:  247:#define __MINGW_PRINTF_FORMAT printf
+        -:  248:#define __MINGW_SCANF_FORMAT  scanf
+        -:  249:#elif defined(_UCRT) || __USE_MINGW_ANSI_STDIO
+        -:  250:#define __MINGW_PRINTF_FORMAT gnu_printf
+        -:  251:#define __MINGW_SCANF_FORMAT  gnu_scanf
+        -:  252:#else
+        -:  253:#define __MINGW_PRINTF_FORMAT ms_printf
+        -:  254:#define __MINGW_SCANF_FORMAT  ms_scanf
+        -:  255:#endif
+        -:  256:
+        -:  257:#if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
+        -:  258:/*
+        -:  259: * User has expressed a preference for C99 conformance...
+        -:  260: */
+        -:  261:
+        -:  262:#ifdef _GNU_SOURCE
+        -:  263:__mingw_ovr
+        -:  264:__attribute__ ((__format__ (gnu_printf, 2, 3))) __attribute__((nonnull (1,2)))
+        -:  265:int asprintf(char **__ret, const char *__format, ...)
+        -:  266:{
+        -:  267:  int __retval;
+        -:  268:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  269:  __retval = __mingw_vasprintf( __ret, __format, __local_argv );
+        -:  270:  __builtin_va_end( __local_argv );
+        -:  271:  return __retval;
+        -:  272:}
+        -:  273:
+        -:  274:__mingw_ovr
+        -:  275:__attribute__ ((__format__ (gnu_printf, 2, 0))) __attribute__((nonnull (1,2)))
+        -:  276:int vasprintf(char **__ret, const char *__format, __builtin_va_list __local_argv)
+        -:  277:{
+        -:  278:  return __mingw_vasprintf( __ret, __format, __local_argv );
+        -:  279:}
+        -:  280:#endif /* _GNU_SOURCE */
+        -:  281:
+        -:  282:/* There seems to be a bug about builtins and static overrides of them
+        -:  283:   in g++.  So we need to do here some trickery.  */
+        -:  284:#ifdef __cplusplus
+        -:  285:extern "C++" {
+        -:  286:#endif
+        -:  287:
+        -:  288:__mingw_ovr
+        -:  289:__attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  290:int sscanf(const char *__source, const char *__format, ...)
+        -:  291:{
+        -:  292:  int __retval;
+        -:  293:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  294:  __retval = __mingw_vsscanf( __source, __format, __local_argv );
+        -:  295:  __builtin_va_end( __local_argv );
+        -:  296:  return __retval;
+        -:  297:}
+        -:  298:
+        -:  299:__mingw_ovr
+        -:  300:__attribute__((__format__ (gnu_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  301:int scanf(const char *__format, ...)
+        -:  302:{
+        -:  303:  int __retval;
+        -:  304:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  305:  __retval = __mingw_vfscanf( stdin, __format, __local_argv );
+        -:  306:  __builtin_va_end( __local_argv );
+        -:  307:  return __retval;
+        -:  308:}
+        -:  309:
+        -:  310:__mingw_ovr
+        -:  311:__attribute__((__format__ (gnu_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  312:int fscanf(FILE *__stream, const char *__format, ...)
+        -:  313:{
+        -:  314:  int __retval;
+        -:  315:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  316:  __retval = __mingw_vfscanf( __stream, __format, __local_argv );
+        -:  317:  __builtin_va_end( __local_argv );
+        -:  318:  return __retval;
+        -:  319:}
+        -:  320:
+        -:  321:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -:  322:#ifdef __GNUC__
+        -:  323:#pragma GCC diagnostic push
+        -:  324:#pragma GCC diagnostic ignored "-Wshadow"
+        -:  325:#endif
+        -:  326:
+        -:  327:__mingw_ovr
+        -:  328:__attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  329:int vsscanf (const char *__source, const char *__format, __builtin_va_list __local_argv)
+        -:  330:{
+        -:  331:  return __mingw_vsscanf( __source, __format, __local_argv );
+        -:  332:}
+        -:  333:
+        -:  334:__mingw_ovr
+        -:  335:__attribute__((__format__ (gnu_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  336:int vscanf(const char *__format,  __builtin_va_list __local_argv)
+        -:  337:{
+        -:  338:  return __mingw_vfscanf( stdin, __format, __local_argv );
+        -:  339:}
+        -:  340:
+        -:  341:__mingw_ovr
+        -:  342:__attribute__((__format__ (gnu_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  343:int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
+        -:  344:{
+        -:  345:  return __mingw_vfscanf( __stream, __format, __local_argv );
+        -:  346:}
+        -:  347:
+        -:  348:#ifdef __GNUC__
+        -:  349:#pragma GCC diagnostic pop
+        -:  350:#endif
+        -:  351:#endif /* __NO_ISOCEXT */
+        -:  352:
+        -:  353:
+        -:  354:
+        -:  355:__mingw_ovr
+        -:  356:__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  357:int fprintf (FILE *__stream, const char *__format, ...)
+        -:  358:{
+        -:  359:  int __retval;
+        -:  360:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  361:  __retval = __mingw_vfprintf( __stream, __format, __local_argv );
+        -:  362:  __builtin_va_end( __local_argv );
+        -:  363:  return __retval;
+        -:  364:}
+        -:  365:
+        -:  366:__mingw_ovr
+        -:  367:__attribute__((__format__ (gnu_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  368:int printf (const char *__format, ...)
+        -:  369:{
+        -:  370:  int __retval;
+        -:  371:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  372:  __retval = __mingw_vfprintf( stdout, __format, __local_argv );
+        -:  373:  __builtin_va_end( __local_argv );
+        -:  374:  return __retval;
+        -:  375:}
+        -:  376:
+        -:  377:#if __MINGW_FORTIFY_VA_ARG
+        -:  378:
+        -:  379:__mingw_bos_ovr
+        -:  380:__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  381:int sprintf (char *__stream, const char *__format, ...)
+        -:  382:{
+        -:  383:  if (__mingw_bos_known(__stream)) {
+        -:  384:    int __retval = __mingw_snprintf( __stream, __mingw_bos(__stream, 1), __format, __builtin_va_arg_pack() );
+        -:  385:    if (__retval >= 0)
+        -:  386:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
+        -:  387:    return __retval;
+        -:  388:  }
+        -:  389:  return __mingw_sprintf( __stream, __format, __builtin_va_arg_pack() );
+        -:  390:}
+        -:  391:
+        -:  392:#else /* !__MINGW_FORTIFY_VA_ARG */
+        -:  393:
+        -:  394:__mingw_ovr
+        -:  395:__attribute__((__format__ (gnu_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  396:int sprintf (char *__stream, const char *__format, ...)
+        -:  397:{
+        -:  398:  int __retval;
+        -:  399:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  400:  __retval = __mingw_vsprintf( __stream, __format, __local_argv );
+        -:  401:  __builtin_va_end( __local_argv );
+        -:  402:  return __retval;
+        -:  403:}
+        -:  404:
+        -:  405:#endif /* __MINGW_FORTIFY_VA_ARG */
+        -:  406:
+        -:  407:__mingw_ovr
+        -:  408:__attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  409:int vfprintf (FILE *__stream, const char *__format, __builtin_va_list __local_argv)
+        -:  410:{
+        -:  411:  return __mingw_vfprintf( __stream, __format, __local_argv );
+        -:  412:}
+        -:  413:
+        -:  414:__mingw_ovr
+        -:  415:__attribute__((__format__ (gnu_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  416:int vprintf (const char *__format, __builtin_va_list __local_argv)
+        -:  417:{
+        -:  418:  return __mingw_vfprintf( stdout, __format, __local_argv );
+        -:  419:}
+        -:  420:
+        -:  421:__mingw_bos_ovr
+        -:  422:__attribute__((__format__ (gnu_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  423:int vsprintf (char *__stream, const char *__format, __builtin_va_list __local_argv)
+        -:  424:{
+        -:  425:#if __MINGW_FORTIFY_LEVEL > 0
+        -:  426:  if (__mingw_bos_known(__stream)) {
+        -:  427:    int __retval = __mingw_vsnprintf( __stream, __mingw_bos(__stream, 1), __format, __local_argv );
+        -:  428:    if (__retval >= 0)
+        -:  429:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
+        -:  430:    return __retval;
+        -:  431:  }
+        -:  432:#endif
+        -:  433:  return __mingw_vsprintf( __stream, __format, __local_argv );
+        -:  434:}
+        -:  435:/* #ifndef __NO_ISOCEXT */  /* externs in libmingwex.a */
+        -:  436:
+        -:  437:#if __MINGW_FORTIFY_VA_ARG
+        -:  438:
+        -:  439:__mingw_bos_ovr
+        -:  440:__attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  441:int snprintf (char *__stream, size_t __n, const char *__format, ...)
+        -:  442:{
+        -:  443:  __mingw_bos_ptr_chk_warn(__stream, __n, 1);
+        -:  444:  return __mingw_snprintf( __stream, __n, __format, __builtin_va_arg_pack() );
+        -:  445:}
+        -:  446:
+        -:  447:#else /* !__MINGW_FORTIFY_VA_ARG */
+        -:  448:
+        -:  449:__mingw_ovr
+        -:  450:__attribute__((__format__ (gnu_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  451:int snprintf (char *__stream, size_t __n, const char *__format, ...)
+        -:  452:{
+        -:  453:  int __retval;
+        -:  454:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  455:  __retval = __mingw_vsnprintf( __stream, __n, __format, __local_argv );
+        -:  456:  __builtin_va_end( __local_argv );
+        -:  457:  return __retval;
+        -:  458:}
+        -:  459:
+        -:  460:#endif /* __MINGW_FORTIFY_VA_ARG */
+        -:  461:
+        -:  462:__mingw_bos_ovr
+        -:  463:__attribute__((__format__ (gnu_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  464:int vsnprintf (char *__stream, size_t __n, const char *__format, __builtin_va_list __local_argv)
+        -:  465:{
+        -:  466:#if __MINGW_FORTIFY_LEVEL > 0
+        -:  467:  __mingw_bos_ptr_chk_warn(__stream, __n, 1);
+        -:  468:#endif
+        -:  469:  return __mingw_vsnprintf( __stream, __n, __format, __local_argv );
+        -:  470:}
+        -:  471:
+        -:  472:/* Override __builtin_printf-routines ... Kludge for libstdc++ ...*/
+        -:  473:#define __builtin_vsnprintf __mingw_vsnprintf
+        -:  474:#define __builtin_vsprintf __mingw_vsprintf
+        -:  475:
+        -:  476:/* #endif */ /* __NO_ISOCEXT */
+        -:  477:
+        -:  478:#ifdef __cplusplus
+        -:  479:}
+        -:  480:#endif
+        -:  481:
+        -:  482:#else /* !__USE_MINGW_ANSI_STDIO */
+        -:  483:
+        -:  484:#undef __builtin_vsnprintf
+        -:  485:#undef __builtin_vsprintf
+        -:  486:
+        -:  487:/*
+        -:  488: * Default configuration: simply direct all calls to MSVCRT...
+        -:  489: */
+        -:  490:#ifdef _UCRT
+        -:  491:#ifdef __GNUC__
+        -:  492:#pragma GCC diagnostic push
+        -:  493:#pragma GCC diagnostic ignored "-Wshadow"
+        -:  494:#endif
+        -:  495:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  496:  int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+        -:  497:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  498:  int __cdecl printf(const char * __restrict__ _Format,...);
+        -:  499:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  500:  int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  501:
+        -:  502:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  503:  int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
+        -:  504:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  505:  int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
+        -:  506:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  507:  int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
         -:  508:
-        -:  509:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  510:  int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
-        -:  511:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  512:  int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
-        -:  513:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  514:  int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  515:
-        -:  516:  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -:  517:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  518:  int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
-        -:  519:  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -:  520:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  521:  int __cdecl scanf(const char * __restrict__ _Format,...);
-        -:  522:  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -:  523:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  524:  int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
-        -:  525:#ifdef _GNU_SOURCE
-        -:  526:  __attribute__ ((__format__ (__MINGW_PRINTF_FORMAT, 2, 0)))
-        -:  527:  int __cdecl vasprintf(char ** __restrict__ _Ret,const char * __restrict__ _Format,va_list _Args);
-        -:  528:  __attribute__ ((__format__ (__MINGW_PRINTF_FORMAT, 2, 3)))
-        -:  529:  int __cdecl asprintf(char ** __restrict__ _Ret,const char * __restrict__ _Format,...);
-        -:  530:#endif /*_GNU_SOURCE*/
-        -:  531:
-        -:  532:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  533:  int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv);
-        -:  534:
-        -:  535:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  536:  int vsscanf (const char * __restrict__ __source, const char * __restrict__ __format, __builtin_va_list __local_argv);
-        -:  537:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  538:  int vscanf(const char *__format,  __builtin_va_list __local_argv);
-        -:  539:
-        -:  540:#ifdef __GNUC__
-        -:  541:#pragma GCC diagnostic pop
-        -:  542:#endif
-        -:  543:
-        -:  544:#else
-        -:  545:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  546:  int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
-        -:  547:  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  548:  int __cdecl printf(const char * __restrict__ _Format,...);
-        -:  549:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  550:  int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  509:  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -:  510:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  511:  int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+        -:  512:  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -:  513:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  514:  int __cdecl scanf(const char * __restrict__ _Format,...);
+        -:  515:  __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -:  516:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  517:  int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...);
+        -:  518:#ifdef _GNU_SOURCE
+        -:  519:  __attribute__ ((__format__ (__MINGW_PRINTF_FORMAT, 2, 0)))
+        -:  520:  int __cdecl vasprintf(char ** __restrict__ _Ret,const char * __restrict__ _Format,va_list _Args);
+        -:  521:  __attribute__ ((__format__ (__MINGW_PRINTF_FORMAT, 2, 3)))
+        -:  522:  int __cdecl asprintf(char ** __restrict__ _Ret,const char * __restrict__ _Format,...);
+        -:  523:#endif /*_GNU_SOURCE*/
+        -:  524:
+        -:  525:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  526:  int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv);
+        -:  527:
+        -:  528:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  529:  int vsscanf (const char * __restrict__ __source, const char * __restrict__ __format, __builtin_va_list __local_argv);
+        -:  530:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  531:  int vscanf(const char *__format,  __builtin_va_list __local_argv);
+        -:  532:
+        -:  533:#ifdef __GNUC__
+        -:  534:#pragma GCC diagnostic pop
+        -:  535:#endif
+        -:  536:
+        -:  537:#else
+        -:  538:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  539:  int __cdecl fprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,...);
+        -:  540:  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  541:  int __cdecl printf(const char * __restrict__ _Format,...);
+        -:  542:  __attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  543:  int __cdecl sprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  544:
+        -:  545:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  546:  int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
+        -:  547:  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  548:  int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
+        -:  549:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  550:  int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
         -:  551:
-        -:  552:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  553:  int __cdecl vfprintf(FILE * __restrict__ _File,const char * __restrict__ _Format,va_list _ArgList);
-        -:  554:  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  555:  int __cdecl vprintf(const char * __restrict__ _Format,va_list _ArgList);
-        -:  556:  __attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  557:  int __cdecl vsprintf(char * __restrict__ _Dest,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  558:
-        -:  559:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  560:  int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  561:  __attribute__((__format__ (ms_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  562:  int __cdecl scanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  563:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  564:  int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  565:#ifdef _GNU_SOURCE
-        -:  566:  int __cdecl vasprintf(char ** __restrict__ __ret,const char * __restrict__ __format,va_list __ap)  __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 0)));
-        -:  567:  int __cdecl asprintf(char ** __restrict__ __ret,const char * __restrict__ __format,...) __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 3)));
-        -:  568:#endif /*_GNU_SOURCE*/
-        -:  569:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-        -:  570:#ifdef __GNUC__
-        -:  571:#pragma GCC diagnostic push
-        -:  572:#pragma GCC diagnostic ignored "-Wshadow"
-        -:  573:#endif
+        -:  552:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  553:  int __cdecl fscanf(FILE * __restrict__ _File,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  554:  __attribute__((__format__ (ms_scanf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  555:  int __cdecl scanf(const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  556:  __attribute__((__format__ (ms_scanf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  557:  int __cdecl sscanf(const char * __restrict__ _Src,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  558:#ifdef _GNU_SOURCE
+        -:  559:  int __cdecl vasprintf(char ** __restrict__ __ret,const char * __restrict__ __format,va_list __ap)  __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 0)));
+        -:  560:  int __cdecl asprintf(char ** __restrict__ __ret,const char * __restrict__ __format,...) __attribute__ ((format (__MINGW_PRINTF_FORMAT, 2, 3)));
+        -:  561:#endif /*_GNU_SOURCE*/
+        -:  562:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -:  563:#ifdef __GNUC__
+        -:  564:#pragma GCC diagnostic push
+        -:  565:#pragma GCC diagnostic ignored "-Wshadow"
+        -:  566:#endif
+        -:  567:
+        -:  568:  __attribute__((__format__ (ms_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  569:  int __cdecl __ms_vscanf(const char * __restrict__ Format, va_list argp);
+        -:  570:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  571:  int __cdecl __ms_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
+        -:  572:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  573:  int __cdecl __ms_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
         -:  574:
-        -:  575:  __attribute__((__format__ (ms_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  576:  int __cdecl __ms_vscanf(const char * __restrict__ Format, va_list argp);
-        -:  577:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  578:  int __cdecl __ms_vfscanf (FILE * __restrict__ fp, const char * __restrict__ Format,va_list argp);
-        -:  579:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  580:  int __cdecl __ms_vsscanf (const char * __restrict__ _Str,const char * __restrict__ Format,va_list argp);
+        -:  575:  __mingw_ovr
+        -:  576:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  577:  int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
+        -:  578:  {
+        -:  579:    return __ms_vfscanf (__stream, __format, __local_argv);
+        -:  580:  }
         -:  581:
         -:  582:  __mingw_ovr
         -:  583:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  584:  int vfscanf (FILE *__stream,  const char *__format, __builtin_va_list __local_argv)
+        -:  584:  int vsscanf (const char * __restrict__ __source, const char * __restrict__ __format, __builtin_va_list __local_argv)
         -:  585:  {
-        -:  586:    return __ms_vfscanf (__stream, __format, __local_argv);
+        -:  586:    return __ms_vsscanf( __source, __format, __local_argv );
         -:  587:  }
-        -:  588:
-        -:  589:  __mingw_ovr
-        -:  590:  __attribute__((__format__ (ms_scanf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  591:  int vsscanf (const char * __restrict__ __source, const char * __restrict__ __format, __builtin_va_list __local_argv)
-        -:  592:  {
-        -:  593:    return __ms_vsscanf( __source, __format, __local_argv );
-        -:  594:  }
-        -:  595:  __mingw_ovr
-        -:  596:  __attribute__((__format__ (ms_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  597:  int vscanf(const char *__format,  __builtin_va_list __local_argv)
-        -:  598:  {
-        -:  599:    return __ms_vscanf (__format, __local_argv);
-        -:  600:  }
-        -:  601:
-        -:  602:#ifdef __GNUC__
-        -:  603:#pragma GCC diagnostic pop
-        -:  604:#endif
-        -:  605:
-        -:  606:#endif /* __NO_ISOCEXT */
-        -:  607:#endif /* _UCRT */
-        -:  608:#endif /* __USE_MINGW_ANSI_STDIO */
-        -:  609:
-        -:  610:  _CRTIMP int __cdecl _filbuf(FILE *_File);
-        -:  611:  _CRTIMP int __cdecl _flsbuf(int _Ch,FILE *_File);
-        -:  612:#ifdef _POSIX_
-        -:  613:  _CRTIMP FILE *__cdecl _fsopen(const char *_Filename,const char *_Mode);
-        -:  614:#else
-        -:  615:  _CRTIMP FILE *__cdecl _fsopen(const char *_Filename,const char *_Mode,int _ShFlag);
-        -:  616:#endif
-        -:  617:  void __cdecl clearerr(FILE *_File);
-        -:  618:  int __cdecl fclose(FILE *_File);
-        -:  619:  _CRTIMP int __cdecl _fcloseall(void);
-        -:  620:#ifdef _POSIX_
-        -:  621:  FILE *__cdecl fdopen(int _FileHandle,const char *_Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -:  622:#else
-        -:  623:  _CRTIMP FILE *__cdecl _fdopen(int _FileHandle,const char *_Mode);
-        -:  624:#endif
-        -:  625:  int __cdecl feof(FILE *_File);
-        -:  626:  int __cdecl ferror(FILE *_File);
-        -:  627:  int __cdecl fflush(FILE *_File);
-        -:  628:  int __cdecl fgetc(FILE *_File);
-        -:  629:  _CRTIMP int __cdecl _fgetchar(void);
-        -:  630:  int __cdecl fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* 64bit only, no 32bit version */
-        -:  631:  int __cdecl fgetpos64(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* fgetpos already 64bit */
-        -:  632:  char *__cdecl fgets(char * __restrict__ _Buf,int _MaxCount,FILE * __restrict__ _File);
-        -:  633:  _CRTIMP int __cdecl _fileno(FILE *_File);
-        -:  634:#ifdef _POSIX_
-        -:  635:  int __cdecl fileno(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -:  636:#endif
-        -:  637:  _CRTIMP char *__cdecl _tempnam(const char *_DirName,const char *_FilePrefix);
-        -:  638:  _CRTIMP int __cdecl _flushall(void);
-        -:  639:  FILE *__cdecl fopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  640:  FILE *fopen64(const char * __restrict__ filename,const char * __restrict__  mode);
-        -:  641:  int __cdecl fputc(int _Ch,FILE *_File);
-        -:  642:  _CRTIMP int __cdecl _fputchar(int _Ch);
-        -:  643:  int __cdecl fputs(const char * __restrict__ _Str,FILE * __restrict__ _File);
-        -:  644:  size_t __cdecl fread(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
-        -:  645:  FILE *__cdecl freopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode,FILE * __restrict__ _File) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  646:  int __cdecl fsetpos(FILE *_File,const fpos_t *_Pos);
-        -:  647:  int __cdecl fsetpos64(FILE *_File,const fpos_t *_Pos); /* fsetpos already 64bit */
-        -:  648:  int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
-        -:  649:  long __cdecl ftell(FILE *_File);
-        -:  650:
-        -:  651:  /* Shouldn't be any fseeko32 in glibc, 32bit to 64bit casting should be fine */
-        -:  652:  /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
-        -:  653:  _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
-        -:  654:  _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
-        -:  655:#ifdef _UCRT
-        -:  656:  __mingw_static_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
-        -:  657:    return fseek(_File, _Offset, _Origin);
-        -:  658:  }
-        -:  659:  __mingw_static_ovr int fseeko64(FILE *_File, _off64_t _Offset, int _Origin) {
-        -:  660:    return _fseeki64(_File, _Offset, _Origin);
-        -:  661:  }
-        -:  662:  __mingw_static_ovr _off_t ftello(FILE *_File) {
-        -:  663:    return ftell(_File);
-        -:  664:  }
-        -:  665:  __mingw_static_ovr _off64_t ftello64(FILE *_File) {
-        -:  666:    return _ftelli64(_File);
-        -:  667:  }
-        -:  668:#else
-        -:  669:  int fseeko64(FILE* stream, _off64_t offset, int whence);
-        -:  670:  int fseeko(FILE* stream, _off_t offset, int whence);
-        -:  671:  /* Returns truncated 64bit off_t */
-        -:  672:  _off_t ftello(FILE * stream);
-        -:  673:  _off64_t ftello64(FILE * stream);
-        -:  674:#endif
+        -:  588:  __mingw_ovr
+        -:  589:  __attribute__((__format__ (ms_scanf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  590:  int vscanf(const char *__format,  __builtin_va_list __local_argv)
+        -:  591:  {
+        -:  592:    return __ms_vscanf (__format, __local_argv);
+        -:  593:  }
+        -:  594:
+        -:  595:#ifdef __GNUC__
+        -:  596:#pragma GCC diagnostic pop
+        -:  597:#endif
+        -:  598:
+        -:  599:#endif /* __NO_ISOCEXT */
+        -:  600:#endif /* _UCRT */
+        -:  601:#endif /* __USE_MINGW_ANSI_STDIO */
+        -:  602:
+        -:  603:  _CRTIMP int __cdecl _filbuf(FILE *_File);
+        -:  604:  _CRTIMP int __cdecl _flsbuf(int _Ch,FILE *_File);
+        -:  605:#ifdef _POSIX_
+        -:  606:  _CRTIMP FILE *__cdecl _fsopen(const char *_Filename,const char *_Mode);
+        -:  607:#else
+        -:  608:  _CRTIMP FILE *__cdecl _fsopen(const char *_Filename,const char *_Mode,int _ShFlag);
+        -:  609:#endif
+        -:  610:  void __cdecl clearerr(FILE *_File);
+        -:  611:  int __cdecl fclose(FILE *_File);
+        -:  612:  _CRTIMP int __cdecl _fcloseall(void);
+        -:  613:#ifdef _POSIX_
+        -:  614:  FILE *__cdecl fdopen(int _FileHandle,const char *_Mode) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -:  615:#else
+        -:  616:  _CRTIMP FILE *__cdecl _fdopen(int _FileHandle,const char *_Mode);
+        -:  617:#endif
+        -:  618:  int __cdecl feof(FILE *_File);
+        -:  619:  int __cdecl ferror(FILE *_File);
+        -:  620:  int __cdecl fflush(FILE *_File);
+        -:  621:  int __cdecl fgetc(FILE *_File);
+        -:  622:  _CRTIMP int __cdecl _fgetchar(void);
+        -:  623:  int __cdecl fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* 64bit only, no 32bit version */
+        -:  624:  int __cdecl fgetpos64(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* fgetpos already 64bit */
+        -:  625:  char *__cdecl fgets(char * __restrict__ _Buf,int _MaxCount,FILE * __restrict__ _File);
+        -:  626:  _CRTIMP int __cdecl _fileno(FILE *_File);
+        -:  627:#ifdef _POSIX_
+        -:  628:  int __cdecl fileno(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -:  629:#endif
+        -:  630:  _CRTIMP char *__cdecl _tempnam(const char *_DirName,const char *_FilePrefix);
+        -:  631:  _CRTIMP int __cdecl _flushall(void);
+        -:  632:  FILE *__cdecl fopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  633:  FILE *fopen64(const char * __restrict__ filename,const char * __restrict__  mode);
+        -:  634:  int __cdecl fputc(int _Ch,FILE *_File);
+        -:  635:  _CRTIMP int __cdecl _fputchar(int _Ch);
+        -:  636:  int __cdecl fputs(const char * __restrict__ _Str,FILE * __restrict__ _File);
+        -:  637:  size_t __cdecl fread(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
+        -:  638:  FILE *__cdecl freopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode,FILE * __restrict__ _File) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  639:  int __cdecl fsetpos(FILE *_File,const fpos_t *_Pos);
+        -:  640:  int __cdecl fsetpos64(FILE *_File,const fpos_t *_Pos); /* fsetpos already 64bit */
+        -:  641:  int __cdecl fseek(FILE *_File,long _Offset,int _Origin);
+        -:  642:  long __cdecl ftell(FILE *_File);
+        -:  643:
+        -:  644:  /* Shouldn't be any fseeko32 in glibc, 32bit to 64bit casting should be fine */
+        -:  645:  /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
+        -:  646:  _CRTIMP int __cdecl _fseeki64(FILE *_File,__int64 _Offset,int _Origin);
+        -:  647:  _CRTIMP __int64 __cdecl _ftelli64(FILE *_File);
+        -:  648:#ifdef _UCRT
+        -:  649:  __mingw_static_ovr int fseeko(FILE *_File, _off_t _Offset, int _Origin) {
+        -:  650:    return fseek(_File, _Offset, _Origin);
+        -:  651:  }
+        -:  652:  __mingw_static_ovr int fseeko64(FILE *_File, _off64_t _Offset, int _Origin) {
+        -:  653:    return _fseeki64(_File, _Offset, _Origin);
+        -:  654:  }
+        -:  655:  __mingw_static_ovr _off_t ftello(FILE *_File) {
+        -:  656:    return ftell(_File);
+        -:  657:  }
+        -:  658:  __mingw_static_ovr _off64_t ftello64(FILE *_File) {
+        -:  659:    return _ftelli64(_File);
+        -:  660:  }
+        -:  661:#else
+        -:  662:  int fseeko64(FILE* stream, _off64_t offset, int whence);
+        -:  663:  int fseeko(FILE* stream, _off_t offset, int whence);
+        -:  664:  /* Returns truncated 64bit off_t */
+        -:  665:  _off_t ftello(FILE * stream);
+        -:  666:  _off64_t ftello64(FILE * stream);
+        -:  667:#endif
+        -:  668:
+        -:  669:#ifndef _FILE_OFFSET_BITS_SET_FSEEKO
+        -:  670:#define _FILE_OFFSET_BITS_SET_FSEEKO
+        -:  671:#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
+        -:  672:#define fseeko fseeko64
+        -:  673:#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
+        -:  674:#endif /* _FILE_OFFSET_BITS_SET_FSEEKO */
         -:  675:
-        -:  676:#ifndef _FILE_OFFSET_BITS_SET_FSEEKO
-        -:  677:#define _FILE_OFFSET_BITS_SET_FSEEKO
+        -:  676:#ifndef _FILE_OFFSET_BITS_SET_FTELLO
+        -:  677:#define _FILE_OFFSET_BITS_SET_FTELLO
         -:  678:#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-        -:  679:#define fseeko fseeko64
+        -:  679:#define ftello ftello64
         -:  680:#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
-        -:  681:#endif /* _FILE_OFFSET_BITS_SET_FSEEKO */
+        -:  681:#endif /* _FILE_OFFSET_BITS_SET_FTELLO */
         -:  682:
-        -:  683:#ifndef _FILE_OFFSET_BITS_SET_FTELLO
-        -:  684:#define _FILE_OFFSET_BITS_SET_FTELLO
-        -:  685:#if (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64))
-        -:  686:#define ftello ftello64
-        -:  687:#endif /* (defined(_FILE_OFFSET_BITS) && (_FILE_OFFSET_BITS == 64)) */
-        -:  688:#endif /* _FILE_OFFSET_BITS_SET_FTELLO */
-        -:  689:
-        -:  690:  size_t __cdecl fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
-        -:  691:  int __cdecl getc(FILE *_File);
-        -:  692:  int __cdecl getchar(void);
-        -:  693:  _CRTIMP int __cdecl _getmaxstdio(void);
-        -:  694:  char *__cdecl gets(char *_Buffer)
-        -:  695:    __attribute__((__warning__("Using gets() is always unsafe - use fgets() instead")));
-        -:  696:  int __cdecl _getw(FILE *_File);
-        -:  697:#ifndef _CRT_PERROR_DEFINED
-        -:  698:#define _CRT_PERROR_DEFINED
-        -:  699:  void __cdecl perror(const char *_ErrMsg);
-        -:  700:#endif
-        -:  701:#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
-        -:  702:  _CRTIMP int __cdecl _pclose(FILE *_File);
-        -:  703:  _CRTIMP FILE *__cdecl _popen(const char *_Command,const char *_Mode);
-        -:  704:#if !defined(NO_OLDNAMES) && !defined(popen)
-        -:  705:#define popen	_popen
-        -:  706:#define pclose	_pclose
-        -:  707:#endif
-        -:  708:#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-        -:  709:  int __cdecl putc(int _Ch,FILE *_File);
-        -:  710:  int __cdecl putchar(int _Ch);
-        -:  711:  int __cdecl puts(const char *_Str);
-        -:  712:  _CRTIMP int __cdecl _putw(int _Word,FILE *_File);
-        -:  713:#ifndef _CRT_DIRECTORY_DEFINED
-        -:  714:#define _CRT_DIRECTORY_DEFINED
-        -:  715:  int __cdecl remove(const char *_Filename);
-        -:  716:  int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
-        -:  717:  _CRTIMP int __cdecl _unlink(const char *_Filename);
-        -:  718:#ifndef	NO_OLDNAMES
-        -:  719:  int __cdecl unlink(const char *_Filename) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -:  720:#endif
-        -:  721:#endif
-        -:  722:  void __cdecl rewind(FILE *_File);
-        -:  723:  _CRTIMP int __cdecl _rmtmp(void);
-        -:  724:  void __cdecl setbuf(FILE * __restrict__ _File,char * __restrict__ _Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  725:  _CRTIMP int __cdecl _setmaxstdio(int _Max);
-        -:  726:  _CRTIMP unsigned int __cdecl _set_output_format(unsigned int _Format);
-        -:  727:  _CRTIMP unsigned int __cdecl _get_output_format(void);
-        -:  728:  int __cdecl setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
-        -:  729:#ifdef _UCRT
-        -:  730:  __mingw_ovr
-        -:  731:  __MINGW_ATTRIB_PURE
-        -:  732:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  733:  int __cdecl _scprintf(const char * __restrict__ _Format,...)
-        -:  734:  {
-        -:  735:    __builtin_va_list __ap;
-        -:  736:    int __ret;
-        -:  737:    __builtin_va_start(__ap, _Format);
-        -:  738:    __ret = __stdio_common_vsprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, __ap);
-        -:  739:    __builtin_va_end(__ap);
-        -:  740:    return __ret;
-        -:  741:  }
-        -:  742:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -:  743:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  744:  int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...)
-        -:  745:  {
-        -:  746:    __builtin_va_list __ap;
-        -:  747:    int __ret;
-        -:  748:    __builtin_va_start(__ap, _Format);
-        -:  749:    __ret = __stdio_common_vsscanf(0, _Src, _MaxCount, _Format, NULL, __ap);
-        -:  750:    __builtin_va_end(__ap);
-        -:  751:    return __ret;
-        -:  752:  }
-        -:  753:#else
-        -:  754:  __MINGW_ATTRIB_PURE
-        -:  755:  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
-        -:  756:  _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
-        -:  757:  __attribute__((__format__ (ms_scanf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  758:  _CRTIMP int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  759:#endif
-        -:  760:  __MINGW_ATTRIB_PURE
-        -:  761:  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
-        -:  762:  _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
-        -:  763:  FILE *__cdecl tmpfile(void) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  764:  char *__cdecl tmpnam(char *_Buffer);
-        -:  765:  int __cdecl ungetc(int _Ch,FILE *_File);
-        -:  766:
-        -:  767:#ifdef _UCRT
-        -:  768:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  769:  int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  770:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -:  771:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        2:  772:  int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...)
-        -:  773:  {
-        -:  774:    __builtin_va_list __ap;
-        -:  775:    int __ret;
-        2:  776:    __builtin_va_start(__ap, _Format);
-        2:  777:    __ret = _vsnprintf(_Dest, _Count, _Format, __ap);
-        2:  778:    __builtin_va_end(__ap);
-        2:  779:    return __ret;
-        -:  780:  }
-        -:  781:#else
-        -:  782:  __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  783:  _CRTIMP int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  784:  __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  785:  _CRTIMP int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  786:#endif
-        -:  787:
-        -:  788:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  789:
-        -:  790:char * __cdecl __gets_chk(char *, size_t);
-        -:  791:char * __cdecl __mingw_call_gets_warn(char *) __MINGW_ASM_CALL(gets)
-        -:  792:  __attribute__((__warning__("Using gets() is always unsafe - use fgets() instead")));
-        -:  793:char * __cdecl __mingw_call_fgets(char * __restrict__, int, FILE * __restrict__) __MINGW_ASM_CALL(fgets);
-        -:  794:size_t __cdecl __mingw_call_fread(void * __restrict__, size_t, size_t, FILE * __restrict__) __MINGW_ASM_CALL(fread);
-        -:  795:char * __cdecl __mingw_call_tmpnam(char *) __MINGW_ASM_CALL(tmpnam);
+        -:  683:  size_t __cdecl fwrite(const void * __restrict__ _Str,size_t _Size,size_t _Count,FILE * __restrict__ _File);
+        -:  684:  int __cdecl getc(FILE *_File);
+        -:  685:  int __cdecl getchar(void);
+        -:  686:  _CRTIMP int __cdecl _getmaxstdio(void);
+        -:  687:  char *__cdecl gets(char *_Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  688:  int __cdecl _getw(FILE *_File);
+        -:  689:#ifndef _CRT_PERROR_DEFINED
+        -:  690:#define _CRT_PERROR_DEFINED
+        -:  691:  void __cdecl perror(const char *_ErrMsg);
+        -:  692:#endif
+        -:  693:#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+        -:  694:  _CRTIMP int __cdecl _pclose(FILE *_File);
+        -:  695:  _CRTIMP FILE *__cdecl _popen(const char *_Command,const char *_Mode);
+        -:  696:#if !defined(NO_OLDNAMES) && !defined(popen)
+        -:  697:#define popen	_popen
+        -:  698:#define pclose	_pclose
+        -:  699:#endif
+        -:  700:#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+        -:  701:  int __cdecl putc(int _Ch,FILE *_File);
+        -:  702:  int __cdecl putchar(int _Ch);
+        -:  703:  int __cdecl puts(const char *_Str);
+        -:  704:  _CRTIMP int __cdecl _putw(int _Word,FILE *_File);
+        -:  705:#ifndef _CRT_DIRECTORY_DEFINED
+        -:  706:#define _CRT_DIRECTORY_DEFINED
+        -:  707:  int __cdecl remove(const char *_Filename);
+        -:  708:  int __cdecl rename(const char *_OldFilename,const char *_NewFilename);
+        -:  709:  _CRTIMP int __cdecl _unlink(const char *_Filename);
+        -:  710:#ifndef	NO_OLDNAMES
+        -:  711:  int __cdecl unlink(const char *_Filename) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -:  712:#endif
+        -:  713:#endif
+        -:  714:  void __cdecl rewind(FILE *_File);
+        -:  715:  _CRTIMP int __cdecl _rmtmp(void);
+        -:  716:  void __cdecl setbuf(FILE * __restrict__ _File,char * __restrict__ _Buffer) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  717:  _CRTIMP int __cdecl _setmaxstdio(int _Max);
+        -:  718:  _CRTIMP unsigned int __cdecl _set_output_format(unsigned int _Format);
+        -:  719:  _CRTIMP unsigned int __cdecl _get_output_format(void);
+        -:  720:  int __cdecl setvbuf(FILE * __restrict__ _File,char * __restrict__ _Buf,int _Mode,size_t _Size);
+        -:  721:#ifdef _UCRT
+        -:  722:  __mingw_ovr
+        -:  723:  __MINGW_ATTRIB_PURE
+        -:  724:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  725:  int __cdecl _scprintf(const char * __restrict__ _Format,...)
+        -:  726:  {
+        -:  727:    __builtin_va_list __ap;
+        -:  728:    int __ret;
+        -:  729:    __builtin_va_start(__ap, _Format);
+        -:  730:    __ret = __stdio_common_vsprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, __ap);
+        -:  731:    __builtin_va_end(__ap);
+        -:  732:    return __ret;
+        -:  733:  }
+        -:  734:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -:  735:  __attribute__((__format__ (__MINGW_SCANF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  736:  int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...)
+        -:  737:  {
+        -:  738:    __builtin_va_list __ap;
+        -:  739:    int __ret;
+        -:  740:    __builtin_va_start(__ap, _Format);
+        -:  741:    __ret = __stdio_common_vsscanf(0, _Src, _MaxCount, _Format, NULL, __ap);
+        -:  742:    __builtin_va_end(__ap);
+        -:  743:    return __ret;
+        -:  744:  }
+        -:  745:#else
+        -:  746:  __MINGW_ATTRIB_PURE
+        -:  747:  __attribute__((__format__ (ms_printf, 1, 2))) __MINGW_ATTRIB_NONNULL(1)
+        -:  748:  _CRTIMP int __cdecl _scprintf(const char * __restrict__ _Format,...);
+        -:  749:  __attribute__((__format__ (ms_scanf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  750:  _CRTIMP int __cdecl _snscanf(const char * __restrict__ _Src,size_t _MaxCount,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  751:#endif
+        -:  752:  __MINGW_ATTRIB_PURE
+        -:  753:  __attribute__((__format__ (ms_printf, 1, 0))) __MINGW_ATTRIB_NONNULL(1)
+        -:  754:  _CRTIMP int __cdecl _vscprintf(const char * __restrict__ _Format,va_list _ArgList);
+        -:  755:  FILE *__cdecl tmpfile(void) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  756:  char *__cdecl tmpnam(char *_Buffer);
+        -:  757:  int __cdecl ungetc(int _Ch,FILE *_File);
+        -:  758:
+        -:  759:#ifdef _UCRT
+        -:  760:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  761:  int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  762:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -:  763:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        6:  764:  int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...)
+        -:  765:  {
+        -:  766:    __builtin_va_list __ap;
+        -:  767:    int __ret;
+        6:  768:    __builtin_va_start(__ap, _Format);
+        6:  769:    __ret = _vsnprintf(_Dest, _Count, _Format, __ap);
+        6:  770:    __builtin_va_end(__ap);
+        6:  771:    return __ret;
+        -:  772:  }
+        -:  773:#else
+        -:  774:  __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  775:  _CRTIMP int __cdecl _snprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  776:  __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  777:  _CRTIMP int __cdecl _vsnprintf(char * __restrict__ _Dest,size_t _Count,const char * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  778:#endif
+        -:  779:
+        -:  780:#if __MINGW_FORTIFY_LEVEL > 0
+        -:  781:
+        -:  782:char * __cdecl __gets_chk(char *, size_t);
+        -:  783:char * __cdecl __mingw_call_gets_warn(char *) __MINGW_ASM_CALL(gets)
+        -:  784:  __attribute__((__warning__("Using gets() is always unsafe - use fgets() instead")));
+        -:  785:char * __cdecl __mingw_call_fgets(char * __restrict__, int, FILE * __restrict__) __MINGW_ASM_CALL(fgets);
+        -:  786:size_t __cdecl __mingw_call_fread(void * __restrict__, size_t, size_t, FILE * __restrict__) __MINGW_ASM_CALL(fread);
+        -:  787:char * __cdecl __mingw_call_tmpnam(char *) __MINGW_ASM_CALL(tmpnam);
+        -:  788:
+        -:  789:__mingw_bos_extern_ovr
+        -:  790:char * gets(char * __dst)
+        -:  791:{
+        -:  792:  if (__mingw_bos_known(__dst))
+        -:  793:    return __gets_chk(__dst, __mingw_bos(__dst, 1));
+        -:  794:  return __mingw_call_gets_warn(__dst);
+        -:  795:}
         -:  796:
         -:  797:__mingw_bos_extern_ovr
-        -:  798:char * gets(char * __dst)
+        -:  798:char * fgets(char * __restrict__ __dst, int __n, FILE * __restrict__ __f)
         -:  799:{
-        -:  800:  if (__mingw_bos_known(__dst))
-        -:  801:    return __gets_chk(__dst, __mingw_bos(__dst, 1));
-        -:  802:  return __mingw_call_gets_warn(__dst);
-        -:  803:}
-        -:  804:
-        -:  805:__mingw_bos_extern_ovr
-        -:  806:char * fgets(char * __restrict__ __dst, int __n, FILE * __restrict__ __f)
-        -:  807:{
-        -:  808:  __mingw_bos_ptr_chk_warn(__dst, __n, 1);
-        -:  809:  return __mingw_call_fgets(__dst, __n, __f);
-        -:  810:}
-        -:  811:
-        -:  812:__mingw_bos_extern_ovr
-        -:  813:size_t fread(void * __restrict__ __dst, size_t __sz, size_t __n, FILE * __restrict__ __f)
-        -:  814:{
-        -:  815:  __mingw_bos_ptr_chk_warn(__dst, __sz * __n, 0);
-        -:  816:  return __mingw_call_fread(__dst, __sz, __n, __f);
-        -:  817:}
-        -:  818:
-        -:  819:__mingw_bos_extern_ovr
-        -:  820:char * tmpnam(char * __dst)
-        -:  821:{
-        -:  822:  __mingw_bos_ptr_chk_warn(__dst, L_tmpnam, 1);
-        -:  823:  return __mingw_call_tmpnam(__dst);
-        -:  824:}
-        -:  825:
-        -:  826:#endif /* __MINGW_FORTIFY_LEVEL > 0 */
-        -:  827:
-        -:  828:#if __USE_MINGW_ANSI_STDIO == 0
+        -:  800:  __mingw_bos_ptr_chk_warn(__dst, __n, 1);
+        -:  801:  return __mingw_call_fgets(__dst, __n, __f);
+        -:  802:}
+        -:  803:
+        -:  804:__mingw_bos_extern_ovr
+        -:  805:size_t fread(void * __restrict__ __dst, size_t __sz, size_t __n, FILE * __restrict__ __f)
+        -:  806:{
+        -:  807:  __mingw_bos_ptr_chk_warn(__dst, __sz * __n, 0);
+        -:  808:  return __mingw_call_fread(__dst, __sz, __n, __f);
+        -:  809:}
+        -:  810:
+        -:  811:__mingw_bos_extern_ovr
+        -:  812:char * tmpnam(char * __dst)
+        -:  813:{
+        -:  814:  __mingw_bos_ptr_chk_warn(__dst, L_tmpnam, 1);
+        -:  815:  return __mingw_call_tmpnam(__dst);
+        -:  816:}
+        -:  817:
+        -:  818:#endif /* __MINGW_FORTIFY_LEVEL > 0 */
+        -:  819:
+        -:  820:#if __USE_MINGW_ANSI_STDIO == 0
+        -:  821:
+        -:  822:#ifdef _UCRT
+        -:  823:#ifdef __GNUC__
+        -:  824:#pragma GCC diagnostic push
+        -:  825:#pragma GCC diagnostic ignored "-Wshadow"
+        -:  826:#endif
+        -:  827:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  828:  int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv);
         -:  829:
-        -:  830:#ifdef _UCRT
-        -:  831:#ifdef __GNUC__
-        -:  832:#pragma GCC diagnostic push
-        -:  833:#pragma GCC diagnostic ignored "-Wshadow"
+        -:  830:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  831:  int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...);
+        -:  832:#ifdef __GNUC__
+        -:  833:#pragma GCC diagnostic pop
         -:  834:#endif
-        -:  835:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  836:  int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv);
-        -:  837:
-        -:  838:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  839:  int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...);
-        -:  840:
-        -:  841:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  842:
-        -:  843:  int __cdecl __mingw_call_vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, va_list __local_argv) __MINGW_ASM_CALL(vsprintf);
-        -:  844:  int __cdecl __mingw_call_vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv) __MINGW_ASM_CALL(vsnprintf);
-        -:  845:
-        -:  846:  __mingw_bos_extern_ovr
-        -:  847:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  848:  int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, va_list __local_argv)
-        -:  849:  {
-        -:  850:    if (__mingw_bos_known(__stream)) {
-        -:  851:      int __retval = __mingw_call_vsnprintf (__stream, __mingw_bos(__stream, 1), __format, __local_argv);
-        -:  852:      if (__retval >= 0)
-        -:  853:        __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
-        -:  854:      return __retval;
-        -:  855:    }
-        -:  856:    return __mingw_call_vsprintf(__stream, __format, __local_argv);
-        -:  857:  }
-        -:  858:
-        -:  859:  __mingw_bos_extern_ovr
-        -:  860:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  861:  int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv)
-        -:  862:  {
-        -:  863:    __mingw_bos_ptr_chk_warn(__stream, __n, 1);
-        -:  864:    return __mingw_call_vsnprintf (__stream, __n, __format, __local_argv);
-        -:  865:  }
+        -:  835:#else
+        -:  836:
+        -:  837:/* this is here to deal with software defining
+        -:  838: * vsnprintf as _vsnprintf, eg. libxml2.  */
+        -:  839:
+        -:  840:#ifdef __GNUC__
+        -:  841:#pragma GCC diagnostic push
+        -:  842:#pragma GCC diagnostic ignored "-Wshadow"
+        -:  843:#endif
+        -:  844:
+        -:  845:  __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  846:  int __cdecl __ms_vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
+        -:  847:    __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -:  848:
+        -:  849:  __mingw_bos_ovr
+        -:  850:  __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
+        -:  851:  int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv)
+        -:  852:  {
+        -:  853:#if __MINGW_FORTIFY_LEVEL > 0
+        -:  854:    __mingw_bos_ptr_chk_warn(__stream, __n, 1);
+        -:  855:#endif
+        -:  856:    if (__builtin_constant_p(__n) && __n == 0)
+        -:  857:      return _vscprintf(__format, __local_argv);
+        -:  858:    return __ms_vsnprintf (__stream, __n, __format, __local_argv);
+        -:  859:  }
+        -:  860:
+        -:  861:  __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  862:  int __cdecl __ms_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
+        -:  863:
+        -:  864:#ifndef __NO_ISOCEXT
+        -:  865:#if __MINGW_FORTIFY_VA_ARG
         -:  866:
-        -:  867:#endif /* __MINGW_FORTIFY_LEVEL > 0 */
-        -:  868:
-        -:  869:#if __MINGW_FORTIFY_VA_ARG
-        -:  870:
-        -:  871:  int __cdecl __mingw_call_sprintf (char * __restrict__ __stream, const char * __restrict__ __Format, ...) __MINGW_ASM_CALL(sprintf);
-        -:  872:  int __cdecl __mingw_call_snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...) __MINGW_ASM_CALL(snprintf);
-        -:  873:
-        -:  874:  __mingw_bos_extern_ovr
-        -:  875:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  876:  int sprintf (char * __restrict__ __stream, const char * __restrict__ __format, ...)
-        -:  877:  {
-        -:  878:    if (__mingw_bos_known(__stream)) {
-        -:  879:      int __retval = __mingw_call_snprintf (__stream, __mingw_bos(__stream, 1), __format, __builtin_va_arg_pack());
-        -:  880:      if (__retval >= 0)
-        -:  881:        __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
-        -:  882:      return __retval;
-        -:  883:    }
-        -:  884:    return __mingw_call_sprintf (__stream, __format, __builtin_va_arg_pack());
-        -:  885:  }
-        -:  886:
-        -:  887:  __mingw_bos_extern_ovr
-        -:  888:  __attribute__((__format__ (__MINGW_PRINTF_FORMAT, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  889:  int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
-        -:  890:  {
-        -:  891:    __mingw_bos_ptr_chk_warn(__stream, __n, 1);
-        -:  892:    return __mingw_call_snprintf (__stream, __n, __format, __builtin_va_arg_pack());
-        -:  893:  }
-        -:  894:
-        -:  895:#endif /* __MINGW_FORTIFY_VA_ARG */
-        -:  896:
-        -:  897:#ifdef __GNUC__
-        -:  898:#pragma GCC diagnostic pop
-        -:  899:#endif
-        -:  900:#else /* !_UCRT */
-        -:  901:
-        -:  902:/* this is here to deal with software defining
-        -:  903: * vsnprintf as _vsnprintf, eg. libxml2.  */
-        -:  904:
-        -:  905:#ifdef __GNUC__
-        -:  906:#pragma GCC diagnostic push
-        -:  907:#pragma GCC diagnostic ignored "-Wshadow"
-        -:  908:#endif
-        -:  909:
-        -:  910:  __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  911:  int __cdecl __ms_vsnprintf(char * __restrict__ d,size_t n,const char * __restrict__ format,va_list arg)
-        -:  912:    __MINGW_ATTRIB_DEPRECATED_MSVC2005 __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -:  913:
-        -:  914:  __mingw_bos_ovr
-        -:  915:  __attribute__((__format__ (ms_printf, 3, 0))) __MINGW_ATTRIB_NONNULL(3)
-        -:  916:  int vsnprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, va_list __local_argv)
-        -:  917:  {
-        -:  918:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  919:    __mingw_bos_ptr_chk_warn(__stream, __n, 1);
-        -:  920:#endif
-        -:  921:    if (__builtin_constant_p(__n) && __n == 0)
-        -:  922:      return _vscprintf(__format, __local_argv);
-        -:  923:    return __ms_vsnprintf (__stream, __n, __format, __local_argv);
-        -:  924:  }
-        -:  925:
-        -:  926:  __attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  927:  int __cdecl __ms_snprintf(char * __restrict__ s, size_t n, const char * __restrict__  format, ...);
-        -:  928:
-        -:  929:#ifndef __NO_ISOCEXT
-        -:  930:#if __MINGW_FORTIFY_VA_ARG
+        -:  867:__mingw_bos_ovr
+        -:  868:__attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  869:int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
+        -:  870:{
+        -:  871:  __mingw_bos_ptr_chk_warn(__stream, __n, 1);
+        -:  872:  if (__builtin_constant_p(__n) && __n == 0)
+        -:  873:    return _scprintf(__format, __builtin_va_arg_pack());
+        -:  874:  return __ms_snprintf(__stream, __n, __format, __builtin_va_arg_pack());
+        -:  875:}
+        -:  876:
+        -:  877:#else /* !__MINGW_FORTIFY_VA_ARG */
+        -:  878:
+        -:  879:__mingw_ovr
+        -:  880:__attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
+        -:  881:int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
+        -:  882:{
+        -:  883:  int __retval;
+        -:  884:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -:  885:  if (__builtin_constant_p(__n) && __n == 0)
+        -:  886:    __retval = _vscprintf(__format, __local_argv);
+        -:  887:  else
+        -:  888:    __retval = __ms_vsnprintf (__stream, __n, __format, __local_argv);
+        -:  889:  __builtin_va_end( __local_argv );
+        -:  890:  return __retval;
+        -:  891:}
+        -:  892:
+        -:  893:#endif /* !__MINGW_FORTIFY_VA_ARG */
+        -:  894:#endif /* !__NO_ISOCEXT */
+        -:  895:
+        -:  896:#if __MINGW_FORTIFY_VA_ARG
+        -:  897:
+        -:  898:int __cdecl __mingw_call_ms_sprintf(char * __restrict__, const char * __restrict__, ...) __MINGW_ASM_CALL(sprintf);
+        -:  899:
+        -:  900:__mingw_bos_extern_ovr
+        -:  901:__attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
+        -:  902:int sprintf (char * __restrict__ __stream, const char * __restrict__ __format, ...)
+        -:  903:{
+        -:  904:  if (__mingw_bos_known(__stream)) {
+        -:  905:    int __retval = __ms_snprintf( __stream, __mingw_bos(__stream, 1), __format, __builtin_va_arg_pack() );
+        -:  906:    if (__retval >= 0)
+        -:  907:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
+        -:  908:    return __retval;
+        -:  909:  }
+        -:  910:  return __mingw_call_ms_sprintf( __stream, __format, __builtin_va_arg_pack() );
+        -:  911:}
+        -:  912:
+        -:  913:#endif /* __MINGW_FORTIFY_VA_ARG */
+        -:  914:
+        -:  915:#if __MINGW_FORTIFY_LEVEL > 0
+        -:  916:
+        -:  917:int __cdecl __mingw_call_ms_vsprintf(char * __restrict__, const char * __restrict__, va_list) __MINGW_ASM_CALL(vsprintf);
+        -:  918:
+        -:  919:__mingw_bos_extern_ovr
+        -:  920:__attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
+        -:  921:int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, va_list __local_argv)
+        -:  922:{
+        -:  923:  if (__mingw_bos_known(__stream)) {
+        -:  924:    int __retval = __ms_vsnprintf( __stream, __mingw_bos(__stream, 1), __format, __local_argv );
+        -:  925:    if (__retval >= 0)
+        -:  926:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
+        -:  927:    return __retval;
+        -:  928:  }
+        -:  929:  return __mingw_call_ms_vsprintf( __stream, __format, __local_argv );
+        -:  930:}
         -:  931:
-        -:  932:int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...) __MINGW_ASM_CALL(__ms_snprintf);
+        -:  932:#endif /* __MINGW_FORTIFY_LEVEL > 0 */
         -:  933:
-        -:  934:__mingw_bos_extern_ovr
-        -:  935:__attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  936:int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
-        -:  937:{
-        -:  938:  __mingw_bos_ptr_chk_warn(__stream, __n, 1);
-        -:  939:  if (__builtin_constant_p(__n) && __n == 0)
-        -:  940:    return _scprintf(__format, __builtin_va_arg_pack());
-        -:  941:  return __ms_snprintf(__stream, __n, __format, __builtin_va_arg_pack());
-        -:  942:}
-        -:  943:
-        -:  944:#else /* !__MINGW_FORTIFY_VA_ARG */
+        -:  934:#ifdef __GNUC__
+        -:  935:#pragma GCC diagnostic pop
+        -:  936:#endif
+        -:  937:#endif /* _UCRT */
+        -:  938:#endif /* __USE_MINGW_ANSI_STDIO */
+        -:  939:
+        -:  940:  _CRTIMP int __cdecl _set_printf_count_output(int _Value);
+        -:  941:  _CRTIMP int __cdecl _get_printf_count_output(void);
+        -:  942:
+        -:  943:#ifndef _WSTDIO_DEFINED
+        -:  944:#define _WSTDIO_DEFINED
         -:  945:
-        -:  946:__mingw_ovr
-        -:  947:__attribute__((__format__ (ms_printf, 3, 4))) __MINGW_ATTRIB_NONNULL(3)
-        -:  948:int snprintf (char * __restrict__ __stream, size_t __n, const char * __restrict__ __format, ...)
-        -:  949:{
-        -:  950:  int __retval;
-        -:  951:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -:  952:  if (__builtin_constant_p(__n) && __n == 0)
-        -:  953:    __retval = _vscprintf(__format, __local_argv);
-        -:  954:  else
-        -:  955:    __retval = __ms_vsnprintf (__stream, __n, __format, __local_argv);
-        -:  956:  __builtin_va_end( __local_argv );
-        -:  957:  return __retval;
-        -:  958:}
-        -:  959:
-        -:  960:#endif /* !__MINGW_FORTIFY_VA_ARG */
-        -:  961:#endif /* !__NO_ISOCEXT */
-        -:  962:
-        -:  963:#if __MINGW_FORTIFY_VA_ARG
-        -:  964:
-        -:  965:int __cdecl __mingw_call_ms_sprintf(char * __restrict__, const char * __restrict__, ...) __MINGW_ASM_CALL(sprintf);
-        -:  966:
-        -:  967:__mingw_bos_extern_ovr
-        -:  968:__attribute__((__format__ (ms_printf, 2, 3))) __MINGW_ATTRIB_NONNULL(2)
-        -:  969:int sprintf (char * __restrict__ __stream, const char * __restrict__ __format, ...)
-        -:  970:{
-        -:  971:  if (__mingw_bos_known(__stream)) {
-        -:  972:    int __retval = __ms_snprintf( __stream, __mingw_bos(__stream, 1), __format, __builtin_va_arg_pack() );
-        -:  973:    if (__retval >= 0)
-        -:  974:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
-        -:  975:    return __retval;
-        -:  976:  }
-        -:  977:  return __mingw_call_ms_sprintf( __stream, __format, __builtin_va_arg_pack() );
-        -:  978:}
-        -:  979:
-        -:  980:#endif /* __MINGW_FORTIFY_VA_ARG */
-        -:  981:
-        -:  982:#if __MINGW_FORTIFY_LEVEL > 0
-        -:  983:
-        -:  984:int __cdecl __mingw_call_ms_vsprintf(char * __restrict__, const char * __restrict__, va_list) __MINGW_ASM_CALL(vsprintf);
-        -:  985:
-        -:  986:__mingw_bos_extern_ovr
-        -:  987:__attribute__((__format__ (ms_printf, 2, 0))) __MINGW_ATTRIB_NONNULL(2)
-        -:  988:int vsprintf (char * __restrict__ __stream, const char * __restrict__ __format, va_list __local_argv)
-        -:  989:{
-        -:  990:  if (__mingw_bos_known(__stream)) {
-        -:  991:    int __retval = __ms_vsnprintf( __stream, __mingw_bos(__stream, 1), __format, __local_argv );
-        -:  992:    if (__retval >= 0)
-        -:  993:      __mingw_bos_ptr_chk(__stream, (size_t)__retval + 1, 1);
-        -:  994:    return __retval;
-        -:  995:  }
-        -:  996:  return __mingw_call_ms_vsprintf( __stream, __format, __local_argv );
-        -:  997:}
-        -:  998:
-        -:  999:#endif /* __MINGW_FORTIFY_LEVEL > 0 */
-        -: 1000:
-        -: 1001:#ifdef __GNUC__
-        -: 1002:#pragma GCC diagnostic pop
-        -: 1003:#endif
-        -: 1004:#endif /* _UCRT */
-        -: 1005:#endif /* __USE_MINGW_ANSI_STDIO */
-        -: 1006:
-        -: 1007:  _CRTIMP int __cdecl _set_printf_count_output(int _Value);
-        -: 1008:  _CRTIMP int __cdecl _get_printf_count_output(void);
-        -: 1009:
-        -: 1010:#ifndef _WSTDIO_DEFINED
-        -: 1011:#define _WSTDIO_DEFINED
-        -: 1012:
-        -: 1013:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1014:  int __cdecl __mingw_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
-        -: 1015:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1016:  int __cdecl __mingw_vswscanf (const wchar_t * __restrict__ _Str,const wchar_t * __restrict__ Format,va_list argp);
-        -: 1017:/* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1018:  int __cdecl __mingw_wscanf(const wchar_t * __restrict__ _Format,...);
-        -: 1019:/* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1020:  int __cdecl __mingw_vwscanf(const wchar_t * __restrict__ Format, va_list argp);
-        -: 1021:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1022:  int __cdecl __mingw_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-        -: 1023:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1024:  int __cdecl __mingw_vfwscanf (FILE * __restrict__ fp, const wchar_t * __restrict__ Format,va_list argp);
-        -: 1025:
-        -: 1026:/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1027:  int __cdecl __mingw_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-        -: 1028:/* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1029:  int __cdecl __mingw_wprintf(const wchar_t * __restrict__ _Format,...);
-        -: 1030:/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */__MINGW_ATTRIB_NONNULL(2)
-        -: 1031:  int __cdecl __mingw_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1032:/*__attribute__((__format__ (gnu_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1033:  int __cdecl __mingw_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1034:/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
-        -: 1035:  int __cdecl __mingw_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
-        -: 1036:/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
-        -: 1037:  int __cdecl __mingw_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
-        -: 1038:/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1039:  int __cdecl __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-        -: 1040:/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1041:  int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
-        -: 1042:
-        -: 1043:/* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1044:  int __cdecl __ms_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
-        -: 1045:/* __attribute__((__format__ (ms_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1046:  int __cdecl __ms_wscanf(const wchar_t * __restrict__ _Format,...);
-        -: 1047:/* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1048:  int __cdecl __ms_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-        -: 1049:
-        -: 1050:/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1051:  int __cdecl __ms_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-        -: 1052:/* __attribute__((__format__ (ms_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1053:  int __cdecl __ms_wprintf(const wchar_t * __restrict__ _Format,...);
-        -: 1054:/* __attribute__((__format__ (ms_wprintf, 2, 0))) */__MINGW_ATTRIB_NONNULL(2)
-        -: 1055:  int __cdecl __ms_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1056:/*__attribute__((__format__ (ms_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1057:  int __cdecl __ms_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1058:/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1059:  int __cdecl __ms_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-        -: 1060:/* __attribute__((__format__ (ms_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1061:  int __cdecl __ms_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
-        -: 1062:
-        -: 1063:#ifdef _UCRT
-        -: 1064:  int __cdecl __stdio_common_vswprintf(unsigned __int64 options, wchar_t *str, size_t len, const wchar_t *format, _locale_t locale, va_list valist);
-        -: 1065:  int __cdecl __stdio_common_vfwprintf(unsigned __int64 options, FILE *file, const wchar_t *format, _locale_t locale, va_list valist);
-        -: 1066:  int __cdecl __stdio_common_vswscanf(unsigned __int64 options, const wchar_t *input, size_t length, const wchar_t *format, _locale_t locale, va_list valist);
-        -: 1067:  int __cdecl __stdio_common_vfwscanf(unsigned __int64 options, FILE *file, const wchar_t *format, _locale_t locale, va_list valist);
-        -: 1068:#endif
-        -: 1069:
-        -: 1070:#if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
-        -: 1071:/*
-        -: 1072: * User has expressed a preference for C99 conformance...
-        -: 1073: */
-        -: 1074:
-        -: 1075:__mingw_ovr
-        -: 1076:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1077:int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
-        -: 1078:{
-        -: 1079:  int __retval;
-        -: 1080:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -: 1081:  __retval = __mingw_vswscanf( __source, __format, __local_argv );
-        -: 1082:  __builtin_va_end( __local_argv );
-        -: 1083:  return __retval;
-        -: 1084:}
-        -: 1085:
-        -: 1086:__mingw_ovr
-        -: 1087:/* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1088:int wscanf(const wchar_t *__format, ...)
-        -: 1089:{
-        -: 1090:  int __retval;
-        -: 1091:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -: 1092:  __retval = __mingw_vfwscanf( stdin, __format, __local_argv );
-        -: 1093:  __builtin_va_end( __local_argv );
-        -: 1094:  return __retval;
-        -: 1095:}
-        -: 1096:
-        -: 1097:__mingw_ovr
-        -: 1098:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1099:int fwscanf(FILE *__stream, const wchar_t *__format, ...)
-        -: 1100:{
-        -: 1101:  int __retval;
-        -: 1102:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -: 1103:  __retval = __mingw_vfwscanf( __stream, __format, __local_argv );
-        -: 1104:  __builtin_va_end( __local_argv );
-        -: 1105:  return __retval;
-        -: 1106:}
-        -: 1107:
-        -: 1108:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-        -: 1109:__mingw_ovr
-        -: 1110:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1111:int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, __builtin_va_list __local_argv)
-        -: 1112:{
-        -: 1113:  return __mingw_vswscanf( __source, __format, __local_argv );
-        -: 1114:}
+        -:  946:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  947:  int __cdecl __mingw_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+        -:  948:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  949:  int __cdecl __mingw_vswscanf (const wchar_t * __restrict__ _Str,const wchar_t * __restrict__ Format,va_list argp);
+        -:  950:/* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  951:  int __cdecl __mingw_wscanf(const wchar_t * __restrict__ _Format,...);
+        -:  952:/* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  953:  int __cdecl __mingw_vwscanf(const wchar_t * __restrict__ Format, va_list argp);
+        -:  954:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  955:  int __cdecl __mingw_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+        -:  956:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  957:  int __cdecl __mingw_vfwscanf (FILE * __restrict__ fp, const wchar_t * __restrict__ Format,va_list argp);
+        -:  958:
+        -:  959:/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  960:  int __cdecl __mingw_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+        -:  961:/* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  962:  int __cdecl __mingw_wprintf(const wchar_t * __restrict__ _Format,...);
+        -:  963:/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */__MINGW_ATTRIB_NONNULL(2)
+        -:  964:  int __cdecl __mingw_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -:  965:/*__attribute__((__format__ (gnu_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  966:  int __cdecl __mingw_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -:  967:/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+        -:  968:  int __cdecl __mingw_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
+        -:  969:/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+        -:  970:  int __cdecl __mingw_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
+        -:  971:/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  972:  int __cdecl __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
+        -:  973:/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  974:  int __cdecl __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
+        -:  975:
+        -:  976:/* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  977:  int __cdecl __ms_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
+        -:  978:/* __attribute__((__format__ (ms_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  979:  int __cdecl __ms_wscanf(const wchar_t * __restrict__ _Format,...);
+        -:  980:/* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  981:  int __cdecl __ms_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+        -:  982:
+        -:  983:/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  984:  int __cdecl __ms_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+        -:  985:/* __attribute__((__format__ (ms_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  986:  int __cdecl __ms_wprintf(const wchar_t * __restrict__ _Format,...);
+        -:  987:/* __attribute__((__format__ (ms_wprintf, 2, 0))) */__MINGW_ATTRIB_NONNULL(2)
+        -:  988:  int __cdecl __ms_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -:  989:/*__attribute__((__format__ (ms_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
+        -:  990:  int __cdecl __ms_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -:  991:/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  992:  int __cdecl __ms_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
+        -:  993:/* __attribute__((__format__ (ms_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -:  994:  int __cdecl __ms_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
+        -:  995:
+        -:  996:#ifdef _UCRT
+        -:  997:  int __cdecl __stdio_common_vswprintf(unsigned __int64 options, wchar_t *str, size_t len, const wchar_t *format, _locale_t locale, va_list valist);
+        -:  998:  int __cdecl __stdio_common_vfwprintf(unsigned __int64 options, FILE *file, const wchar_t *format, _locale_t locale, va_list valist);
+        -:  999:  int __cdecl __stdio_common_vswscanf(unsigned __int64 options, const wchar_t *input, size_t length, const wchar_t *format, _locale_t locale, va_list valist);
+        -: 1000:  int __cdecl __stdio_common_vfwscanf(unsigned __int64 options, FILE *file, const wchar_t *format, _locale_t locale, va_list valist);
+        -: 1001:#endif
+        -: 1002:
+        -: 1003:#if __USE_MINGW_ANSI_STDIO && !defined(_CRTBLD)
+        -: 1004:/*
+        -: 1005: * User has expressed a preference for C99 conformance...
+        -: 1006: */
+        -: 1007:
+        -: 1008:__mingw_ovr
+        -: 1009:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -: 1010:int swscanf(const wchar_t *__source, const wchar_t *__format, ...)
+        -: 1011:{
+        -: 1012:  int __retval;
+        -: 1013:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -: 1014:  __retval = __mingw_vswscanf( __source, __format, __local_argv );
+        -: 1015:  __builtin_va_end( __local_argv );
+        -: 1016:  return __retval;
+        -: 1017:}
+        -: 1018:
+        -: 1019:__mingw_ovr
+        -: 1020:/* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
+        -: 1021:int wscanf(const wchar_t *__format, ...)
+        -: 1022:{
+        -: 1023:  int __retval;
+        -: 1024:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -: 1025:  __retval = __mingw_vfwscanf( stdin, __format, __local_argv );
+        -: 1026:  __builtin_va_end( __local_argv );
+        -: 1027:  return __retval;
+        -: 1028:}
+        -: 1029:
+        -: 1030:__mingw_ovr
+        -: 1031:/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -: 1032:int fwscanf(FILE *__stream, const wchar_t *__format, ...)
+        -: 1033:{
+        -: 1034:  int __retval;
+        -: 1035:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -: 1036:  __retval = __mingw_vfwscanf( __stream, __format, __local_argv );
+        -: 1037:  __builtin_va_end( __local_argv );
+        -: 1038:  return __retval;
+        -: 1039:}
+        -: 1040:
+        -: 1041:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -: 1042:__mingw_ovr
+        -: 1043:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -: 1044:int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, __builtin_va_list __local_argv)
+        -: 1045:{
+        -: 1046:  return __mingw_vswscanf( __source, __format, __local_argv );
+        -: 1047:}
+        -: 1048:
+        -: 1049:__mingw_ovr
+        -: 1050:/* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
+        -: 1051:int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
+        -: 1052:{
+        -: 1053:  return __mingw_vfwscanf( stdin, __format, __local_argv );
+        -: 1054:}
+        -: 1055:
+        -: 1056:__mingw_ovr
+        -: 1057:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -: 1058:int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
+        -: 1059:{
+        -: 1060:  return __mingw_vfwscanf( __stream, __format, __local_argv );
+        -: 1061:}
+        -: 1062:#endif /* __NO_ISOCEXT */
+        -: 1063:
+        -: 1064:
+        -: 1065:
+        -: 1066:__mingw_ovr
+        -: 1067:/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
+        -: 1068:int fwprintf (FILE *__stream, const wchar_t *__format, ...)
+        -: 1069:{
+        -: 1070:  int __retval;
+        -: 1071:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -: 1072:  __retval = __mingw_vfwprintf( __stream, __format, __local_argv );
+        -: 1073:  __builtin_va_end( __local_argv );
+        -: 1074:  return __retval;
+        -: 1075:}
+        -: 1076:
+        -: 1077:__mingw_ovr
+        -: 1078:/* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
+        -: 1079:int wprintf (const wchar_t *__format, ...)
+        -: 1080:{
+        -: 1081:  int __retval;
+        -: 1082:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -: 1083:  __retval = __mingw_vfwprintf( stdout, __format, __local_argv );
+        -: 1084:  __builtin_va_end( __local_argv );
+        -: 1085:  return __retval;
+        -: 1086:}
+        -: 1087:
+        -: 1088:__mingw_ovr
+        -: 1089:/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
+        -: 1090:int vfwprintf (FILE *__stream, const wchar_t *__format, __builtin_va_list __local_argv)
+        -: 1091:{
+        -: 1092:  return __mingw_vfwprintf( __stream, __format, __local_argv );
+        -: 1093:}
+        -: 1094:
+        -: 1095:__mingw_ovr
+        -: 1096:/* __attribute__((__format__ (gnu_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
+        -: 1097:int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
+        -: 1098:{
+        -: 1099:  return __mingw_vfwprintf( stdout, __format, __local_argv );
+        -: 1100:}
+        -: 1101:
+        -: 1102:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -: 1103:
+        -: 1104:#if __MINGW_FORTIFY_VA_ARG
+        -: 1105:
+        -: 1106:__mingw_bos_ovr
+        -: 1107:/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+        -: 1108:int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
+        -: 1109:{
+        -: 1110:  __mingw_bos_ptr_chk_warn(__stream, __n * sizeof(wchar_t), 1);
+        -: 1111:  return __mingw_snwprintf( __stream, __n, __format, __builtin_va_arg_pack() );
+        -: 1112:}
+        -: 1113:
+        -: 1114:#else /* !__MINGW_FORTIFY_VA_ARG */
         -: 1115:
         -: 1116:__mingw_ovr
-        -: 1117:/* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1118:int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
+        -: 1117:/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
+        -: 1118:int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
         -: 1119:{
-        -: 1120:  return __mingw_vfwscanf( stdin, __format, __local_argv );
-        -: 1121:}
-        -: 1122:
-        -: 1123:__mingw_ovr
-        -: 1124:/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1125:int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
-        -: 1126:{
-        -: 1127:  return __mingw_vfwscanf( __stream, __format, __local_argv );
-        -: 1128:}
-        -: 1129:#endif /* __NO_ISOCEXT */
-        -: 1130:
-        -: 1131:
-        -: 1132:
-        -: 1133:__mingw_ovr
-        -: 1134:/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1135:int fwprintf (FILE *__stream, const wchar_t *__format, ...)
-        -: 1136:{
-        -: 1137:  int __retval;
-        -: 1138:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -: 1139:  __retval = __mingw_vfwprintf( __stream, __format, __local_argv );
-        -: 1140:  __builtin_va_end( __local_argv );
-        -: 1141:  return __retval;
-        -: 1142:}
-        -: 1143:
-        -: 1144:__mingw_ovr
-        -: 1145:/* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1146:int wprintf (const wchar_t *__format, ...)
-        -: 1147:{
-        -: 1148:  int __retval;
-        -: 1149:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -: 1150:  __retval = __mingw_vfwprintf( stdout, __format, __local_argv );
-        -: 1151:  __builtin_va_end( __local_argv );
-        -: 1152:  return __retval;
-        -: 1153:}
-        -: 1154:
-        -: 1155:__mingw_ovr
-        -: 1156:/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __MINGW_ATTRIB_NONNULL(2)
-        -: 1157:int vfwprintf (FILE *__stream, const wchar_t *__format, __builtin_va_list __local_argv)
-        -: 1158:{
-        -: 1159:  return __mingw_vfwprintf( __stream, __format, __local_argv );
-        -: 1160:}
-        -: 1161:
-        -: 1162:__mingw_ovr
-        -: 1163:/* __attribute__((__format__ (gnu_wprintf, 1, 0))) */ __MINGW_ATTRIB_NONNULL(1)
-        -: 1164:int vwprintf (const wchar_t *__format, __builtin_va_list __local_argv)
-        -: 1165:{
-        -: 1166:  return __mingw_vfwprintf( stdout, __format, __local_argv );
-        -: 1167:}
-        -: 1168:
-        -: 1169:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-        -: 1170:
-        -: 1171:#if __MINGW_FORTIFY_VA_ARG
-        -: 1172:
-        -: 1173:int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...) __MINGW_ASM_CALL(__mingw_snwprintf);
-        -: 1174:
-        -: 1175:__mingw_bos_extern_ovr
-        -: 1176:/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
-        -: 1177:int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
-        -: 1178:{
-        -: 1179:  __mingw_bos_ptr_chk_warn(__stream, __n * sizeof(wchar_t), 1);
-        -: 1180:  return __mingw_snwprintf( __stream, __n, __format, __builtin_va_arg_pack() );
-        -: 1181:}
-        -: 1182:
-        -: 1183:#else /* !__MINGW_FORTIFY_VA_ARG */
-        -: 1184:
-        -: 1185:__mingw_ovr
-        -: 1186:/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __MINGW_ATTRIB_NONNULL(3)
-        -: 1187:int snwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, ...)
-        -: 1188:{
-        -: 1189:  int __retval;
-        -: 1190:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
-        -: 1191:  __retval = __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
-        -: 1192:  __builtin_va_end( __local_argv );
-        -: 1193:  return __retval;
-        -: 1194:}
-        -: 1195:
-        -: 1196:#endif /* __MINGW_FORTIFY_VA_ARG */
-        -: 1197:
-        -: 1198:__mingw_bos_ovr
-        -: 1199:/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
-        -: 1200:int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
-        -: 1201:{
-        -: 1202:#if __MINGW_FORTIFY_LEVEL > 0
-        -: 1203:  __mingw_bos_ptr_chk_warn(__stream, __n * sizeof(wchar_t), 1);
-        -: 1204:#endif
-        -: 1205:  return __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
-        -: 1206:}
-        -: 1207:#endif /* __NO_ISOCEXT */
-        -: 1208:
-        -: 1209:#else /* !__USE_MINGW_ANSI_STDIO */
-        -: 1210:
-        -: 1211:#ifdef _UCRT
-        -: 1212:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -: 1213:  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
-        -: 1214:  {
-        -: 1215:    __builtin_va_list __ap;
-        -: 1216:    int __ret;
-        -: 1217:    __builtin_va_start(__ap, _Format);
-        -: 1218:    __ret = __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _File, _Format, NULL, __ap);
-        -: 1219:    __builtin_va_end(__ap);
-        -: 1220:    return __ret;
-        -: 1221:  }
-        -: 1222:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -: 1223:  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...)
-        -: 1224:  {
-        -: 1225:    __builtin_va_list __ap;
-        -: 1226:    int __ret;
-        -: 1227:    __builtin_va_start(__ap, _Format);
-        -: 1228:    __ret = __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _Src, (size_t)-1, _Format, NULL, __ap);
-        -: 1229:    __builtin_va_end(__ap);
-        -: 1230:    return __ret;
-        -: 1231:  }
-        -: 1232:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -: 1233:  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...)
-        -: 1234:  {
-        -: 1235:    __builtin_va_list __ap;
-        -: 1236:    int __ret;
-        -: 1237:    __builtin_va_start(__ap, _Format);
-        -: 1238:    __ret = __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, _Format, NULL, __ap);
-        -: 1239:    __builtin_va_end(__ap);
-        -: 1240:    return __ret;
-        -: 1241:  }
-        -: 1242:  __mingw_ovr
-        -: 1243:  __MINGW_ATTRIB_NONNULL(2)
-        -: 1244:  int vfwscanf (FILE *__stream,  const wchar_t *__format, va_list __local_argv)
-        -: 1245:  {
-        -: 1246:    return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, __stream, __format, NULL, __local_argv);
-        -: 1247:  }
-        -: 1248:
-        -: 1249:  __mingw_ovr
-        -: 1250:  __MINGW_ATTRIB_NONNULL(2)
-        -: 1251:  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, va_list __local_argv)
-        -: 1252:  {
-        -: 1253:    return __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, __source, (size_t)-1, __format, NULL, __local_argv);
-        -: 1254:  }
-        -: 1255:  __mingw_ovr
-        -: 1256:  __MINGW_ATTRIB_NONNULL(1)
-        -: 1257:  int vwscanf(const wchar_t *__format, va_list __local_argv)
-        -: 1258:  {
-        -: 1259:    return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, __format, NULL, __local_argv);
-        -: 1260:  }
+        -: 1120:  int __retval;
+        -: 1121:  __builtin_va_list __local_argv; __builtin_va_start( __local_argv, __format );
+        -: 1122:  __retval = __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
+        -: 1123:  __builtin_va_end( __local_argv );
+        -: 1124:  return __retval;
+        -: 1125:}
+        -: 1126:
+        -: 1127:#endif /* __MINGW_FORTIFY_VA_ARG */
+        -: 1128:
+        -: 1129:__mingw_bos_ovr
+        -: 1130:/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __MINGW_ATTRIB_NONNULL(3)
+        -: 1131:int vsnwprintf (wchar_t *__stream, size_t __n, const wchar_t *__format, __builtin_va_list __local_argv)
+        -: 1132:{
+        -: 1133:#if __MINGW_FORTIFY_LEVEL > 0
+        -: 1134:  __mingw_bos_ptr_chk_warn(__stream, __n * sizeof(wchar_t), 1);
+        -: 1135:#endif
+        -: 1136:  return __mingw_vsnwprintf( __stream, __n, __format, __local_argv );
+        -: 1137:}
+        -: 1138:#endif /* __NO_ISOCEXT */
+        -: 1139:
+        -: 1140:#else /* !__USE_MINGW_ANSI_STDIO */
+        -: 1141:
+        -: 1142:#ifdef _UCRT
+        -: 1143:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -: 1144:  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
+        -: 1145:  {
+        -: 1146:    __builtin_va_list __ap;
+        -: 1147:    int __ret;
+        -: 1148:    __builtin_va_start(__ap, _Format);
+        -: 1149:    __ret = __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _File, _Format, NULL, __ap);
+        -: 1150:    __builtin_va_end(__ap);
+        -: 1151:    return __ret;
+        -: 1152:  }
+        -: 1153:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -: 1154:  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...)
+        -: 1155:  {
+        -: 1156:    __builtin_va_list __ap;
+        -: 1157:    int __ret;
+        -: 1158:    __builtin_va_start(__ap, _Format);
+        -: 1159:    __ret = __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, _Src, (size_t)-1, _Format, NULL, __ap);
+        -: 1160:    __builtin_va_end(__ap);
+        -: 1161:    return __ret;
+        -: 1162:  }
+        -: 1163:  __mingw_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -: 1164:  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...)
+        -: 1165:  {
+        -: 1166:    __builtin_va_list __ap;
+        -: 1167:    int __ret;
+        -: 1168:    __builtin_va_start(__ap, _Format);
+        -: 1169:    __ret = __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, _Format, NULL, __ap);
+        -: 1170:    __builtin_va_end(__ap);
+        -: 1171:    return __ret;
+        -: 1172:  }
+        -: 1173:  __mingw_ovr
+        -: 1174:  __MINGW_ATTRIB_NONNULL(2)
+        -: 1175:  int vfwscanf (FILE *__stream,  const wchar_t *__format, va_list __local_argv)
+        -: 1176:  {
+        -: 1177:    return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, __stream, __format, NULL, __local_argv);
+        -: 1178:  }
+        -: 1179:
+        -: 1180:  __mingw_ovr
+        -: 1181:  __MINGW_ATTRIB_NONNULL(2)
+        -: 1182:  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, va_list __local_argv)
+        -: 1183:  {
+        -: 1184:    return __stdio_common_vswscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, __source, (size_t)-1, __format, NULL, __local_argv);
+        -: 1185:  }
+        -: 1186:  __mingw_ovr
+        -: 1187:  __MINGW_ATTRIB_NONNULL(1)
+        -: 1188:  int vwscanf(const wchar_t *__format, va_list __local_argv)
+        -: 1189:  {
+        -: 1190:    return __stdio_common_vfwscanf(_CRT_INTERNAL_LOCAL_SCANF_OPTIONS, stdin, __format, NULL, __local_argv);
+        -: 1191:  }
+        -: 1192:
+        -: 1193:  __mingw_static_ovr
+        -: 1194:  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
+        -: 1195:  {
+        -: 1196:    __builtin_va_list __ap;
+        -: 1197:    int __ret;
+        -: 1198:    __builtin_va_start(__ap, _Format);
+        -: 1199:    __ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _File, _Format, NULL, __ap);
+        -: 1200:    __builtin_va_end(__ap);
+        -: 1201:    return __ret;
+        -: 1202:  }
+        -: 1203:  __mingw_ovr
+        -: 1204:  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...)
+        -: 1205:  {
+        -: 1206:    __builtin_va_list __ap;
+        -: 1207:    int __ret;
+        -: 1208:    __builtin_va_start(__ap, _Format);
+        -: 1209:    __ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, stdout, _Format, NULL, __ap);
+        -: 1210:    __builtin_va_end(__ap);
+        -: 1211:    return __ret;
+        -: 1212:  }
+        -: 1213:  __mingw_ovr
+        -: 1214:  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList)
+        -: 1215:  {
+        -: 1216:    return __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _File, _Format, NULL, _ArgList);
+        -: 1217:  }
+        -: 1218:  __mingw_ovr
+        -: 1219:  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList)
+        -: 1220:  {
+        -: 1221:    return __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, stdout, _Format, NULL, _ArgList);
+        -: 1222:  }
+        -: 1223:#else
+        -: 1224:
+        -: 1225:  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1226:  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1227:  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1228:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -: 1229:  int __cdecl __ms_vwscanf (const wchar_t * __restrict__ , va_list);
+        -: 1230:  int __cdecl __ms_vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+        -: 1231:  int __cdecl __ms_vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
+        -: 1232:
+        -: 1233:  __mingw_ovr
+        -: 1234:  __MINGW_ATTRIB_NONNULL(2)
+        -: 1235:  int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
+        -: 1236:  {
+        -: 1237:    return __ms_vfwscanf (__stream, __format, __local_argv);
+        -: 1238:  }
+        -: 1239:
+        -: 1240:  __mingw_ovr
+        -: 1241:  __MINGW_ATTRIB_NONNULL(2)
+        -: 1242:  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, __builtin_va_list __local_argv)
+        -: 1243:  {
+        -: 1244:    return __ms_vswscanf( __source, __format, __local_argv );
+        -: 1245:  }
+        -: 1246:  __mingw_ovr
+        -: 1247:  __MINGW_ATTRIB_NONNULL(1)
+        -: 1248:  int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
+        -: 1249:  {
+        -: 1250:    return __ms_vwscanf (__format, __local_argv);
+        -: 1251:  }
+        -: 1252:
+        -: 1253:#endif /* __NO_ISOCEXT */
+        -: 1254:
+        -: 1255:  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
+        -: 1256:  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
+        -: 1257:  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -: 1258:  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -: 1259:#endif /* _UCRT */
+        -: 1260:#endif /* __USE_MINGW_ANSI_STDIO */
         -: 1261:
-        -: 1262:  __mingw_static_ovr
-        -: 1263:  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...)
-        -: 1264:  {
-        -: 1265:    __builtin_va_list __ap;
-        -: 1266:    int __ret;
-        -: 1267:    __builtin_va_start(__ap, _Format);
-        -: 1268:    __ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _File, _Format, NULL, __ap);
-        -: 1269:    __builtin_va_end(__ap);
-        -: 1270:    return __ret;
-        -: 1271:  }
-        -: 1272:  __mingw_ovr
-        -: 1273:  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...)
-        -: 1274:  {
-        -: 1275:    __builtin_va_list __ap;
-        -: 1276:    int __ret;
-        -: 1277:    __builtin_va_start(__ap, _Format);
-        -: 1278:    __ret = __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, stdout, _Format, NULL, __ap);
-        -: 1279:    __builtin_va_end(__ap);
-        -: 1280:    return __ret;
-        -: 1281:  }
-        -: 1282:  __mingw_ovr
-        -: 1283:  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList)
-        -: 1284:  {
-        -: 1285:    return __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _File, _Format, NULL, _ArgList);
-        -: 1286:  }
+        -: 1262:#ifndef WEOF
+        -: 1263:#define WEOF (wint_t)(0xFFFF)
+        -: 1264:#endif
+        -: 1265:
+        -: 1266:#ifdef _POSIX_
+        -: 1267:  _CRTIMP FILE *__cdecl _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode);
+        -: 1268:#else
+        -: 1269:  _CRTIMP FILE *__cdecl _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
+        -: 1270:#endif
+        -: 1271:
+        -: 1272:  wint_t __cdecl fgetwc(FILE *_File);
+        -: 1273:  _CRTIMP wint_t __cdecl _fgetwchar(void);
+        -: 1274:  wint_t __cdecl fputwc(wchar_t _Ch,FILE *_File);
+        -: 1275:  _CRTIMP wint_t __cdecl _fputwchar(wchar_t _Ch);
+        -: 1276:  wint_t __cdecl getwc(FILE *_File);
+        -: 1277:  wint_t __cdecl getwchar(void);
+        -: 1278:  wint_t __cdecl putwc(wchar_t _Ch,FILE *_File);
+        -: 1279:  wint_t __cdecl putwchar(wchar_t _Ch);
+        -: 1280:  wint_t __cdecl ungetwc(wint_t _Ch,FILE *_File);
+        -: 1281:  wchar_t *__cdecl fgetws(wchar_t * __restrict__ _Dst,int _SizeInWords,FILE * __restrict__ _File);
+        -: 1282:  int __cdecl fputws(const wchar_t * __restrict__ _Str,FILE * __restrict__ _File);
+        -: 1283:  _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1284:  _CRTIMP int __cdecl _putws(const wchar_t *_Str);
+        -: 1285:
+        -: 1286:#ifdef _UCRT
         -: 1287:  __mingw_ovr
-        -: 1288:  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList)
+        -: 1288:  int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...)
         -: 1289:  {
-        -: 1290:    return __stdio_common_vfwprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, stdout, _Format, NULL, _ArgList);
-        -: 1291:  }
-        -: 1292:#else
-        -: 1293:
-        -: 1294:  int __cdecl fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1295:  int __cdecl swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1296:  int __cdecl wscanf(const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1297:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
-        -: 1298:  int __cdecl __ms_vwscanf (const wchar_t * __restrict__ , va_list);
-        -: 1299:  int __cdecl __ms_vfwscanf (FILE * __restrict__ ,const wchar_t * __restrict__ ,va_list);
-        -: 1300:  int __cdecl __ms_vswscanf (const wchar_t * __restrict__ ,const wchar_t * __restrict__ ,va_list);
-        -: 1301:
-        -: 1302:  __mingw_ovr
-        -: 1303:  __MINGW_ATTRIB_NONNULL(2)
-        -: 1304:  int vfwscanf (FILE *__stream,  const wchar_t *__format, __builtin_va_list __local_argv)
-        -: 1305:  {
-        -: 1306:    return __ms_vfwscanf (__stream, __format, __local_argv);
-        -: 1307:  }
+        -: 1290:    __builtin_va_list __ap;
+        -: 1291:    int __ret;
+        -: 1292:    __builtin_va_start(__ap, _Format);
+        -: 1293:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, __ap);
+        -: 1294:    __builtin_va_end(__ap);
+        -: 1295:    return __ret;
+        -: 1296:  }
+        -: 1297:  __mingw_static_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
+        -: 1298:  int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...)
+        -: 1299:  {
+        -: 1300:    __builtin_va_list __ap;
+        -: 1301:    int __ret;
+        -: 1302:    __builtin_va_start(__ap, _Format);
+        -: 1303:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION, _Dest, _Count, _Format, NULL, __ap);
+        -: 1304:    __builtin_va_end(__ap);
+        -: 1305:    return __ret;
+        -: 1306:  }
+        -: 1307:  int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
         -: 1308:
-        -: 1309:  __mingw_ovr
-        -: 1310:  __MINGW_ATTRIB_NONNULL(2)
-        -: 1311:  int vswscanf (const wchar_t * __restrict__ __source, const wchar_t * __restrict__ __format, __builtin_va_list __local_argv)
+        -: 1309:#if __USE_MINGW_ANSI_STDIO == 0
+        -: 1310:  __mingw_ovr
+        -: 1311:  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
         -: 1312:  {
-        -: 1313:    return __ms_vswscanf( __source, __format, __local_argv );
-        -: 1314:  }
-        -: 1315:  __mingw_ovr
-        -: 1316:  __MINGW_ATTRIB_NONNULL(1)
-        -: 1317:  int vwscanf(const wchar_t *__format,  __builtin_va_list __local_argv)
-        -: 1318:  {
-        -: 1319:    return __ms_vwscanf (__format, __local_argv);
-        -: 1320:  }
-        -: 1321:
-        -: 1322:#endif /* __NO_ISOCEXT */
-        -: 1323:
-        -: 1324:  int __cdecl fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-        -: 1325:  int __cdecl wprintf(const wchar_t * __restrict__ _Format,...);
-        -: 1326:  int __cdecl vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1327:  int __cdecl vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1328:#endif /* _UCRT */
-        -: 1329:#endif /* __USE_MINGW_ANSI_STDIO */
-        -: 1330:
-        -: 1331:#ifndef WEOF
-        -: 1332:#define WEOF (wint_t)(0xFFFF)
-        -: 1333:#endif
-        -: 1334:
-        -: 1335:#ifdef _POSIX_
-        -: 1336:  _CRTIMP FILE *__cdecl _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode);
-        -: 1337:#else
-        -: 1338:  _CRTIMP FILE *__cdecl _wfsopen(const wchar_t *_Filename,const wchar_t *_Mode,int _ShFlag);
-        -: 1339:#endif
-        -: 1340:
-        -: 1341:  wint_t __cdecl fgetwc(FILE *_File);
-        -: 1342:  _CRTIMP wint_t __cdecl _fgetwchar(void);
-        -: 1343:  wint_t __cdecl fputwc(wchar_t _Ch,FILE *_File);
-        -: 1344:  _CRTIMP wint_t __cdecl _fputwchar(wchar_t _Ch);
-        -: 1345:  wint_t __cdecl getwc(FILE *_File);
-        -: 1346:  wint_t __cdecl getwchar(void);
-        -: 1347:  wint_t __cdecl putwc(wchar_t _Ch,FILE *_File);
-        -: 1348:  wint_t __cdecl putwchar(wchar_t _Ch);
-        -: 1349:  wint_t __cdecl ungetwc(wint_t _Ch,FILE *_File);
-        -: 1350:  wchar_t *__cdecl fgetws(wchar_t * __restrict__ _Dst,int _SizeInWords,FILE * __restrict__ _File);
-        -: 1351:  int __cdecl fputws(const wchar_t * __restrict__ _Str,FILE * __restrict__ _File);
-        -: 1352:  _CRTIMP wchar_t *__cdecl _getws(wchar_t *_String) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1353:  _CRTIMP int __cdecl _putws(const wchar_t *_Str);
-        -: 1354:
-        -: 1355:#ifdef _UCRT
-        -: 1356:  __mingw_ovr
-        -: 1357:  int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...)
-        -: 1358:  {
-        -: 1359:    __builtin_va_list __ap;
-        -: 1360:    int __ret;
-        -: 1361:    __builtin_va_start(__ap, _Format);
-        -: 1362:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, __ap);
-        -: 1363:    __builtin_va_end(__ap);
-        -: 1364:    return __ret;
-        -: 1365:  }
-        -: 1366:  __mingw_static_ovr __MINGW_ATTRIB_DEPRECATED_SEC_WARN
-        -: 1367:  int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...)
-        -: 1368:  {
-        -: 1369:    __builtin_va_list __ap;
-        -: 1370:    int __ret;
-        -: 1371:    __builtin_va_start(__ap, _Format);
-        -: 1372:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_LEGACY_VSPRINTF_NULL_TERMINATION, _Dest, _Count, _Format, NULL, __ap);
-        -: 1373:    __builtin_va_end(__ap);
-        -: 1374:    return __ret;
-        -: 1375:  }
-        -: 1376:  int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1377:
-        -: 1378:#if __USE_MINGW_ANSI_STDIO == 0
-        -: 1379:  __mingw_ovr
-        -: 1380:  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
-        -: 1381:  {
-        -: 1382:    __builtin_va_list __ap;
-        -: 1383:    int __ret;
-        -: 1384:    __builtin_va_start(__ap, format);
-        -: 1385:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, s, n, format, NULL, __ap);
-        -: 1386:    __builtin_va_end(__ap);
-        -: 1387:    return __ret;
-        -: 1388:  }
-        -: 1389:  __mingw_ovr
-        -: 1390:  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg)
-        -: 1391:  {
-        -: 1392:    int __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, s, n, format, NULL, arg);
-        -: 1393:    return __ret < 0 ? -1 : __ret;
-        -: 1394:  }
-        -: 1395:#endif
-        -: 1396:
-        -: 1397:  __mingw_ovr
-        -: 1398:  int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...)
-        -: 1399:  {
-        -: 1400:    __builtin_va_list __ap;
-        -: 1401:    int __ret;
-        -: 1402:    __builtin_va_start(__ap, _Format);
-        -: 1403:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, (size_t)-1, _Format, NULL, __ap);
-        -: 1404:    __builtin_va_end(__ap);
-        -: 1405:    return __ret;
-        -: 1406:  }
-        -: 1407:  __mingw_ovr
-        -: 1408:  int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args)
-        -: 1409:  {
-        -: 1410:    return __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, (size_t)-1, _Format, NULL, _Args);
-        -: 1411:  }
-        -: 1412:
-        -: 1413:  __mingw_ovr
-        -: 1414:  int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format, va_list _ArgList)
-        -: 1415:  {
-        -: 1416:      int _Result = __stdio_common_vswprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
-        -: 1417:      return _Result < 0 ? -1 : _Result;
-        -: 1418:  }
-        -: 1419:#else
-        -: 1420:  _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
-        -: 1421:  _CRTIMP int __cdecl _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
-        -: 1422:  _CRTIMP int __cdecl _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1423:  _CRTIMP int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1424:  _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1425:  _CRTIMP int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-        -: 1426:
-        -: 1427:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -: 1313:    __builtin_va_list __ap;
+        -: 1314:    int __ret;
+        -: 1315:    __builtin_va_start(__ap, format);
+        -: 1316:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS | _CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, s, n, format, NULL, __ap);
+        -: 1317:    __builtin_va_end(__ap);
+        -: 1318:    return __ret;
+        -: 1319:  }
+        -: 1320:  __mingw_ovr
+        -: 1321:  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg)
+        -: 1322:  {
+        -: 1323:    int __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, s, n, format, NULL, arg);
+        -: 1324:    return __ret < 0 ? -1 : __ret;
+        -: 1325:  }
+        -: 1326:#endif
+        -: 1327:
+        -: 1328:  __mingw_ovr
+        -: 1329:  int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...)
+        -: 1330:  {
+        -: 1331:    __builtin_va_list __ap;
+        -: 1332:    int __ret;
+        -: 1333:    __builtin_va_start(__ap, _Format);
+        -: 1334:    __ret = __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, (size_t)-1, _Format, NULL, __ap);
+        -: 1335:    __builtin_va_end(__ap);
+        -: 1336:    return __ret;
+        -: 1337:  }
+        -: 1338:  __mingw_ovr
+        -: 1339:  int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args)
+        -: 1340:  {
+        -: 1341:    return __stdio_common_vswprintf(_CRT_INTERNAL_LOCAL_PRINTF_OPTIONS, _Dest, (size_t)-1, _Format, NULL, _Args);
+        -: 1342:  }
+        -: 1343:
+        -: 1344:  __mingw_ovr
+        -: 1345:  int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format, va_list _ArgList)
+        -: 1346:  {
+        -: 1347:      int _Result = __stdio_common_vswprintf(_CRT_INTERNAL_PRINTF_STANDARD_SNPRINTF_BEHAVIOR, NULL, 0, _Format, NULL, _ArgList);
+        -: 1348:      return _Result < 0 ? -1 : _Result;
+        -: 1349:  }
+        -: 1350:#else
+        -: 1351:  _CRTIMP int __cdecl _scwprintf(const wchar_t * __restrict__ _Format,...);
+        -: 1352:  _CRTIMP int __cdecl _swprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,...);
+        -: 1353:  _CRTIMP int __cdecl _vswprintf_c(wchar_t * __restrict__ _DstBuf,size_t _SizeInWords,const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -: 1354:  _CRTIMP int __cdecl _snwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,...) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1355:  _CRTIMP int __cdecl _vsnwprintf(wchar_t * __restrict__ _Dest,size_t _Count,const wchar_t * __restrict__ _Format,va_list _Args) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1356:  _CRTIMP int __cdecl _vscwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
+        -: 1357:
+        -: 1358:#ifndef __NO_ISOCEXT  /* externs in libmingwex.a */
+        -: 1359:
+        -: 1360:#if __USE_MINGW_ANSI_STDIO == 0
+        -: 1361:  int __cdecl __ms_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
+        -: 1362:  int __cdecl __ms_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
+        -: 1363:  __mingw_ovr
+        -: 1364:  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
+        -: 1365:  {
+        -: 1366:    int r;
+        -: 1367:    va_list argp;
+        -: 1368:    __builtin_va_start (argp, format);
+        -: 1369:    r = _vsnwprintf (s, n, format, argp);
+        -: 1370:    __builtin_va_end (argp);
+        -: 1371:    return r;
+        -: 1372:  }
+        -: 1373:  __mingw_ovr
+        -: 1374:  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg)
+        -: 1375:  {
+        -: 1376:    return _vsnwprintf(s,n,format,arg);
+        -: 1377:  }
+        -: 1378:#endif
+        -: 1379:
+        -: 1380:#endif /* ! __NO_ISOCEXT */
+        -: 1381:  _CRTIMP int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
+        -: 1382:  _CRTIMP int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
+        -: 1383:#endif /* _UCRT */
+        -: 1384:
+        -: 1385:#ifndef RC_INVOKED
+        -: 1386:#include <swprintf.inl>
+        -: 1387:#endif
+        -: 1388:
+        -: 1389:#ifdef _CRT_NON_CONFORMING_SWPRINTFS
+        -: 1390:#ifndef __cplusplus
+        -: 1391:#define _swprintf_l __swprintf_l
+        -: 1392:#define _vswprintf_l __vswprintf_l
+        -: 1393:#endif
+        -: 1394:#endif
+        -: 1395:
+        -: 1396:  _CRTIMP wchar_t *__cdecl _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
+        -: 1397:  _CRTIMP int __cdecl _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
+        -: 1398:  _CRTIMP FILE *__cdecl _wfdopen(int _FileHandle ,const wchar_t *_Mode);
+        -: 1399:  _CRTIMP FILE *__cdecl _wfopen(const wchar_t * __restrict__ _Filename,const wchar_t *__restrict__  _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1400:  _CRTIMP FILE *__cdecl _wfreopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode,FILE * __restrict__ _OldFile) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
+        -: 1401:
+        -: 1402:#ifndef _CRT_WPERROR_DEFINED
+        -: 1403:#define _CRT_WPERROR_DEFINED
+        -: 1404:  _CRTIMP void __cdecl _wperror(const wchar_t *_ErrMsg);
+        -: 1405:#endif
+        -: 1406:  _CRTIMP FILE *__cdecl _wpopen(const wchar_t *_Command,const wchar_t *_Mode);
+        -: 1407:#if !defined(NO_OLDNAMES) && !defined(wpopen)
+        -: 1408:#define wpopen	_wpopen
+        -: 1409:#endif
+        -: 1410:
+        -: 1411:  _CRTIMP int __cdecl _wremove(const wchar_t *_Filename);
+        -: 1412:  _CRTIMP wchar_t *__cdecl _wtmpnam(wchar_t *_Buffer);
+        -: 1413:#if __MSVCRT_VERSION__ >= 0x800
+        -: 1414:  _CRTIMP wint_t __cdecl _fgetwc_nolock(FILE *_File);
+        -: 1415:  _CRTIMP wint_t __cdecl _fputwc_nolock(wchar_t _Ch,FILE *_File);
+        -: 1416:  _CRTIMP wint_t __cdecl _ungetwc_nolock(wint_t _Ch,FILE *_File);
+        -: 1417:#endif
+        -: 1418:
+        -: 1419:#undef _CRT_GETPUTWCHAR_NOINLINE
+        -: 1420:
+        -: 1421:#if !defined(__cplusplus) || defined(_CRT_GETPUTWCHAR_NOINLINE) || defined (__CRT__NO_INLINE)
+        -: 1422:#define getwchar() fgetwc(stdin)
+        -: 1423:#define putwchar(_c) fputwc((_c),stdout)
+        -: 1424:#else
+        -: 1425:  __CRT_INLINE wint_t __cdecl getwchar() {return (fgetwc(stdin)); }
+        -: 1426:  __CRT_INLINE wint_t __cdecl putwchar(wchar_t _C) {return (fputwc(_C,stdout)); }
+        -: 1427:#endif
         -: 1428:
-        -: 1429:#if __USE_MINGW_ANSI_STDIO == 0
-        -: 1430:  int __cdecl __ms_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
-        -: 1431:  int __cdecl __ms_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
-        -: 1432:  __mingw_ovr
-        -: 1433:  int snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...)
-        -: 1434:  {
-        -: 1435:    int r;
-        -: 1436:    va_list argp;
-        -: 1437:    __builtin_va_start (argp, format);
-        -: 1438:    r = _vsnwprintf (s, n, format, argp);
-        -: 1439:    __builtin_va_end (argp);
-        -: 1440:    return r;
-        -: 1441:  }
-        -: 1442:  __mingw_ovr
-        -: 1443:  int __cdecl vsnwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, va_list arg)
-        -: 1444:  {
-        -: 1445:    return _vsnwprintf(s,n,format,arg);
-        -: 1446:  }
-        -: 1447:#endif
-        -: 1448:
-        -: 1449:#endif /* ! __NO_ISOCEXT */
-        -: 1450:  _CRTIMP int __cdecl _swprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,...);
-        -: 1451:  _CRTIMP int __cdecl _vswprintf(wchar_t * __restrict__ _Dest,const wchar_t * __restrict__ _Format,va_list _Args);
-        -: 1452:#endif /* _UCRT */
-        -: 1453:
-        -: 1454:#ifndef RC_INVOKED
-        -: 1455:#include <swprintf.inl>
-        -: 1456:#endif
-        -: 1457:
-        -: 1458:#ifdef _CRT_NON_CONFORMING_SWPRINTFS
-        -: 1459:#ifndef __cplusplus
-        -: 1460:#define _swprintf_l __swprintf_l
-        -: 1461:#define _vswprintf_l __vswprintf_l
-        -: 1462:#endif
-        -: 1463:#endif
-        -: 1464:
-        -: 1465:  _CRTIMP wchar_t *__cdecl _wtempnam(const wchar_t *_Directory,const wchar_t *_FilePrefix);
-        -: 1466:  _CRTIMP int __cdecl _snwscanf(const wchar_t * __restrict__ _Src,size_t _MaxCount,const wchar_t * __restrict__ _Format,...);
-        -: 1467:  _CRTIMP FILE *__cdecl _wfdopen(int _FileHandle ,const wchar_t *_Mode);
-        -: 1468:  _CRTIMP FILE *__cdecl _wfopen(const wchar_t * __restrict__ _Filename,const wchar_t *__restrict__  _Mode) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1469:  _CRTIMP FILE *__cdecl _wfreopen(const wchar_t * __restrict__ _Filename,const wchar_t * __restrict__ _Mode,FILE * __restrict__ _OldFile) __MINGW_ATTRIB_DEPRECATED_SEC_WARN;
-        -: 1470:
-        -: 1471:#ifndef _CRT_WPERROR_DEFINED
-        -: 1472:#define _CRT_WPERROR_DEFINED
-        -: 1473:  _CRTIMP void __cdecl _wperror(const wchar_t *_ErrMsg);
-        -: 1474:#endif
-        -: 1475:  _CRTIMP FILE *__cdecl _wpopen(const wchar_t *_Command,const wchar_t *_Mode);
-        -: 1476:#if !defined(NO_OLDNAMES) && !defined(wpopen)
-        -: 1477:#define wpopen	_wpopen
-        -: 1478:#endif
-        -: 1479:
-        -: 1480:  _CRTIMP int __cdecl _wremove(const wchar_t *_Filename);
-        -: 1481:  _CRTIMP wchar_t *__cdecl _wtmpnam(wchar_t *_Buffer);
-        -: 1482:#if __MSVCRT_VERSION__ >= 0x800
-        -: 1483:  _CRTIMP wint_t __cdecl _fgetwc_nolock(FILE *_File);
-        -: 1484:  _CRTIMP wint_t __cdecl _fputwc_nolock(wchar_t _Ch,FILE *_File);
-        -: 1485:  _CRTIMP wint_t __cdecl _ungetwc_nolock(wint_t _Ch,FILE *_File);
-        -: 1486:#endif
-        -: 1487:
-        -: 1488:#undef _CRT_GETPUTWCHAR_NOINLINE
-        -: 1489:
-        -: 1490:#if !defined(__cplusplus) || defined(_CRT_GETPUTWCHAR_NOINLINE) || defined (__CRT__NO_INLINE)
-        -: 1491:#define getwchar() fgetwc(stdin)
-        -: 1492:#define putwchar(_c) fputwc((_c),stdout)
-        -: 1493:#else
-        -: 1494:  __CRT_INLINE wint_t __cdecl getwchar() {return (fgetwc(stdin)); }
-        -: 1495:  __CRT_INLINE wint_t __cdecl putwchar(wchar_t _C) {return (fputwc(_C,stdout)); }
-        -: 1496:#endif
-        -: 1497:
-        -: 1498:#define getwc(_stm) fgetwc(_stm)
-        -: 1499:#define putwc(_c,_stm) fputwc(_c,_stm)
-        -: 1500:#if __MSVCRT_VERSION__ >= 0x800
-        -: 1501:#define _putwc_nolock(_c,_stm) _fputwc_nolock(_c,_stm)
-        -: 1502:#define _getwc_nolock(_c) _fgetwc_nolock(_c)
-        -: 1503:#endif
-        -: 1504:#endif
-        -: 1505:
-        -: 1506:#define _STDIO_DEFINED
-        -: 1507:#endif
-        -: 1508:
-        -: 1509:#ifdef _UCRT
-        -: 1510:  _CRTIMP int __cdecl _fgetc_nolock(FILE *_File);
-        -: 1511:  _CRTIMP int __cdecl _fputc_nolock(int _Char, FILE *_File);
-        -: 1512:  _CRTIMP int __cdecl _getc_nolock(FILE *_File);
-        -: 1513:  _CRTIMP int __cdecl _putc_nolock(int _Char, FILE *_File);
-        -: 1514:#else
-        -: 1515:#define _fgetc_nolock(_stream) (--(_stream)->_cnt >= 0 ? 0xff & *(_stream)->_ptr++ : _filbuf(_stream))
-        -: 1516:#define _fputc_nolock(_c,_stream) (--(_stream)->_cnt >= 0 ? 0xff & (*(_stream)->_ptr++ = (char)(_c)) : _flsbuf((_c),(_stream)))
-        -: 1517:#define _getc_nolock(_stream) _fgetc_nolock(_stream)
-        -: 1518:#define _putc_nolock(_c,_stream) _fputc_nolock(_c,_stream)
-        -: 1519:#endif
-        -: 1520:#define _getchar_nolock() _getc_nolock(stdin)
-        -: 1521:#define _putchar_nolock(_c) _putc_nolock((_c),stdout)
-        -: 1522:#define _getwchar_nolock() _getwc_nolock(stdin)
-        -: 1523:#define _putwchar_nolock(_c) _putwc_nolock((_c),stdout)
+        -: 1429:#define getwc(_stm) fgetwc(_stm)
+        -: 1430:#define putwc(_c,_stm) fputwc(_c,_stm)
+        -: 1431:#if __MSVCRT_VERSION__ >= 0x800
+        -: 1432:#define _putwc_nolock(_c,_stm) _fputwc_nolock(_c,_stm)
+        -: 1433:#define _getwc_nolock(_c) _fgetwc_nolock(_c)
+        -: 1434:#endif
+        -: 1435:#endif
+        -: 1436:
+        -: 1437:#define _STDIO_DEFINED
+        -: 1438:#endif
+        -: 1439:
+        -: 1440:#ifdef _UCRT
+        -: 1441:  _CRTIMP int __cdecl _fgetc_nolock(FILE *_File);
+        -: 1442:  _CRTIMP int __cdecl _fputc_nolock(int _Char, FILE *_File);
+        -: 1443:  _CRTIMP int __cdecl _getc_nolock(FILE *_File);
+        -: 1444:  _CRTIMP int __cdecl _putc_nolock(int _Char, FILE *_File);
+        -: 1445:#else
+        -: 1446:#define _fgetc_nolock(_stream) (--(_stream)->_cnt >= 0 ? 0xff & *(_stream)->_ptr++ : _filbuf(_stream))
+        -: 1447:#define _fputc_nolock(_c,_stream) (--(_stream)->_cnt >= 0 ? 0xff & (*(_stream)->_ptr++ = (char)(_c)) : _flsbuf((_c),(_stream)))
+        -: 1448:#define _getc_nolock(_stream) _fgetc_nolock(_stream)
+        -: 1449:#define _putc_nolock(_c,_stream) _fputc_nolock(_c,_stream)
+        -: 1450:#endif
+        -: 1451:#define _getchar_nolock() _getc_nolock(stdin)
+        -: 1452:#define _putchar_nolock(_c) _putc_nolock((_c),stdout)
+        -: 1453:#define _getwchar_nolock() _getwc_nolock(stdin)
+        -: 1454:#define _putwchar_nolock(_c) _putwc_nolock((_c),stdout)
+        -: 1455:
+        -: 1456:  _CRTIMP void __cdecl _lock_file(FILE *_File);
+        -: 1457:  _CRTIMP void __cdecl _unlock_file(FILE *_File);
+        -: 1458:#if __MSVCRT_VERSION__ >= 0x800
+        -: 1459:  _CRTIMP int __cdecl _fclose_nolock(FILE *_File);
+        -: 1460:  _CRTIMP int __cdecl _fflush_nolock(FILE *_File);
+        -: 1461:  _CRTIMP size_t __cdecl _fread_nolock(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
+        -: 1462:  _CRTIMP int __cdecl _fseek_nolock(FILE *_File,long _Offset,int _Origin);
+        -: 1463:  _CRTIMP long __cdecl _ftell_nolock(FILE *_File);
+        -: 1464:  __MINGW_EXTENSION _CRTIMP int __cdecl _fseeki64_nolock(FILE *_File,__int64 _Offset,int _Origin);
+        -: 1465:  __MINGW_EXTENSION _CRTIMP __int64 __cdecl _ftelli64_nolock(FILE *_File);
+        -: 1466:  _CRTIMP size_t __cdecl _fwrite_nolock(const void * __restrict__ _DstBuf,size_t _Size,size_t _Count,FILE * __restrict__ _File);
+        -: 1467:  _CRTIMP int __cdecl _ungetc_nolock(int _Ch,FILE *_File);
+        -: 1468:#endif
+        -: 1469:
+        -: 1470:#if !defined(NO_OLDNAMES) || !defined(_POSIX)
+        -: 1471:#define P_tmpdir _P_tmpdir
+        -: 1472:#define SYS_OPEN _SYS_OPEN
+        -: 1473:
+        -: 1474:  char *__cdecl tempnam(const char *_Directory,const char *_FilePrefix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1475:  int __cdecl fcloseall(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1476:  FILE *__cdecl fdopen(int _FileHandle,const char *_Format) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1477:  int __cdecl fgetchar(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1478:  int __cdecl fileno(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1479:  int __cdecl flushall(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1480:  int __cdecl fputchar(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1481:  int __cdecl getw(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1482:  int __cdecl putw(int _Ch,FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1483:  int __cdecl rmtmp(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
+        -: 1484:#endif
+        -: 1485:
+        -: 1486:#ifndef __MINGW_MBWC_CONVERT_DEFINED
+        -: 1487:#define __MINGW_MBWC_CONVERT_DEFINED
+        -: 1488:
+        -: 1489:/**
+        -: 1490: * __mingw_str_wide_utf8
+        -: 1491: * Converts a null terminated UCS-2 string to a multibyte (UTF-8) equivalent.
+        -: 1492: * Caller is supposed to free allocated buffer with __mingw_str_free().
+        -: 1493: * @param[in] wptr Pointer to wide string.
+        -: 1494: * @param[out] mbptr Pointer to multibyte string.
+        -: 1495: * @param[out] buflen Optional parameter for length of allocated buffer.
+        -: 1496: * @return Number of characters converted, 0 for failure.
+        -: 1497: *
+        -: 1498: * WideCharToMultiByte - http://msdn.microsoft.com/en-us/library/dd374130(VS.85).aspx
+        -: 1499: */
+        -: 1500:int __cdecl __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
+        -: 1501:
+        -: 1502:/**
+        -: 1503: * __mingw_str_utf8_wide
+        -: 1504: * Converts a null terminated UTF-8 string to a UCS-2 equivalent.
+        -: 1505: * Caller is supposed to free allocated buffer with __mingw_str_free().
+        -: 1506: * @param[out] mbptr Pointer to multibyte string.
+        -: 1507: * @param[in] wptr Pointer to wide string.
+        -: 1508: * @param[out] buflen Optional parameter for length of allocated buffer.
+        -: 1509: * @return Number of characters converted, 0 for failure.
+        -: 1510: *
+        -: 1511: * MultiByteToWideChar - http://msdn.microsoft.com/en-us/library/dd319072(VS.85).aspx
+        -: 1512: */
+        -: 1513:
+        -: 1514:int __cdecl __mingw_str_utf8_wide (const char *const mbptr, wchar_t ** wptr, size_t * buflen);
+        -: 1515:
+        -: 1516:/**
+        -: 1517: * __mingw_str_free
+        -: 1518: * Frees buffer create by __mingw_str_wide_utf8 and __mingw_str_utf8_wide.
+        -: 1519: * @param[in] ptr memory block to free.
+        -: 1520: *
+        -: 1521: */
+        -: 1522:
+        -: 1523:void __cdecl __mingw_str_free(void *ptr);
         -: 1524:
-        -: 1525:  _CRTIMP void __cdecl _lock_file(FILE *_File);
-        -: 1526:  _CRTIMP void __cdecl _unlock_file(FILE *_File);
-        -: 1527:#if __MSVCRT_VERSION__ >= 0x800
-        -: 1528:  _CRTIMP int __cdecl _fclose_nolock(FILE *_File);
-        -: 1529:  _CRTIMP int __cdecl _fflush_nolock(FILE *_File);
-        -: 1530:  _CRTIMP size_t __cdecl _fread_nolock(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
-        -: 1531:  _CRTIMP int __cdecl _fseek_nolock(FILE *_File,long _Offset,int _Origin);
-        -: 1532:  _CRTIMP long __cdecl _ftell_nolock(FILE *_File);
-        -: 1533:  __MINGW_EXTENSION _CRTIMP int __cdecl _fseeki64_nolock(FILE *_File,__int64 _Offset,int _Origin);
-        -: 1534:  __MINGW_EXTENSION _CRTIMP __int64 __cdecl _ftelli64_nolock(FILE *_File);
-        -: 1535:  _CRTIMP size_t __cdecl _fwrite_nolock(const void * __restrict__ _DstBuf,size_t _Size,size_t _Count,FILE * __restrict__ _File);
-        -: 1536:  _CRTIMP int __cdecl _ungetc_nolock(int _Ch,FILE *_File);
-        -: 1537:#endif
-        -: 1538:
-        -: 1539:#if !defined(NO_OLDNAMES) || !defined(_POSIX)
-        -: 1540:#define P_tmpdir _P_tmpdir
-        -: 1541:#define SYS_OPEN _SYS_OPEN
-        -: 1542:
-        -: 1543:  char *__cdecl tempnam(const char *_Directory,const char *_FilePrefix) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1544:  int __cdecl fcloseall(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1545:  FILE *__cdecl fdopen(int _FileHandle,const char *_Format) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1546:  int __cdecl fgetchar(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1547:  int __cdecl fileno(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1548:  int __cdecl flushall(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1549:  int __cdecl fputchar(int _Ch) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1550:  int __cdecl getw(FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1551:  int __cdecl putw(int _Ch,FILE *_File) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1552:  int __cdecl rmtmp(void) __MINGW_ATTRIB_DEPRECATED_MSVC2005;
-        -: 1553:#endif
-        -: 1554:
-        -: 1555:#ifndef __MINGW_MBWC_CONVERT_DEFINED
-        -: 1556:#define __MINGW_MBWC_CONVERT_DEFINED
-        -: 1557:
-        -: 1558:/**
-        -: 1559: * __mingw_str_wide_utf8
-        -: 1560: * Converts a null terminated UCS-2 string to a multibyte (UTF-8) equivalent.
-        -: 1561: * Caller is supposed to free allocated buffer with __mingw_str_free().
-        -: 1562: * @param[in] wptr Pointer to wide string.
-        -: 1563: * @param[out] mbptr Pointer to multibyte string.
-        -: 1564: * @param[out] buflen Optional parameter for length of allocated buffer.
-        -: 1565: * @return Number of characters converted, 0 for failure.
-        -: 1566: *
-        -: 1567: * WideCharToMultiByte - http://msdn.microsoft.com/en-us/library/dd374130(VS.85).aspx
-        -: 1568: */
-        -: 1569:int __cdecl __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
-        -: 1570:
-        -: 1571:/**
-        -: 1572: * __mingw_str_utf8_wide
-        -: 1573: * Converts a null terminated UTF-8 string to a UCS-2 equivalent.
-        -: 1574: * Caller is supposed to free allocated buffer with __mingw_str_free().
-        -: 1575: * @param[out] mbptr Pointer to multibyte string.
-        -: 1576: * @param[in] wptr Pointer to wide string.
-        -: 1577: * @param[out] buflen Optional parameter for length of allocated buffer.
-        -: 1578: * @return Number of characters converted, 0 for failure.
-        -: 1579: *
-        -: 1580: * MultiByteToWideChar - http://msdn.microsoft.com/en-us/library/dd319072(VS.85).aspx
-        -: 1581: */
-        -: 1582:
-        -: 1583:int __cdecl __mingw_str_utf8_wide (const char *const mbptr, wchar_t ** wptr, size_t * buflen);
-        -: 1584:
-        -: 1585:/**
-        -: 1586: * __mingw_str_free
-        -: 1587: * Frees buffer create by __mingw_str_wide_utf8 and __mingw_str_utf8_wide.
-        -: 1588: * @param[in] ptr memory block to free.
-        -: 1589: *
-        -: 1590: */
-        -: 1591:
-        -: 1592:void __cdecl __mingw_str_free(void *ptr);
-        -: 1593:
-        -: 1594:#endif /* __MINGW_MBWC_CONVERT_DEFINED */
-        -: 1595:
-        -: 1596:#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
-        -: 1597:#ifndef _WSPAWN_DEFINED
-        -: 1598:#define _WSPAWN_DEFINED
-        -: 1599:  _CRTIMP intptr_t __cdecl _wspawnl(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-        -: 1600:  _CRTIMP intptr_t __cdecl _wspawnle(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-        -: 1601:  _CRTIMP intptr_t __cdecl _wspawnlp(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-        -: 1602:  _CRTIMP intptr_t __cdecl _wspawnlpe(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
-        -: 1603:  _CRTIMP intptr_t __cdecl _wspawnv(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
-        -: 1604:  _CRTIMP intptr_t __cdecl _wspawnve(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
-        -: 1605:  _CRTIMP intptr_t __cdecl _wspawnvp(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
-        -: 1606:  _CRTIMP intptr_t __cdecl _wspawnvpe(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
-        -: 1607:#endif
-        -: 1608:
-        -: 1609:#ifndef _P_WAIT
-        -: 1610:#define _P_WAIT 0
-        -: 1611:#define _P_NOWAIT 1
-        -: 1612:#define _OLD_P_OVERLAY 2
-        -: 1613:#define _P_NOWAITO 3
-        -: 1614:#define _P_DETACH 4
-        -: 1615:#define _P_OVERLAY 2
-        -: 1616:
-        -: 1617:#define _WAIT_CHILD 0
-        -: 1618:#define _WAIT_GRANDCHILD 1
-        -: 1619:#endif
-        -: 1620:
-        -: 1621:#ifndef _SPAWNV_DEFINED
-        -: 1622:#define _SPAWNV_DEFINED
-        -: 1623:  _CRTIMP intptr_t __cdecl _spawnv(int _Mode,const char *_Filename,const char *const *_ArgList);
-        -: 1624:  _CRTIMP intptr_t __cdecl _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-        -: 1625:  _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
-        -: 1626:  _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
-        -: 1627:#endif
-        -: 1628:#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
-        -: 1629:
-        -: 1630:#ifdef __cplusplus
-        -: 1631:}
-        -: 1632:#endif
-        -: 1633:
-        -: 1634:#pragma pop_macro("snprintf")
-        -: 1635:#pragma pop_macro("vsnprintf")
-        -: 1636:#pragma pop_macro("snwprintf")
-        -: 1637:#pragma pop_macro("vsnwprintf")
-        -: 1638:
-        -: 1639:#pragma pack(pop)
-        -: 1640:
-        -: 1641:#include <sec_api/stdio_s.h>
-        -: 1642:
-        -: 1643:#endif
+        -: 1525:#endif /* __MINGW_MBWC_CONVERT_DEFINED */
+        -: 1526:
+        -: 1527:#ifdef _CRT_USE_WINAPI_FAMILY_DESKTOP_APP
+        -: 1528:#ifndef _WSPAWN_DEFINED
+        -: 1529:#define _WSPAWN_DEFINED
+        -: 1530:  _CRTIMP intptr_t __cdecl _wspawnl(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
+        -: 1531:  _CRTIMP intptr_t __cdecl _wspawnle(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
+        -: 1532:  _CRTIMP intptr_t __cdecl _wspawnlp(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
+        -: 1533:  _CRTIMP intptr_t __cdecl _wspawnlpe(int _Mode,const wchar_t *_Filename,const wchar_t *_ArgList,...);
+        -: 1534:  _CRTIMP intptr_t __cdecl _wspawnv(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
+        -: 1535:  _CRTIMP intptr_t __cdecl _wspawnve(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
+        -: 1536:  _CRTIMP intptr_t __cdecl _wspawnvp(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList);
+        -: 1537:  _CRTIMP intptr_t __cdecl _wspawnvpe(int _Mode,const wchar_t *_Filename,const wchar_t *const *_ArgList,const wchar_t *const *_Env);
+        -: 1538:#endif
+        -: 1539:
+        -: 1540:#ifndef _P_WAIT
+        -: 1541:#define _P_WAIT 0
+        -: 1542:#define _P_NOWAIT 1
+        -: 1543:#define _OLD_P_OVERLAY 2
+        -: 1544:#define _P_NOWAITO 3
+        -: 1545:#define _P_DETACH 4
+        -: 1546:#define _P_OVERLAY 2
+        -: 1547:
+        -: 1548:#define _WAIT_CHILD 0
+        -: 1549:#define _WAIT_GRANDCHILD 1
+        -: 1550:#endif
+        -: 1551:
+        -: 1552:#ifndef _SPAWNV_DEFINED
+        -: 1553:#define _SPAWNV_DEFINED
+        -: 1554:  _CRTIMP intptr_t __cdecl _spawnv(int _Mode,const char *_Filename,const char *const *_ArgList);
+        -: 1555:  _CRTIMP intptr_t __cdecl _spawnve(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
+        -: 1556:  _CRTIMP intptr_t __cdecl _spawnvp(int _Mode,const char *_Filename,const char *const *_ArgList);
+        -: 1557:  _CRTIMP intptr_t __cdecl _spawnvpe(int _Mode,const char *_Filename,const char *const *_ArgList,const char *const *_Env);
+        -: 1558:#endif
+        -: 1559:#endif /* _CRT_USE_WINAPI_FAMILY_DESKTOP_APP */
+        -: 1560:
+        -: 1561:#ifdef __cplusplus
+        -: 1562:}
+        -: 1563:#endif
+        -: 1564:
+        -: 1565:#pragma pop_macro("snprintf")
+        -: 1566:#pragma pop_macro("vsnprintf")
+        -: 1567:#pragma pop_macro("snwprintf")
+        -: 1568:#pragma pop_macro("vsnwprintf")
+        -: 1569:
+        -: 1570:#pragma pack(pop)
+        -: 1571:
+        -: 1572:#include <sec_api/stdio_s.h>
+        -: 1573:
+        -: 1574:#endif

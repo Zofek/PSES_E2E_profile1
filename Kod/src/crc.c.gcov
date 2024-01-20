@@ -1,0 +1,37 @@
+        -:    0:Source:crc.c
+        -:    0:Graph:UT_E2E_profile1.gcno
+        -:    0:Data:UT_E2E_profile1.gcda
+        -:    0:Runs:7
+        -:    1:#include "..\inc\Std_Types.h"
+        -:    2:#include "..\inc\crc.h"
+        -:    3:
+        -:    4:/*This service makes a CRC8 calculation on Crc_Length data bytes, with SAE J1850 parameters
+        -:    5:Crc_Calculate8() is performed synchrnously. The result is returned within the function call.
+        -:    6:[SWS_Crc_00031]
+        -:    7:[SWS_Crc_00032]
+        -:    8:*/
+        -:    9:/*------------------------------------------------------------------------------*/
+       36:   10:uint8_t Crc_CalculateCRC8(
+        -:   11:    const uint8_t *Crc_DataPtr, /*Pointer to start address of data block to be calculated.*/
+        -:   12:    uint32_t Crc_Length,        /*Length of data block to be calculated in bytes.*/
+        -:   13:    uint8_t Crc_StartValue8,    /*Start value when the algorithm starts.*/
+        -:   14:    bool Crc_IsFirstCall)
+        -:   15:{
+        -:   16:    uint8_t crc;
+        -:   17:
+       36:   18:    if (Crc_IsFirstCall)    /*TRUE: First call in a sequence or individual CRC calculation; start from initial value, ignore Crc_StartValue8*/
+        -:   19:    {
+    #####:   20:        crc = CRC8_INITIAL_VALUE;
+        -:   21:    }
+        -:   22:    else                    /*FALSE: Subsequent call in a call sequence; Crc_StartValue8 is interpreted to be the return value of the previous function call.*/
+        -:   23:    {
+       36:   24:        crc = (CRC8_XOR_VALUE ^ Crc_StartValue8);
+        -:   25:    }
+        -:   26:
+       78:   27:    for (size_t i = 0; i < Crc_Length; ++i)
+        -:   28:    {
+       42:   29:        crc = CRC8_TABLE[crc ^ Crc_DataPtr[i]];
+        -:   30:    }
+        -:   31:
+       36:   32:    return (crc ^ CRC8_XOR_VALUE);  /*8 bit result of CRC calculation.*/
+        -:   33:}
