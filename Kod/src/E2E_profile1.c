@@ -44,16 +44,16 @@ Std_ReturnType CheckConfig(E2E_P01ConfigType* Config)
     }
 
     /* Check input parameters values */
-    if ((Config->DataLength > MAX_P01_DATA_LENGTH_IN_BITS) || (Config->DataLength % 8 != 0)  ||
-        (Config->CounterOffset % 4 != 0) || Config->CRCOffset % 8 != 0) 
+    if ((Config -> DataLength > MAX_P01_DATA_LENGTH_IN_BITS) || (Config -> DataLength % 8 != 0)  ||
+        (Config -> CounterOffset % 4 != 0) || Config -> CRCOffset % 8 != 0) 
     {
         return E2E_E_INPUTERR_WRONG; /* MISRA exception */
     }
 
     /* Check that input parameters do not overlap and fits into the data array. It is enough to
      * check if the CRC and Counter are in the same byte since the CRC is one byte long */
-    if ((Config->CRCOffset + 8 > Config->DataLength) || (Config->CounterOffset + 4 > Config->DataLength) ||
-        (Config->CRCOffset/8 == Config->CounterOffset/8)) 
+    if ((Config -> CRCOffset + 8 > Config -> DataLength) || (Config -> CounterOffset + 4 > Config -> DataLength) ||
+        (Config -> CRCOffset/8 == Config -> CounterOffset/8)) 
     {
         return E2E_E_INPUTERR_WRONG; /* MISRA exception */
     }
@@ -76,11 +76,11 @@ Std_ReturnType CheckConfig(E2E_P01ConfigType* Config)
 
 uint8_t E2E_P01_CalculateCRC(E2E_P01ConfigType* Config, uint8 Counter, uint8* Data)
 {
-    uint8_t data_id_lo_byte = (uint8_t)(Config->DataID);
-    uint8_t data_id_hi_byte = (uint8_t)(Config->DataID>>8);
+    uint8_t data_id_lo_byte = (uint8_t)(Config -> DataID);
+    uint8_t data_id_hi_byte = (uint8_t)((Config -> DataID)>>8);
     uint8_t crc = 0x00u;
 
-    switch (Config->DataIDMode)
+    switch (Config -> DataIDMode)
     {
     case E2E_P01_DATAID_BOTH:
 
@@ -119,17 +119,17 @@ uint8_t E2E_P01_CalculateCRC(E2E_P01ConfigType* Config, uint8 Counter, uint8* Da
         break;
     }
 
-    if (Config->CRCOffset >= 8)
+    if (Config -> CRCOffset >= 8)
     {
         // compute crc over data before the crc byte
-        crc = Crc_CalculateCRC8(Data, (Config->CRCOffset / 8), crc ^ CRC8_XOR_VALUE, FALSE);
+        crc = Crc_CalculateCRC8(Data, ((Config -> CRCOffset) >> 3), crc, FALSE);
     }
 
-    if (Config->CRCOffset / 8 < (Config->DataLength / 8) - 1) 
+    if (((Config -> CRCOffset) >> 3) < Config -> DataLength) 
     {
-        crc = Crc_CalculateCRC8 (&Data[Config->CRCOffset/8 + 1], 
-                                (Config->DataLength / 8 - Config->CRCOffset / 8 - 1),
-                                crc ^ CRC8_XOR_VALUE, FALSE);
+        crc = Crc_CalculateCRC8 (Data + ((Config -> CRCOffset) >> 3) + 1, 
+                                (Config -> DataLength) - ((Config -> CRCOffset) >> 3),
+                                crc, FALSE);
     }
 
     // write CRC to data
@@ -153,20 +153,20 @@ Std_ReturnType E2E_P01Protect(E2E_P01ConfigType* Config, E2E_P01SenderStateType*
     }
 
     /* write the counter in data*/
-    if (Config->CounterOffset % 8 == 0) 
+    if (Config -> CounterOffset % 8 == 0) 
     {
-        *(Data+(Config->CounterOffset/8)) = (*(Data+(Config->CounterOffset/8)) & 0xF0) | (State->Counter & 0x0F);
+        *(Data+(Config -> CounterOffset/8)) = (*(Data+(Config -> CounterOffset/8)) & 0xF0) | (State -> Counter & 0x0F);
     }
     else 
     { /*write DataID nibble in Data, if E2E_P01_DATAID_NIBBLE configuration is used*/
-        *(Data+(Config->CounterOffset/8)) = (*(Data+(Config->CounterOffset/8)) & 0x0F) | ((State->Counter<<4) & 0xF0);
+        *(Data+(Config -> CounterOffset/8)) = (*(Data+(Config -> CounterOffset/8)) & 0x0F) | ((State -> Counter<<4) & 0xF0);
     }
 
     /* compute the CRC and write CRC in Data */
-    *(Data+(Config->CRCOffset/8)) = E2E_P01_CalculateCRC(Config, State->Counter, Data);
+    *(Data+(Config -> CRCOffset/8)) = E2E_P01_CalculateCRC(Config, State -> Counter, Data);
     
     /* increment the Counter (which will be used in the next invocation of E2E_P01Protect()) */
-    State->Counter = E2E_UpdateCounter(State->Counter); 
+    State -> Counter = E2E_UpdateCounter(State -> Counter); 
 
     return E2E_E_OK;
 }
@@ -200,77 +200,77 @@ Std_ReturnType E2E_P01Check(E2E_P01ConfigType* Config, E2E_P01ReceiverStateType*
 
 
 
-    if (State->MaxDeltaCounter < MAX_P01_COUNTER_VALUE) 
+    if (State -> MaxDeltaCounter < MAX_P01_COUNTER_VALUE) 
     {
-        State->MaxDeltaCounter++;
+        State -> MaxDeltaCounter++;
     }
 
-    if (State->NewDataAvailable == FALSE) 
+    if (State -> NewDataAvailable == FALSE) 
     {
-        State->Status = E2E_P01STATUS_NONEWDATA;
+        State -> Status = E2E_P01STATUS_NONEWDATA;
         return E2E_E_OK;  /* MISRA exception */
     }
 
     /* Counter offset is 4-bit aligned, this check is used to find out if high or low nibble */
-    if (Config->CounterOffset % 8 == 0) 
+    if (Config -> CounterOffset % 8 == 0) 
     {
-        receivedCounter = *(Data+(Config->CounterOffset/8)) & 0x0F;
+        receivedCounter = *(Data+(Config -> CounterOffset/8)) & 0x0F;
     }
     else 
     {
-        receivedCounter = (*(Data+(Config->CounterOffset/8)) >> 4) & 0x0F;
+        receivedCounter = (*(Data+(Config -> CounterOffset/8)) >> 4) & 0x0F;
     }
 
-    receivedCrc = *(Data+(Config->CRCOffset/8));
+    receivedCrc = *(Data+(Config -> CRCOffset/8));
     calculatedCrc = E2E_P01_CalculateCRC(Config, receivedCounter, Data);
     
-    printf("\n received crc  = %d \n", receivedCrc);
-    printf("\n receivedCounter  = %d \n", receivedCounter);
-    printf("\n Data  = %d \n", &Data);
-    printf("\n (Config->CRCOffset/8)  = %d \n", (Config->CRCOffset/8));
-    printf("\n calculated crc  = %d \n", calculatedCrc);
+    // printf("\n received crc  = %d \n", receivedCrc);
+    // printf("\n receivedCounter  = %d \n", receivedCounter);
+    // printf("\n Data  = %d \n", &Data);
+    // printf("\n (Config -> CRCOffset/8)  = %d \n", (Config -> CRCOffset/8));
+    // printf("\n calculated crc  = %d \n", calculatedCrc);
 
     if (receivedCrc != calculatedCrc) 
     {
-        State->Status = E2E_P01STATUS_WRONGCRC;
+        State -> Status = E2E_P01STATUS_WRONGCRC;
         return E2E_E_OK;
     }
 
     /* Check if this is the first data since initialization */
-    if (State->WaitForFirstData == TRUE) 
+    if (State -> WaitForFirstData == TRUE) 
     {
-        State->WaitForFirstData = FALSE;
-        State->MaxDeltaCounter = Config->MaxDeltaCounterInit;
-        State->LastValidCounter = receivedCounter;
-        State->Status= E2E_P01STATUS_INITAL;
+        State -> WaitForFirstData = FALSE;
+        State -> MaxDeltaCounter = Config -> MaxDeltaCounterInit;
+        State -> LastValidCounter = receivedCounter;
+        State -> Status= E2E_P01STATUS_INITAL;
 
         return E2E_E_OK;
     }
 
     /* Check the counter delta */
-    delta = CalculateDeltaCounter(receivedCounter, State->LastValidCounter);
+    delta = CalculateDeltaCounter(receivedCounter, State -> LastValidCounter);
 
     if (delta == 1)
      {
-        State->MaxDeltaCounter = Config->MaxDeltaCounterInit;
-        State->LastValidCounter = receivedCounter;
-        State->LostData = 0;
-        State->Status= E2E_P01STATUS_OK;
+        State -> MaxDeltaCounter = Config -> MaxDeltaCounterInit;
+        State -> LastValidCounter = receivedCounter;
+        State -> LostData = 0;
+        State -> Status= E2E_P01STATUS_OK;
     }
     else if (delta == 0) 
     {
-        State->Status= E2E_P01STATUS_REPEATED;
+        State -> Status= E2E_P01STATUS_REPEATED;
     }
-    else if (delta <= State->MaxDeltaCounter) 
+    else if (delta <= State -> MaxDeltaCounter) 
     {
-        State->MaxDeltaCounter = Config->MaxDeltaCounterInit;
-        State->LastValidCounter = receivedCounter;
-        State->LostData = delta - 1;
-        State->Status= E2E_P01STATUS_OKSOMELOST;
+        State -> MaxDeltaCounter = Config -> MaxDeltaCounterInit;
+        State -> LastValidCounter = receivedCounter;
+        State -> LostData = delta - 1;
+        State -> Status= E2E_P01STATUS_OKSOMELOST;
     }
     else 
     {
-        State->Status= E2E_P01STATUS_WRONGSEQUENCE;
+        State -> Status= E2E_P01STATUS_WRONGSEQUENCE;
     }
 
     return E2E_E_OK;

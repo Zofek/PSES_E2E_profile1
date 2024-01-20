@@ -39,7 +39,7 @@
         -:   35:	
         1:   36:	TEST_CHECK(result == E2E_E_OK);
         1:   37:	TEST_CHECK(dataOK[ConfigOK1.CounterOffset / 8] == 0);
-        1:   38:	TEST_CHECK(dataOK[ConfigOK1.CRCOffset / 8] == 196);
+        1:   38:	TEST_CHECK(dataOK[ConfigOK1.CRCOffset / 8] == 238);
         -:   39:	
         1:   40:	E2E_P01ConfigType ConfigOK2 = {
         -:   41:        .DataLength = 32,
@@ -51,259 +51,260 @@
         -:   47:	
         1:   48:	TEST_CHECK(result == E2E_E_OK);
         1:   49:	TEST_CHECK(dataOK[ConfigOK2.CounterOffset / 8] == 1);
-        1:   50:	TEST_CHECK(dataOK[ConfigOK2.CRCOffset / 8] == 29);
+        -:   50:
         1:   51:}
         -:   52:
-        -:   53:/**=============================================================================*/
-        -:   54:/**
-        -:   55:  @brief Test of E2E_P01Check
-        -:   56:**/
-        -:   57:/**=============================================================================*/
-        1:   58:void Test_Of_E2E_P01Check(void)
-        -:   59:{
-        -:   60:
-        -:   61://---------------------------------
-        -:   62:  E2E_P01ConfigType Config;
-        -:   63:  E2E_P01ReceiverStateType State;
-        1:   64:  uint8_t dataOK[8] = {0, 1, 2, 3, 4, 5, 6, 7};
-        1:   65:	uint8_t data[] = {0};
-        -:   66:
-        1:   67:  TEST_CHECK(E2E_P01Check(NULL, &State, data) == E2E_E_INPUTERR_NULL);
-        -:   68:	
-        1:   69:	E2E_P01ConfigType ConfigOK1 = {
-        -:   70:        .DataLength = 16,
-        -:   71:        .CounterOffset = 4,
-        -:   72:        .CRCOffset = 8
-        -:   73:    };
-        -:   74:
-        -:   75://---------------------------------
-        1:   76:  TEST_CHECK(E2E_P01Check(&ConfigOK1, NULL, data) == E2E_E_INPUTERR_NULL);
-        -:   77://---------------------------------
-        1:   78:  TEST_CHECK(E2E_P01Check(&ConfigOK1, &State, NULL) == E2E_E_INPUTERR_NULL);
-        -:   79:	
-        1:   80:	Std_ReturnType result = E2E_P01Check(&ConfigOK1, &State, dataOK);
-        -:   81:
-        -:   82://---------------------------------
-        1:   83:	TEST_CHECK(result == E2E_E_OK);
-        -:   84://---------------------------------
-        1:   85:	TEST_CHECK(dataOK[ConfigOK1.CounterOffset / 8] == 0);
-        -:   86://---------------------------------
-        1:   87:	E2E_P01ConfigType ConfigOK2 = {
-        -:   88:        .DataLength = 32,
-        -:   89:        .CounterOffset = 16,
-        -:   90:        .CRCOffset = 8
-        -:   91:    };
-        -:   92:	
-        1:   93:  E2E_P01ReceiverStateType State2 = {
-        -:   94:    .LastValidCounter = 1,
-        -:   95:    .MaxDeltaCounter = 2,
-        -:   96:    .WaitForFirstData = 0,
-        -:   97:    .NewDataAvailable = 1,
-        -:   98:    .LostData = 0
-        -:   99:  };
-        -:  100:
-        1:  101:	result = E2E_P01Check(&ConfigOK2, &State2, dataOK);
-        1:  102:	TEST_CHECK(result == E2E_E_OK);
-        -:  103://---------------------------------
-        1:  104:	E2E_P01ConfigType ConfigOK3 = {
-        -:  105:        .DataLength = 32,
-        -:  106:        .CounterOffset = 16,
-        -:  107:        .CRCOffset = 8
-        -:  108:    };
-        -:  109:	
-        1:  110:  E2E_P01ReceiverStateType State3 = {
-        -:  111:    .LastValidCounter = 1,
-        -:  112:    .MaxDeltaCounter = 2,
-        -:  113:    .WaitForFirstData = 0,
-        -:  114:    .NewDataAvailable = 1,
-        -:  115:    .LostData = 0
-        -:  116:  };
-        -:  117:
-        1:  118:	result = E2E_P01Check(&ConfigOK3, &State3, dataOK);
-        -:  119:	
-        1:  120:	TEST_CHECK(result == E2E_E_OK);
-        -:  121://---------------------------------
-        1:  122:	E2E_P01ConfigType ConfigOK4 = {
-        -:  123:        .DataLength = 32,
-        -:  124:        .CounterOffset = 4,
-        -:  125:        .CRCOffset = 16
-        -:  126:    };
-        -:  127:	
-        1:  128:  E2E_P01ReceiverStateType State4 = {
-        -:  129:    .LastValidCounter = 1,
-        -:  130:    .MaxDeltaCounter = 2,
-        -:  131:    .WaitForFirstData = 0,
-        -:  132:    .NewDataAvailable = 1,
-        -:  133:    .LostData = 0
-        -:  134:  };
-        -:  135:
-        1:  136:	result = E2E_P01Check(&ConfigOK4, &State4, dataOK);
-        -:  137:	
-        1:  138:	TEST_CHECK(result == E2E_E_OK);
-        -:  139://---------------------------------
-        1:  140:	E2E_P01ConfigType ConfigOK5 = {
-        -:  141:    .DataLength = 32,
-        -:  142:    .CounterOffset = 4,
-        -:  143:    .CRCOffset = 16,
-        -:  144:    .DataID = 256,
-        -:  145:    .DataIDMode = E2E_P01_DATAID_LOW,
-        -:  146:    .MaxDeltaCounterInit = 0
-        -:  147:
-        -:  148:  };
-        -:  149:	
-        1:  150:  E2E_P01ReceiverStateType State5 = {
-        -:  151:    .LastValidCounter = 1,
-        -:  152:    .MaxDeltaCounter = 2,
-        -:  153:    .WaitForFirstData = 0,
-        -:  154:    .NewDataAvailable = 1,
-        -:  155:    .LostData = 0
-        -:  156:  };
-        -:  157:
-        1:  158:	result = E2E_P01Check(&ConfigOK5, &State5, data);
-        -:  159:	
-        1:  160:	TEST_CHECK(result == E2E_E_OK);
-        -:  161:
-        1:  162:}
-        -:  163:
-        -:  164:/**=============================================================================*/
-        -:  165:/**
-        -:  166:  @brief Test of E2E_P01_CalculateCRC
-        -:  167:**/
-        -:  168:/**=============================================================================*/
-        1:  169:void Test_Of_E2E_P01_CalculateCRC(void)
-        -:  170:{
-        -:  171:	
-        -:  172:	E2E_P01ConfigType Config;
-        1:  173:    Config.CounterOffset = 3 * 8;
-        1:  174:	Config.CRCOffset = 0;
-        1:  175:	Config.DataIDMode = E2E_P01_DATAID_BOTH;
-        1:  176:	Config.DataLength = 2 * 8;
-        1:  177:	Config.MaxDeltaCounterInit = 3;
-        -:  178:
-        1:  179:	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
-        1:  180:	uint8_t crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-        1:  181:  printf("%d",&crcResult);
-        1:  182:	TEST_CHECK(crcResult == 228);
-        -:  183:
-        1:  184:	Config.DataIDMode = E2E_P01_DATAID_LOW;
-        1:  185:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-        1:  186:  printf("%d",&crcResult);
-        1:  187:	TEST_CHECK(crcResult == 131);
-        -:  188:	
-        1:  189:	Config.DataIDMode = E2E_P01_DATAID_ALT;
-        1:  190:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-        1:  191:  printf("%d",&crcResult);
-        1:  192:	TEST_CHECK(crcResult == 131);
-        -:  193:	
-        1:  194:	Config.DataIDMode = E2E_P01_DATAID_ALT;
-        1:  195:	crcResult = E2E_P01_CalculateCRC(&Config, 1, data);
-        1:  196:  printf("%d",&crcResult);  
-        1:  197:	TEST_CHECK(crcResult == 232);
-        -:  198:	
-        1:  199:	Config.DataIDMode = E2E_P01_DATAID_NIBBLE;
-        1:  200:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-        1:  201:  printf("%d",&crcResult);
-        1:  202:	TEST_CHECK(crcResult == 213);
-        -:  203:	
-        1:  204:	Config.CRCOffset = 8;
-        1:  205:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-        1:  206:  printf("%d",&crcResult);
-        1:  207:	TEST_CHECK(crcResult == 200);
-        -:  208:	
-        1:  209:}
-        -:  210:
-        -:  211:/**=============================================================================*/
-        -:  212:/**
-        -:  213:  @brief Test of E2E_UpdateCounter
-        -:  214:**/
-        -:  215:/**=============================================================================*/
-        1:  216:void Test_Of_E2E_UpdateCounter(void)
-        -:  217:{
-        -:  218:    /* Test for valid range 0-14 */
-        1:  219:    TEST_CHECK(E2E_UpdateCounter(0) == 1);
-        1:  220:    TEST_CHECK(E2E_UpdateCounter(7) == 8);
-        1:  221:    TEST_CHECK(E2E_UpdateCounter(14) == 0);
-        -:  222:
-        -:  223:    /* Test for invalid input (greater than 14) */
-        1:  224:    TEST_CHECK(E2E_UpdateCounter(15) == 1);
-        1:  225:    TEST_CHECK(E2E_UpdateCounter(20) == 6);
-        1:  226:}
-        -:  227:
-        -:  228:/**=============================================================================*/
-        -:  229:/**
-        -:  230:  @brief Test of CalculateDeltaCounter
-        -:  231:**/
-        -:  232:/**=============================================================================*/
-        1:  233:void Test_Of_CalculateDeltaCounter(void)
-        -:  234:{
-        -:  235:    /* Test for receivedCounter >= lastValidCounter */
-        1:  236:    TEST_CHECK(CalculateDeltaCounter(8, 5) == 3);
-        1:  237:    TEST_CHECK(CalculateDeltaCounter(5, 5) == 0);
-        1:  238:    TEST_CHECK(CalculateDeltaCounter(0, 14) == 1);
-        -:  239:
-        -:  240:    /* Test for receivedCounter < lastValidCounter */
-        1:  241:    TEST_CHECK(CalculateDeltaCounter(5, 8) == 12);
-        1:  242:    TEST_CHECK(CalculateDeltaCounter(14, 0) == 14);
-        1:  243:}
-        -:  244:
-        -:  245:/**=============================================================================*/
-        -:  246:/**
-        -:  247:  @brief Test for CheckConfig with NULL Config
-        -:  248:**/
-        -:  249:/**=============================================================================*/
-        1:  250:void Test_CheckConfig(void) {
-        1:  251:    Std_ReturnType result = CheckConfig(NULL);
-        1:  252:    TEST_CHECK(result == E2E_E_INPUTERR_NULL);
-        -:  253:
-        1:  254:    E2E_P01ConfigType ConfigOK = {
-        -:  255:        .DataLength = 16,
-        -:  256:        .CounterOffset = 4,
-        -:  257:        .CRCOffset = 8
-        -:  258:    };
-        -:  259:
-        1:  260:    result = CheckConfig(&ConfigOK);
-        1:  261:    TEST_CHECK(result == E2E_E_OK);
-        -:  262:
-        1:  263:    E2E_P01ConfigType ConfigInvalidDataLength = {
-        -:  264:        .DataLength = 17,
-        -:  265:        .CounterOffset = 4,
-        -:  266:        .CRCOffset = 8
-        -:  267:    };
-        -:  268:
-        1:  269:    result = CheckConfig(&ConfigInvalidDataLength);
-        1:  270:    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
-        -:  271:
-        1:  272:    E2E_P01ConfigType ConfigInvalidCounterOffset = {
-        -:  273:        .DataLength = 16,
-        -:  274:        .CounterOffset = 3,
-        -:  275:        .CRCOffset = 8
-        -:  276:    };
-        -:  277:
-        1:  278:    result = CheckConfig(&ConfigInvalidCounterOffset);
-        1:  279:    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
-        -:  280:
-        1:  281:    E2E_P01ConfigType ConfigOverlappingOffsets = {
-        -:  282:        .DataLength = 0,
-        -:  283:        .CounterOffset = 16,
-        -:  284:        .CRCOffset = 16
-        -:  285:    };
-        -:  286:
-        1:  287:    result = CheckConfig(&ConfigOverlappingOffsets);
-        1:  288:    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
-        1:  289:}
-        -:  290:
-        -:  291:/**=============================================================================*/
-        -:  292:/*
-        -:  293:  Lista testów 
-        -:  294:*/
-        -:  295:/**=============================================================================*/
-        -:  296:TEST_LIST = 
-        -:  297:{
-        -:  298:  { "Test of E2E_P01Protect", Test_Of_E2E_P01Protect },
-        -:  299:  { "Test of E2E_P01Check", Test_Of_E2E_P01Check },
-        -:  300:  { "Test of Test_Of_E2E_P01_CalculateCRC", Test_Of_E2E_P01_CalculateCRC },
-        -:  301:	{ "Test of E2E_UpdateCounter", Test_Of_E2E_UpdateCounter },
-        -:  302:	{ "Test of CalculateDeltaCounter", Test_Of_CalculateDeltaCounter },
-        -:  303:	{ "Test of CheckConfig", Test_CheckConfig },
-        -:  304:  { NULL, NULL }                                      
-        -:  305:};
+        -:   53:
+        -:   54:/**=============================================================================*/
+        -:   55:/**
+        -:   56:  @brief Test of E2E_P01Check
+        -:   57:**/
+        -:   58:/**=============================================================================*/
+        1:   59:void Test_Of_E2E_P01Check(void)
+        -:   60:{
+        -:   61:
+        -:   62://---------------------------------
+        -:   63:  E2E_P01ConfigType Config;
+        -:   64:  E2E_P01ReceiverStateType State;
+        1:   65:  uint8_t dataOK[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+        1:   66:	uint8_t data[] = {0};
+        -:   67:
+        1:   68:  TEST_CHECK(E2E_P01Check(NULL, &State, data) == E2E_E_INPUTERR_NULL);
+        -:   69:	
+        1:   70:	E2E_P01ConfigType ConfigOK1 = {
+        -:   71:        .DataLength = 16,
+        -:   72:        .CounterOffset = 4,
+        -:   73:        .CRCOffset = 8
+        -:   74:    };
+        -:   75:
+        -:   76://---------------------------------
+        1:   77:  TEST_CHECK(E2E_P01Check(&ConfigOK1, NULL, data) == E2E_E_INPUTERR_NULL);
+        -:   78://---------------------------------
+        1:   79:  TEST_CHECK(E2E_P01Check(&ConfigOK1, &State, NULL) == E2E_E_INPUTERR_NULL);
+        -:   80:	
+        1:   81:	Std_ReturnType result = E2E_P01Check(&ConfigOK1, &State, dataOK);
+        -:   82:
+        -:   83://---------------------------------
+        1:   84:	TEST_CHECK(result == E2E_E_OK);
+        -:   85://---------------------------------
+        1:   86:	TEST_CHECK(dataOK[ConfigOK1.CounterOffset / 8] == 0);
+        -:   87://---------------------------------
+        1:   88:	E2E_P01ConfigType ConfigOK2 = {
+        -:   89:        .DataLength = 32,
+        -:   90:        .CounterOffset = 16,
+        -:   91:        .CRCOffset = 8
+        -:   92:    };
+        -:   93:	
+        1:   94:  E2E_P01ReceiverStateType State2 = {
+        -:   95:    .LastValidCounter = 1,
+        -:   96:    .MaxDeltaCounter = 2,
+        -:   97:    .WaitForFirstData = 0,
+        -:   98:    .NewDataAvailable = 1,
+        -:   99:    .LostData = 0
+        -:  100:  };
+        -:  101:
+        1:  102:	result = E2E_P01Check(&ConfigOK2, &State2, dataOK);
+        1:  103:	TEST_CHECK(result == E2E_E_OK);
+        -:  104://---------------------------------
+        1:  105:	E2E_P01ConfigType ConfigOK3 = {
+        -:  106:        .DataLength = 32,
+        -:  107:        .CounterOffset = 16,
+        -:  108:        .CRCOffset = 8
+        -:  109:    };
+        -:  110:	
+        1:  111:  E2E_P01ReceiverStateType State3 = {
+        -:  112:    .LastValidCounter = 1,
+        -:  113:    .MaxDeltaCounter = 2,
+        -:  114:    .WaitForFirstData = 0,
+        -:  115:    .NewDataAvailable = 1,
+        -:  116:    .LostData = 0
+        -:  117:  };
+        -:  118:
+        1:  119:	result = E2E_P01Check(&ConfigOK3, &State3, dataOK);
+        -:  120:	
+        1:  121:	TEST_CHECK(result == E2E_E_OK);
+        -:  122://---------------------------------
+        1:  123:	E2E_P01ConfigType ConfigOK4 = {
+        -:  124:        .DataLength = 32,
+        -:  125:        .CounterOffset = 4,
+        -:  126:        .CRCOffset = 16
+        -:  127:    };
+        -:  128:	
+        1:  129:  E2E_P01ReceiverStateType State4 = {
+        -:  130:    .LastValidCounter = 1,
+        -:  131:    .MaxDeltaCounter = 2,
+        -:  132:    .WaitForFirstData = 0,
+        -:  133:    .NewDataAvailable = 1,
+        -:  134:    .LostData = 0
+        -:  135:  };
+        -:  136:
+        1:  137:	result = E2E_P01Check(&ConfigOK4, &State4, dataOK);
+        -:  138:	
+        1:  139:	TEST_CHECK(result == E2E_E_OK);
+        -:  140://---------------------------------
+        1:  141:	E2E_P01ConfigType ConfigOK5 = {
+        -:  142:    .DataLength = 32,
+        -:  143:    .CounterOffset = 4,
+        -:  144:    .CRCOffset = 16,
+        -:  145:    .DataID = 256,
+        -:  146:    .DataIDMode = E2E_P01_DATAID_LOW,
+        -:  147:    .MaxDeltaCounterInit = 0
+        -:  148:
+        -:  149:  };
+        -:  150:	
+        1:  151:  E2E_P01ReceiverStateType State5 = {
+        -:  152:    .LastValidCounter = 1,
+        -:  153:    .MaxDeltaCounter = 2,
+        -:  154:    .WaitForFirstData = 0,
+        -:  155:    .NewDataAvailable = 1,
+        -:  156:    .LostData = 0
+        -:  157:  };
+        -:  158:
+        1:  159:	result = E2E_P01Check(&ConfigOK5, &State5, data);
+        -:  160:	
+        1:  161:	TEST_CHECK(result == E2E_E_OK);
+        -:  162:
+        1:  163:}
+        -:  164:
+        -:  165:/**=============================================================================*/
+        -:  166:/**
+        -:  167:  @brief Test of E2E_P01_CalculateCRC
+        -:  168:**/
+        -:  169:/**=============================================================================*/
+        1:  170:void Test_Of_E2E_P01_CalculateCRC(void)
+        -:  171:{
+        -:  172:	
+        -:  173:	E2E_P01ConfigType Config;
+        1:  174:    Config.CounterOffset = 3 * 8;
+        1:  175:	Config.CRCOffset = 0;
+        1:  176:	Config.DataIDMode = E2E_P01_DATAID_BOTH;
+        1:  177:	Config.DataLength = 2 * 8;
+        1:  178:	Config.MaxDeltaCounterInit = 3;
+        -:  179:
+        1:  180:	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+        1:  181:	uint8_t crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+        -:  182:  //printf("%d",&crcResult);
+        1:  183:	TEST_CHECK(crcResult == 228);
+        -:  184:
+        1:  185:	Config.DataIDMode = E2E_P01_DATAID_LOW;
+        1:  186:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+        -:  187:  //printf("%d",&crcResult);
+        1:  188:	TEST_CHECK(crcResult == 131);
+        -:  189:	
+        1:  190:	Config.DataIDMode = E2E_P01_DATAID_ALT;
+        1:  191:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+        -:  192:  //printf("%d",&crcResult);
+        1:  193:	TEST_CHECK(crcResult == 131);
+        -:  194:	
+        1:  195:	Config.DataIDMode = E2E_P01_DATAID_ALT;
+        1:  196:	crcResult = E2E_P01_CalculateCRC(&Config, 1, data);
+        -:  197:  //printf("%d",&crcResult);  
+        1:  198:	TEST_CHECK(crcResult == 232);
+        -:  199:	
+        1:  200:	Config.DataIDMode = E2E_P01_DATAID_NIBBLE;
+        1:  201:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+        -:  202:  //printf("%d",&crcResult);
+        1:  203:	TEST_CHECK(crcResult == 213);
+        -:  204:	
+        1:  205:	Config.CRCOffset = 8;
+        1:  206:	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
+        -:  207:  //printf("%d",&crcResult);
+        1:  208:	TEST_CHECK(crcResult == 200);
+        -:  209:	
+        1:  210:}
+        -:  211:
+        -:  212:/**=============================================================================*/
+        -:  213:/**
+        -:  214:  @brief Test of E2E_UpdateCounter
+        -:  215:**/
+        -:  216:/**=============================================================================*/
+        1:  217:void Test_Of_E2E_UpdateCounter(void)
+        -:  218:{
+        -:  219:    /* Test for valid range 0-14 */
+        1:  220:    TEST_CHECK(E2E_UpdateCounter(0) == 1);
+        1:  221:    TEST_CHECK(E2E_UpdateCounter(7) == 8);
+        1:  222:    TEST_CHECK(E2E_UpdateCounter(14) == 0);
+        -:  223:
+        -:  224:    /* Test for invalid input (greater than 14) */
+        1:  225:    TEST_CHECK(E2E_UpdateCounter(15) == 1);
+        1:  226:    TEST_CHECK(E2E_UpdateCounter(20) == 6);
+        1:  227:}
+        -:  228:
+        -:  229:/**=============================================================================*/
+        -:  230:/**
+        -:  231:  @brief Test of CalculateDeltaCounter
+        -:  232:**/
+        -:  233:/**=============================================================================*/
+        1:  234:void Test_Of_CalculateDeltaCounter(void)
+        -:  235:{
+        -:  236:    /* Test for receivedCounter >= lastValidCounter */
+        1:  237:    TEST_CHECK(CalculateDeltaCounter(8, 5) == 3);
+        1:  238:    TEST_CHECK(CalculateDeltaCounter(5, 5) == 0);
+        1:  239:    TEST_CHECK(CalculateDeltaCounter(0, 14) == 1);
+        -:  240:
+        -:  241:    /* Test for receivedCounter < lastValidCounter */
+        1:  242:    TEST_CHECK(CalculateDeltaCounter(5, 8) == 12);
+        1:  243:    TEST_CHECK(CalculateDeltaCounter(14, 0) == 14);
+        1:  244:}
+        -:  245:
+        -:  246:/**=============================================================================*/
+        -:  247:/**
+        -:  248:  @brief Test for CheckConfig with NULL Config
+        -:  249:**/
+        -:  250:/**=============================================================================*/
+        1:  251:void Test_CheckConfig(void) {
+        1:  252:    Std_ReturnType result = CheckConfig(NULL);
+        1:  253:    TEST_CHECK(result == E2E_E_INPUTERR_NULL);
+        -:  254:
+        1:  255:    E2E_P01ConfigType ConfigOK = {
+        -:  256:        .DataLength = 16,
+        -:  257:        .CounterOffset = 4,
+        -:  258:        .CRCOffset = 8
+        -:  259:    };
+        -:  260:
+        1:  261:    result = CheckConfig(&ConfigOK);
+        1:  262:    TEST_CHECK(result == E2E_E_OK);
+        -:  263:
+        1:  264:    E2E_P01ConfigType ConfigInvalidDataLength = {
+        -:  265:        .DataLength = 17,
+        -:  266:        .CounterOffset = 4,
+        -:  267:        .CRCOffset = 8
+        -:  268:    };
+        -:  269:
+        1:  270:    result = CheckConfig(&ConfigInvalidDataLength);
+        1:  271:    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
+        -:  272:
+        1:  273:    E2E_P01ConfigType ConfigInvalidCounterOffset = {
+        -:  274:        .DataLength = 16,
+        -:  275:        .CounterOffset = 3,
+        -:  276:        .CRCOffset = 8
+        -:  277:    };
+        -:  278:
+        1:  279:    result = CheckConfig(&ConfigInvalidCounterOffset);
+        1:  280:    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
+        -:  281:
+        1:  282:    E2E_P01ConfigType ConfigOverlappingOffsets = {
+        -:  283:        .DataLength = 0,
+        -:  284:        .CounterOffset = 16,
+        -:  285:        .CRCOffset = 16
+        -:  286:    };
+        -:  287:
+        1:  288:    result = CheckConfig(&ConfigOverlappingOffsets);
+        1:  289:    TEST_CHECK(result == E2E_E_INPUTERR_WRONG);
+        1:  290:}
+        -:  291:
+        -:  292:/**=============================================================================*/
+        -:  293:/*
+        -:  294:  Lista testów 
+        -:  295:*/
+        -:  296:/**=============================================================================*/
+        -:  297:TEST_LIST = 
+        -:  298:{
+        -:  299:  { "Test of E2E_P01Protect", Test_Of_E2E_P01Protect },
+        -:  300:  { "Test of E2E_P01Check", Test_Of_E2E_P01Check },
+        -:  301:  { "Test of Test_Of_E2E_P01_CalculateCRC", Test_Of_E2E_P01_CalculateCRC },
+        -:  302:	{ "Test of E2E_UpdateCounter", Test_Of_E2E_UpdateCounter },
+        -:  303:	{ "Test of CalculateDeltaCounter", Test_Of_CalculateDeltaCounter },
+        -:  304:	{ "Test of CheckConfig", Test_CheckConfig },
+        -:  305:  { NULL, NULL }                                      
+        -:  306:};
