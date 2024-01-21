@@ -526,18 +526,18 @@
         -:  522:#define TEST_COLOR_RED_INTENSIVE_       5
         -:  523:
         -:  524:static int TEST_ATTRIBUTE_(format (printf, 2, 3))
-       19:  525:test_print_in_color_(int color, const char* fmt, ...)
+       13:  525:test_print_in_color_(int color, const char* fmt, ...)
         -:  526:{
         -:  527:    va_list args;
         -:  528:    char buffer[256];
         -:  529:    int n;
         -:  530:
-       19:  531:    va_start(args, fmt);
-       19:  532:    vsnprintf(buffer, sizeof(buffer), fmt, args);
-       19:  533:    va_end(args);
-       19:  534:    buffer[sizeof(buffer)-1] = '\0';
+       13:  531:    va_start(args, fmt);
+       13:  532:    vsnprintf(buffer, sizeof(buffer), fmt, args);
+       13:  533:    va_end(args);
+       13:  534:    buffer[sizeof(buffer)-1] = '\0';
         -:  535:
-       19:  536:    if(!test_colorize_) {
+       13:  536:    if(!test_colorize_) {
     #####:  537:        return printf("%s", buffer);
         -:  538:    }
         -:  539:
@@ -563,22 +563,22 @@
         -:  559:        CONSOLE_SCREEN_BUFFER_INFO info;
         -:  560:        WORD attr;
         -:  561:
-       19:  562:        h = GetStdHandle(STD_OUTPUT_HANDLE);
-       19:  563:        GetConsoleScreenBufferInfo(h, &info);
+       13:  562:        h = GetStdHandle(STD_OUTPUT_HANDLE);
+       13:  563:        GetConsoleScreenBufferInfo(h, &info);
         -:  564:
-       19:  565:        switch(color) {
+       13:  565:        switch(color) {
     #####:  566:            case TEST_COLOR_GREEN_:             attr = FOREGROUND_GREEN; break;
-        6:  567:            case TEST_COLOR_RED_:               attr = FOREGROUND_RED; break;
-        5:  568:            case TEST_COLOR_GREEN_INTENSIVE_:   attr = FOREGROUND_GREEN | FOREGROUND_INTENSITY; break;
-        2:  569:            case TEST_COLOR_RED_INTENSIVE_:     attr = FOREGROUND_RED | FOREGROUND_INTENSITY; break;
+    #####:  567:            case TEST_COLOR_RED_:               attr = FOREGROUND_RED; break;
+        7:  568:            case TEST_COLOR_GREEN_INTENSIVE_:   attr = FOREGROUND_GREEN | FOREGROUND_INTENSITY; break;
+    #####:  569:            case TEST_COLOR_RED_INTENSIVE_:     attr = FOREGROUND_RED | FOREGROUND_INTENSITY; break;
         6:  570:            case TEST_COLOR_DEFAULT_INTENSIVE_: attr = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY; break;
     #####:  571:            default:                            attr = 0; break;
         -:  572:        }
-       19:  573:        if(attr != 0)
-       19:  574:            SetConsoleTextAttribute(h, attr);
-       19:  575:        n = printf("%s", buffer);
-       19:  576:        SetConsoleTextAttribute(h, info.wAttributes);
-       19:  577:        return n;
+       13:  573:        if(attr != 0)
+       13:  574:            SetConsoleTextAttribute(h, attr);
+       13:  575:        n = printf("%s", buffer);
+       13:  576:        SetConsoleTextAttribute(h, info.wAttributes);
+       13:  577:        return n;
         -:  578:    }
         -:  579:#else
         -:  580:    n = printf("%s", buffer);
@@ -621,8 +621,8 @@
     #####:  617:            printf("\n");
         -:  618:        }
         -:  619:    } else {
-        6:  620:        int color = (result == 0) ? TEST_COLOR_GREEN_INTENSIVE_ : TEST_COLOR_RED_INTENSIVE_;
-        6:  621:        const char* str = (result == 0) ? "OK" : "FAILED";
+       6*:  620:        int color = (result == 0) ? TEST_COLOR_GREEN_INTENSIVE_ : TEST_COLOR_RED_INTENSIVE_;
+       6*:  621:        const char* str = (result == 0) ? "OK" : "FAILED";
         6:  622:        printf("[ ");
         6:  623:        test_print_in_color_(color, "%s", str);
         6:  624:        printf(" ]");
@@ -637,85 +637,85 @@
         6:  633:}
         -:  634:
         -:  635:static void
-        6:  636:test_line_indent_(int level)
+    #####:  636:test_line_indent_(int level)
         -:  637:{
         -:  638:    static const char spaces[] = "                ";
-        6:  639:    int n = level * 2;
+    #####:  639:    int n = level * 2;
         -:  640:
-       6*:  641:    if(test_tap_  &&  n > 0) {
+    #####:  641:    if(test_tap_  &&  n > 0) {
     #####:  642:        n--;
     #####:  643:        printf("#");
         -:  644:    }
         -:  645:
-        6:  646:    while(n > 16) {
+    #####:  646:    while(n > 16) {
     #####:  647:        printf("%s", spaces);
     #####:  648:        n -= 16;
         -:  649:    }
-        6:  650:    printf("%.*s", n, spaces);
-        6:  651:}
+    #####:  650:    printf("%.*s", n, spaces);
+    #####:  651:}
         -:  652:
         -:  653:int TEST_ATTRIBUTE_(format (printf, 4, 5))
-       38:  654:test_check_(int cond, const char* file, int line, const char* fmt, ...)
+       41:  654:test_check_(int cond, const char* file, int line, const char* fmt, ...)
         -:  655:{
         -:  656:    const char *result_str;
         -:  657:    int result_color;
         -:  658:    int verbose_level;
         -:  659:
-       38:  660:    if(cond) {
-       32:  661:        result_str = "ok";
-       32:  662:        result_color = TEST_COLOR_GREEN_;
-       32:  663:        verbose_level = 3;
+       41:  660:    if(cond) {
+       41:  661:        result_str = "ok";
+       41:  662:        result_color = TEST_COLOR_GREEN_;
+       41:  663:        verbose_level = 3;
         -:  664:    } else {
-        6:  665:        if(!test_current_already_logged_  &&  test_current_unit_ != NULL)
-        1:  666:            test_finish_test_line_(-1);
+    #####:  665:        if(!test_current_already_logged_  &&  test_current_unit_ != NULL)
+    #####:  666:            test_finish_test_line_(-1);
         -:  667:
-        6:  668:        result_str = "failed";
-        6:  669:        result_color = TEST_COLOR_RED_;
-        6:  670:        verbose_level = 2;
-        6:  671:        test_current_failures_++;
-        6:  672:        test_current_already_logged_++;
+    #####:  668:        result_str = "failed";
+    #####:  669:        result_color = TEST_COLOR_RED_;
+    #####:  670:        verbose_level = 2;
+    #####:  671:        test_current_failures_++;
+    #####:  672:        test_current_already_logged_++;
         -:  673:    }
         -:  674:
-       38:  675:    if(test_verbose_level_ >= verbose_level) {
+       41:  675:    if(test_verbose_level_ >= verbose_level) {
         -:  676:        va_list args;
         -:  677:
-        6:  678:        if(!test_case_current_already_logged_  &&  test_case_name_[0]) {
+    #####:  678:        if(!test_case_current_already_logged_  &&  test_case_name_[0]) {
     #####:  679:            test_line_indent_(1);
     #####:  680:            test_print_in_color_(TEST_COLOR_DEFAULT_INTENSIVE_, "Case %s:\n", test_case_name_);
     #####:  681:            test_current_already_logged_++;
     #####:  682:            test_case_current_already_logged_++;
         -:  683:        }
         -:  684:
-       6*:  685:        test_line_indent_(test_case_name_[0] ? 2 : 1);
-        6:  686:        if(file != NULL) {
+    #####:  685:        test_line_indent_(test_case_name_[0] ? 2 : 1);
+    #####:  686:        if(file != NULL) {
         -:  687:#ifdef ACUTEST_WIN_
-        6:  688:            const char* lastsep1 = strrchr(file, '\\');
-        6:  689:            const char* lastsep2 = strrchr(file, '/');
-        6:  690:            if(lastsep1 == NULL)
-        6:  691:                lastsep1 = file-1;
-        6:  692:            if(lastsep2 == NULL)
-        6:  693:                lastsep2 = file-1;
-       6*:  694:            file = (lastsep1 > lastsep2 ? lastsep1 : lastsep2) + 1;
+    #####:  688:            const char* lastsep1 = strrchr(file, '\\');
+    #####:  689:            const char* lastsep2 = strrchr(file, '/');
+    #####:  690:            if(lastsep1 == NULL)
+    #####:  691:                lastsep1 = file-1;
+    #####:  692:            if(lastsep2 == NULL)
+    #####:  693:                lastsep2 = file-1;
+    #####:  694:            file = (lastsep1 > lastsep2 ? lastsep1 : lastsep2) + 1;
         -:  695:#else
         -:  696:            const char* lastsep = strrchr(file, '/');
         -:  697:            if(lastsep != NULL)
         -:  698:                file = lastsep+1;
         -:  699:#endif
-        6:  700:            printf("%s:%d: Check ", file, line);
+    #####:  700:            printf("%s:%d: Check ", file, line);
         -:  701:        }
         -:  702:
-        6:  703:        va_start(args, fmt);
-        6:  704:        vprintf(fmt, args);
-        6:  705:        va_end(args);
+    #####:  703:        va_start(args, fmt);
+    #####:  704:        vprintf(fmt, args);
+    #####:  705:        va_end(args);
         -:  706:
-        6:  707:        printf("... ");
-        6:  708:        test_print_in_color_(result_color, "%s", result_str);
-        6:  709:        printf("\n");
-        6:  710:        test_current_already_logged_++;
+    #####:  707:        printf("... ");
+    #####:  708:        test_print_in_color_(result_color, "%s", result_str);
+    #####:  709:        printf("\n");
+    #####:  710:        test_current_already_logged_++;
         -:  711:    }
         -:  712:
-       38:  713:    test_cond_failed_ = (cond == 0);
-       38:  714:    return !test_cond_failed_;
+       41:  713:    test_cond_failed_ = (cond == 0);
+       41:  714:    return !test_cond_failed_;
         -:  715:}
         -:  716:
         -:  717:void TEST_ATTRIBUTE_(format (printf, 1, 2))
@@ -898,7 +898,7 @@
         -:  894:static void
        12:  895:test_set_success_(int i, int success)
         -:  896:{
-       12:  897:    test_details_[i].flags |= success ? TEST_FLAG_SUCCESS_ : TEST_FLAG_FAILURE_;
+      12*:  897:    test_details_[i].flags |= success ? TEST_FLAG_SUCCESS_ : TEST_FLAG_FAILURE_;
        12:  898:}
         -:  899:
         -:  900:static void
@@ -1057,10 +1057,10 @@
         -: 1053:            }
     #####: 1054:            printf("\n");
         6: 1055:        } else if(test_verbose_level_ >= 1 && test_current_failures_ == 0) {
-        5: 1056:            test_finish_test_line_(0);
+        6: 1056:            test_finish_test_line_(0);
         -: 1057:        }
         -: 1058:
-        6: 1059:        status = (test_current_failures_ == 0) ? 0 : -1;
+       6*: 1059:        status = (test_current_failures_ == 0) ? 0 : -1;
         -: 1060:
         -: 1061:#ifdef __cplusplus
         -: 1062:    } catch(std::exception& e) {
@@ -1206,7 +1206,7 @@
         -: 1202:
        12: 1203:    test_stat_run_units_++;
        12: 1204:    if(failed)
-        2: 1205:        test_stat_failed_units_++;
+    #####: 1205:        test_stat_failed_units_++;
         -: 1206:
        12: 1207:    test_set_success_(master_index, !failed);
        12: 1208:    test_set_duration_(master_index, test_timer_diff_(start, end));
@@ -1740,13 +1740,13 @@
         -: 1736:        }
         -: 1737:
         1: 1738:        if(test_stat_failed_units_ == 0) {
-    #####: 1739:            test_print_in_color_(TEST_COLOR_GREEN_INTENSIVE_, "SUCCESS:");
-    #####: 1740:            printf(" All unit tests have passed.\n");
+        1: 1739:            test_print_in_color_(TEST_COLOR_GREEN_INTENSIVE_, "SUCCESS:");
+        1: 1740:            printf(" All unit tests have passed.\n");
         -: 1741:        } else {
-        1: 1742:            test_print_in_color_(TEST_COLOR_RED_INTENSIVE_, "FAILED:");
-       1*: 1743:            printf(" %d of %d unit tests %s failed.\n",
+    #####: 1742:            test_print_in_color_(TEST_COLOR_RED_INTENSIVE_, "FAILED:");
+    #####: 1743:            printf(" %d of %d unit tests %s failed.\n",
         -: 1744:                    test_stat_failed_units_, test_stat_run_units_,
-        1: 1745:                    (test_stat_failed_units_ == 1) ? "has" : "have");
+    #####: 1745:                    (test_stat_failed_units_ == 1) ? "has" : "have");
         -: 1746:        }
         -: 1747:
         1: 1748:        if(test_verbose_level_ >= 3)

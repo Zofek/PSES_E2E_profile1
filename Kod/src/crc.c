@@ -13,7 +13,7 @@ uint8_t Crc_CalculateCRC8(
     uint8_t Crc_StartValue8,    /*Start value when the algorithm starts.*/
     bool Crc_IsFirstCall)
 {
-    uint8_t crc;
+    uint8_t crc = 0;
 
     if (Crc_IsFirstCall)    /*TRUE: First call in a sequence or individual CRC calculation; start from initial value, ignore Crc_StartValue8*/
     {
@@ -21,12 +21,13 @@ uint8_t Crc_CalculateCRC8(
     }
     else                    /*FALSE: Subsequent call in a call sequence; Crc_StartValue8 is interpreted to be the return value of the previous function call.*/
     {
-        crc = (CRC8_XOR_VALUE ^ Crc_StartValue8);
+        crc = Crc_StartValue8;
     }
 
-    for (size_t i = 0; i < Crc_Length; ++i)
+    for (size_t i = 0; i < Crc_Length; i++)
     {
-        crc = CRC8_TABLE[crc ^ Crc_DataPtr[i]];
+        crc = CRC8_TABLE[crc ^ *Crc_DataPtr];
+        Crc_DataPtr++;
     }
 
     return (crc ^ CRC8_XOR_VALUE);  /*8 bit result of CRC calculation.*/

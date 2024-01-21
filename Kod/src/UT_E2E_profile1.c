@@ -35,7 +35,7 @@ void Test_Of_E2E_P01Protect(void)
 	
 	TEST_CHECK(result == E2E_E_OK);
 	TEST_CHECK(dataOK[ConfigOK1.CounterOffset / 8] == 0);
-	TEST_CHECK(dataOK[ConfigOK1.CRCOffset / 8] == 238);
+	TEST_CHECK(dataOK[ConfigOK1.CRCOffset / 8] == 79);
 	
 	E2E_P01ConfigType ConfigOK2 = {
         .DataLength = 32,
@@ -47,7 +47,7 @@ void Test_Of_E2E_P01Protect(void)
 	
 	TEST_CHECK(result == E2E_E_OK);
 	TEST_CHECK(dataOK[ConfigOK2.CounterOffset / 8] == 1);
-
+	TEST_CHECK(dataOK[ConfigOK2.CRCOffset / 8] == 29);
 }
 
 
@@ -62,10 +62,11 @@ void Test_Of_E2E_P01Check(void)
 //---------------------------------
   E2E_P01ConfigType Config;
   E2E_P01ReceiverStateType State;
+  E2E_P01SenderStateType StateProtect;
   uint8_t dataOK[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 	uint8_t data[] = {0};
 
-  TEST_CHECK(E2E_P01Check(NULL, &State, data) == E2E_E_INPUTERR_NULL);
+  TEST_CHECK(E2E_P01Check(NULL, &State, data, 0) == E2E_E_INPUTERR_NULL);
 	
 	E2E_P01ConfigType ConfigOK1 = {
         .DataLength = 16,
@@ -74,11 +75,11 @@ void Test_Of_E2E_P01Check(void)
     };
 
 //---------------------------------
-  TEST_CHECK(E2E_P01Check(&ConfigOK1, NULL, data) == E2E_E_INPUTERR_NULL);
+  TEST_CHECK(E2E_P01Check(&ConfigOK1, NULL, data, 0) == E2E_E_INPUTERR_NULL);
 //---------------------------------
-  TEST_CHECK(E2E_P01Check(&ConfigOK1, &State, NULL) == E2E_E_INPUTERR_NULL);
+  TEST_CHECK(E2E_P01Check(&ConfigOK1, &State, NULL, 0) == E2E_E_INPUTERR_NULL);
 	
-	Std_ReturnType result = E2E_P01Check(&ConfigOK1, &State, dataOK);
+	Std_ReturnType result = E2E_P01Check(&ConfigOK1, &State, dataOK, 0);
 
 //---------------------------------
 	TEST_CHECK(result == E2E_E_OK);
@@ -88,7 +89,7 @@ void Test_Of_E2E_P01Check(void)
 	E2E_P01ConfigType ConfigOK2 = {
         .DataLength = 32,
         .CounterOffset = 16,
-        .CRCOffset = 8
+        .CRCOffset = 0
     };
 	
   E2E_P01ReceiverStateType State2 = {
@@ -99,8 +100,9 @@ void Test_Of_E2E_P01Check(void)
     .LostData = 0
   };
 
-	result = E2E_P01Check(&ConfigOK2, &State2, dataOK);
+	result = E2E_P01Check(&ConfigOK2, &State2, dataOK, 121);
 	TEST_CHECK(result == E2E_E_OK);
+
 //---------------------------------
 	E2E_P01ConfigType ConfigOK3 = {
         .DataLength = 32,
@@ -111,12 +113,12 @@ void Test_Of_E2E_P01Check(void)
   E2E_P01ReceiverStateType State3 = {
     .LastValidCounter = 1,
     .MaxDeltaCounter = 2,
-    .WaitForFirstData = 0,
+    .WaitForFirstData = 1,
     .NewDataAvailable = 1,
     .LostData = 0
   };
 
-	result = E2E_P01Check(&ConfigOK3, &State3, dataOK);
+	result = E2E_P01Check(&ConfigOK3, &State3, dataOK, 246);
 	
 	TEST_CHECK(result == E2E_E_OK);
 //---------------------------------
@@ -134,7 +136,7 @@ void Test_Of_E2E_P01Check(void)
     .LostData = 0
   };
 
-	result = E2E_P01Check(&ConfigOK4, &State4, dataOK);
+	result = E2E_P01Check(&ConfigOK4, &State4, dataOK, 34);
 	
 	TEST_CHECK(result == E2E_E_OK);
 //---------------------------------
@@ -144,11 +146,34 @@ void Test_Of_E2E_P01Check(void)
     .CRCOffset = 16,
     .DataID = 256,
     .DataIDMode = E2E_P01_DATAID_LOW,
-    .MaxDeltaCounterInit = 0
+    .MaxDeltaCounter = 0
 
   };
 	
   E2E_P01ReceiverStateType State5 = {
+    .LastValidCounter = 0,
+    .MaxDeltaCounter = 0,
+    .WaitForFirstData = 0,
+    .NewDataAvailable = 1,
+    .LostData = 0
+  };
+
+	Std_ReturnType result5 = E2E_P01Check(&ConfigOK5, &State5, data, 156);
+	
+	TEST_CHECK(result5 == E2E_E_OK);
+
+//---------------------------------
+	E2E_P01ConfigType ConfigOK6 = {
+    .DataLength = 32,
+    .CounterOffset = 4,
+    .CRCOffset = 16,
+    .DataID = 256,
+    .DataIDMode = E2E_P01_DATAID_LOW,
+    .MaxDeltaCounter  = 0
+
+  };
+	
+  E2E_P01ReceiverStateType State6 = {
     .LastValidCounter = 1,
     .MaxDeltaCounter = 2,
     .WaitForFirstData = 0,
@@ -156,9 +181,32 @@ void Test_Of_E2E_P01Check(void)
     .LostData = 0
   };
 
-	result = E2E_P01Check(&ConfigOK5, &State5, data);
+	Std_ReturnType result6 = E2E_P01Check(&ConfigOK6, &State6, data, 0);
 	
-	TEST_CHECK(result == E2E_E_OK);
+	TEST_CHECK(result6 == E2E_E_OK);
+
+//---------------------------------
+	E2E_P01ConfigType ConfigOK7 = {
+    .DataLength = 32,
+    .CounterOffset = 4,
+    .CRCOffset = 16,
+    .DataID = 256,
+    .DataIDMode = E2E_P01_DATAID_LOW,
+    .MaxDeltaCounter = 0
+
+  };
+	
+  E2E_P01ReceiverStateType State7 = {
+    .LastValidCounter = 3,
+    .MaxDeltaCounter = 24,
+    .WaitForFirstData = 0,
+    .NewDataAvailable = 1,
+    .LostData = 0
+  };
+
+	Std_ReturnType result7 = E2E_P01Check(&ConfigOK7, &State7, data, 156);
+	
+	TEST_CHECK(result7 == E2E_E_OK);
 
 }
 
@@ -171,41 +219,37 @@ void Test_Of_E2E_P01_CalculateCRC(void)
 {
 	
 	E2E_P01ConfigType Config;
-    Config.CounterOffset = 3 * 8;
+  Config.CounterOffset = 3 * 8;
 	Config.CRCOffset = 0;
 	Config.DataIDMode = E2E_P01_DATAID_BOTH;
 	Config.DataLength = 2 * 8;
-	Config.MaxDeltaCounterInit = 3;
+	Config.MaxDeltaCounter = 3;
+  Config.DataID = 256;
 
 	uint8_t data[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 	uint8_t crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-  //printf("%d",&crcResult);
-	TEST_CHECK(crcResult == 228);
+	TEST_CHECK(crcResult == 30);
 
 	Config.DataIDMode = E2E_P01_DATAID_LOW;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-  //printf("%d",&crcResult);
-	TEST_CHECK(crcResult == 131);
+	TEST_CHECK(crcResult == 92);
 	
 	Config.DataIDMode = E2E_P01_DATAID_ALT;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-  //printf("%d",&crcResult);
-	TEST_CHECK(crcResult == 131);
+	TEST_CHECK(crcResult == 92);
 	
 	Config.DataIDMode = E2E_P01_DATAID_ALT;
 	crcResult = E2E_P01_CalculateCRC(&Config, 1, data);
-  //printf("%d",&crcResult);  
-	TEST_CHECK(crcResult == 232);
+	TEST_CHECK(crcResult == 16);
 	
 	Config.DataIDMode = E2E_P01_DATAID_NIBBLE;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-  //printf("%d",&crcResult);
-	TEST_CHECK(crcResult == 213);
+	TEST_CHECK(crcResult == 82);
 	
+  Config.DataIDMode = 22;
 	Config.CRCOffset = 8;
 	crcResult = E2E_P01_CalculateCRC(&Config, 0, data);
-  //printf("%d",&crcResult);
-	TEST_CHECK(crcResult == 200);
+	TEST_CHECK(crcResult == 13);
 	
 }
 

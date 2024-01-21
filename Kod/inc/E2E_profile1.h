@@ -21,7 +21,7 @@ typedef struct  {
     uint16_t DataID;
     E2E_P01DataIDMode DataIDMode;
     uint16_t DataLength;
-    uint8_t MaxDeltaCounterInit;
+    uint8_t MaxDeltaCounter;
 } E2E_P01ConfigType;
 
 typedef struct {
@@ -55,6 +55,6 @@ Std_ReturnType CheckConfig(E2E_P01ConfigType* Config);
 uint8_t E2E_P01_CalculateCRC(E2E_P01ConfigType* Config, uint8 Counter, uint8* Data);
 Std_ReturnType E2E_P01Protect( E2E_P01ConfigType* Config, E2E_P01SenderStateType* State, uint8* Data);
 
-Std_ReturnType E2E_P01Check( E2E_P01ConfigType* Config, E2E_P01ReceiverStateType* State, uint8* Data);
+Std_ReturnType E2E_P01Check( E2E_P01ConfigType* Config, E2E_P01ReceiverStateType* State, uint8* Data, uint8_t receivedCrc);
 
 #endif
